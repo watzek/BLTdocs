@@ -1,0 +1,23 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1518913183678.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "4038752224",
+    "id" : "78418512",
+    "lastKnownWriteTime" : 1518913444,
+    "last_content_update" : 1518913444812,
+    "path" : "~/Sites/BLTdocs/gettingConnected.Rmd",
+    "project_path" : "gettingConnected.Rmd",
+    "properties" : {
+        "cursorPosition" : "27,3",
+        "scrollLine" : "20",
+        "tempName" : "Untitled1"
+    },
+    "relative_order" : 3,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_markdown"
+}
