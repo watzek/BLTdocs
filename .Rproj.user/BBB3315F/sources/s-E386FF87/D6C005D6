@@ -5,15 +5,15 @@
     "dirty" : false,
     "encoding" : "UTF-8",
     "folds" : "",
-    "hash" : "142542630",
+    "hash" : "3443575703",
     "id" : "D6C005D6",
-    "lastKnownWriteTime" : 1519010824,
-    "last_content_update" : 1519010824920,
-    "path" : "~/Sites/BLTdocs/01-Introduction.Rmd",
-    "project_path" : "01-Introduction.Rmd",
+    "lastKnownWriteTime" : 1519012839,
+    "last_content_update" : 1519012839,
+    "path" : "~/Sites/BLTdocs/02-GettingConnected.Rmd",
+    "project_path" : "02-GettingConnected.Rmd",
     "properties" : {
-        "cursorPosition" : "11,569",
-        "scrollLine" : "6"
+        "cursorPosition" : "11,400",
+        "scrollLine" : "12"
     },
     "relative_order" : 12,
     "source_on_save" : false,
