@@ -14,4 +14,4 @@ description: "Documentation for using the Lewis & Clark BLT computing cluster"
 
 # Introduction {-}
 
-Lewis & Clark was able to acquire a high performance computing cluster during the summer of 2017.  
+Lewis & Clark was able to acquire a high performance computing cluster during the summer of 2017, as a result of Greta Binford's capital equipment request. The cluster is a smaller version of the cluster used at Oregon State University's [Center for genome Research and Biocomputing](http://cgrb.oregonstate.edu/). 
