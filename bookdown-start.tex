@@ -1,0 +1,215 @@
+\documentclass[]{book}
+\usepackage{lmodern}
+\usepackage{amssymb,amsmath}
+\usepackage{ifxetex,ifluatex}
+\usepackage{fixltx2e} % provides \textsubscript
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+\else % if luatex or xelatex
+  \ifxetex
+    \usepackage{mathspec}
+  \else
+    \usepackage{fontspec}
+  \fi
+  \defaultfontfeatures{Ligatures=TeX,Scale=MatchLowercase}
+\fi
+% use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+% use microtype if available
+\IfFileExists{microtype.sty}{%
+\usepackage{microtype}
+\UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\usepackage[margin=1in]{geometry}
+\usepackage{hyperref}
+\hypersetup{unicode=true,
+            pdftitle={Lewis \& Clark BLT cluster},
+            pdfauthor={Watzek DI, etc.},
+            pdfborder={0 0 0},
+            breaklinks=true}
+\urlstyle{same}  % don't use monospace font for urls
+\usepackage{natbib}
+\bibliographystyle{apalike}
+\usepackage{longtable,booktabs}
+\usepackage{graphicx,grffile}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+\IfFileExists{parskip.sty}{%
+\usepackage{parskip}
+}{% else
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt plus 2pt minus 1pt}
+}
+\setlength{\emergencystretch}{3em}  % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{5}
+% Redefines (sub)paragraphs to behave more like sections
+\ifx\paragraph\undefined\else
+\let\oldparagraph\paragraph
+\renewcommand{\paragraph}[1]{\oldparagraph{#1}\mbox{}}
+\fi
+\ifx\subparagraph\undefined\else
+\let\oldsubparagraph\subparagraph
+\renewcommand{\subparagraph}[1]{\oldsubparagraph{#1}\mbox{}}
+\fi
+
+%%% Use protect on footnotes to avoid problems with footnotes in titles
+\let\rmarkdownfootnote\footnote%
+\def\footnote{\protect\rmarkdownfootnote}
+
+%%% Change title format to be more compact
+\usepackage{titling}
+
+% Create subtitle command for use in maketitle
+\newcommand{\subtitle}[1]{
+  \posttitle{
+    \begin{center}\large#1\end{center}
+    }
+}
+
+\setlength{\droptitle}{-2em}
+  \title{Lewis \& Clark BLT cluster}
+  \pretitle{\vspace{\droptitle}\centering\huge}
+  \posttitle{\par}
+  \author{Watzek DI, etc.}
+  \preauthor{\centering\large\emph}
+  \postauthor{\par}
+  \predate{\centering\large\emph}
+  \postdate{\par}
+  \date{2018-02-19}
+
+\usepackage{booktabs}
+
+\begin{document}
+\maketitle
+
+{
+\setcounter{tocdepth}{1}
+\tableofcontents
+}
+\chapter*{About BLT}\label{about-blt}
+\addcontentsline{toc}{chapter}{About BLT}
+
+A description of BLT goes here.
+
+\section{About the Cluster}\label{about-the-cluster}
+
+content here\ldots{}.
+
+\chapter{Getting Connected}\label{getting-connected}
+
+\section{Accounts}\label{accounts}
+
+In order to gain access to the cluster, you first need an account.
+Contact the BLT Admins to request an account.
+
+NOTE: Once you receive a temporary password, please reset it within 5
+days of gaining access to the system.
+
+\section{Getting on the network}\label{getting-on-the-network}
+
+The BLT cluster is quite isolated from LC's public-facing
+infrastructure. In order to connect to it, you will need a copy of Cisco
+AnyConnect secure mobility client, which is available to LC students,
+faculty, and staff HERE.
+
+If you are using Linux to connect to the cluster, the current version of
+Cisco AnyConnect will fail to install. Luckily, there is an open-source
+equivalent called OpenConnect, which installs as a menu option for
+debian and redhat based OSes. You will need to open your network
+settings and click the green plus button to add a new connection, and
+then select VPN when prompted. After that, put in
+\texttt{vpn.lclark.edu} for the gateway option and the same root CA
+certificate as you used when setting up LC secure. After you click save,
+it will ask for your LC id and password.
+
+After you have installed and started AnyConnect:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Start a VPN session by typing \texttt{vpn.lclark.edu} in the text box
+  and clicking ``connect''
+\item
+  When prompted, put in your LC username and password for access Now,
+  your computer is connected to the same virtual network as the cluster.
+\end{enumerate}
+
+\section{Logging In}\label{logging-in}
+
+NOTE: In order to log in, you will need an SSH client. If you are using
+a Mac or Linux machine, you already have one. If you are using Windows,
+you will need to install PuTTY or similar.
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Open your SSH client
+\end{enumerate}
+
+\begin{itemize}
+\tightlist
+\item
+  On Mac Press the space bar and command key at the same time. then type
+  ``Terminal'' and hit return
+\item
+  On Linux Open a terminal window
+\item
+  On Windows Open PuTTY
+\end{itemize}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{1}
+\tightlist
+\item
+  Log In!
+\end{enumerate}
+
+\begin{itemize}
+\tightlist
+\item
+  On Mac or Linux type
+  \texttt{ssh\ \textless{}lclark\ username\textgreater{}@mayo.blt.lclark.edu}
+  and type your password when prompted
+\item
+  On Windows Open PuTTY, set ``Host Name'' to mayo.blt.lclark.edu and
+  click ``Open'', and follow the prompt. Congratulations! You have
+  logged in to the BLT cluster! See Using the Cluster for more
+  information about what you can do.
+\end{itemize}
+
+\chapter{Submitting Jobs}\label{submitting-jobs}
+
+\section{Checking Usage}\label{checking-usage}
+
+At any time, a user can check what the current availability of the
+cluster is by typing \texttt{SGE\_Avail} on their command line. The
+output will look something like this:
+
+\begin{verbatim}
+               #HOST  TOTRAM FREERAM    TOTSLOTS             Q  QSLOTS  QFREESLOTS   QSTATUS     QTYPE
+               bacon   503.6   500.3          48         all.q      48          48    normal        BP
+             lettuce   503.6   500.2          48         all.q      48          48    normal        BP
+              tomato   503.6   500.2          48         all.q      48          48    normal        BP
+\end{verbatim}
+
+\chapter{Technical Details}\label{technical-details}
+
+Now I'll teach you some crazy math, but I need to work it out
+first\ldots{}
+
+\bibliography{book.bib}
+
+
+\end{document}
