@@ -1,5 +1,5 @@
 --- 
-title: "Lewis & Clark BLT cluster"
+title: "Lewis & Clark BLT Cluster"
 author: "Watzek DI, etc."
 date: "`r Sys.Date()`"
 site: bookdown::bookdown_site
@@ -12,6 +12,4 @@ url: 'https\://github.com/watzek/BLTdocs'
 description: "Docs for using the BLT cluster."
 ---
 
-# About BLT {-}
 
-A description of BLT goes here.
