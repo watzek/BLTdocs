@@ -1,7 +1,7 @@
 --- 
 title: "Lewis & Clark BLT cluster"
 author: "Watzek DI, etc."
-date: "`r Sys.Date()`"
+date: "2018-02-19"
 site: bookdown::bookdown_site
 documentclass: book
 bibliography: [book.bib]

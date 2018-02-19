@@ -1,0 +1,20 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1518999790487.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "859846210",
+    "id" : "615E67E3",
+    "lastKnownWriteTime" : 1516829118,
+    "last_content_update" : 1516829118,
+    "path" : "~/Sites/BLTdocs/_build.sh",
+    "project_path" : "_build.sh",
+    "properties" : {
+    },
+    "relative_order" : 9,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "sh"
+}

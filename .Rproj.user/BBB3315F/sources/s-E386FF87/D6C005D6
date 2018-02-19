@@ -1,0 +1,22 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1519010201493.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "142542630",
+    "id" : "D6C005D6",
+    "lastKnownWriteTime" : 1519010824,
+    "last_content_update" : 1519010824920,
+    "path" : "~/Sites/BLTdocs/01-Introduction.Rmd",
+    "project_path" : "01-Introduction.Rmd",
+    "properties" : {
+        "cursorPosition" : "11,569",
+        "scrollLine" : "6"
+    },
+    "relative_order" : 12,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_markdown"
+}
