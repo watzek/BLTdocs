@@ -1,32 +1,38 @@
-# Getting Connected
-
-## Accounts
-In order to gain access to the cluster, you first need an account. Contact the BLT Admins to request an account.
-
-NOTE: Once you receive a temporary password, please reset it within 5 days of gaining access to the system.
-
-## Getting on the network
-
-The BLT cluster is quite isolated from LC's public-facing infrastructure. In order to connect to it, you will need a copy of Cisco AnyConnect secure mobility client, which is available to LC students, faculty, and staff HERE.
-
-If you are using Linux to connect to the cluster, the current version of Cisco AnyConnect will fail to install. Luckily, there is an open-source equivalent called OpenConnect, which installs as a menu option for debian and redhat based OSes. You will need to open your network settings and click the green plus button to add a new connection, and then select VPN when prompted. After that, put in ```vpn.lclark.edu``` for the gateway option and the same root CA certificate as you used when setting up LC secure. After you click save, it will ask for your LC id and password.
-
-After you have installed and started AnyConnect:
-
-1. Start a VPN session by typing ```vpn.lclark.edu``` in the text box and clicking "connect"
-2. When prompted, put in your LC username and password for access
-Now, your computer is connected to the same virtual network as the cluster.
 
 
-## Logging In
+# About the Cluster
 
-NOTE: In order to log in, you will need an SSH client. If you are using a Mac or Linux machine, you already have one. If you are using Windows, you will need to install PuTTY or similar.
 
-1. Open your SSH client
-  + On Mac Press the space bar and command key at the same time. then type "Terminal" and hit return
-  + On Linux Open a terminal window
-  + On Windows Open PuTTY
-2. Log In!
-  + On Mac or Linux type ```ssh <lclark username>@mayo.blt.lclark.edu``` and type your password when prompted
-  + On Windows Open PuTTY, set "Host Name" to mayo.blt.lclark.edu and click "Open", and follow the prompt.
-Congratulations! You have logged in to the BLT cluster! See Using the Cluster for more information about what you can do.
+## Cluster Facts
+
+The cluster has one multipurpose login node and three identical worker nodes. It has a total of 144 processing cores and 1500 gigabytes of memory. The login node also functions as the parallel filesystem for all of the workers, with 140TB of RAID-redundant disk space. This means that workers can access data stored in your home directory, which makes input and output staging extremely easy.
+
+The cluster runs the CentOS Linux operating system, version 7.4. You can interact with it as you would with any command line based linux distribution. A full list of installed software packages and modules will be posted on this wiki.
+
+## Interacting with the Login Node
+
+The only machine you should ever need to interact with is the login node, mayo. If you need help getting access to the machine, please see the Getting Connected section.
+
+When you log in to mayo, you will receive a bunch of information, including a system summary and a message from the admins, which is copied below.
+
+```
+*   This machine is for transfering files on and off the BLT computational
+*   infrastructure. Please DO NOT run any jobs on this machine. Please login 
+*   to the server "mayo.blt.lclark.edu" to use the cloud and run
+*   jobs from that machine. 
+*
+*   If we find jobs running on this machine the BLT Admins will kill them to ensure
+*   other users will not be effected.
+*
+*   Users are given 25G of space for free and users can check their usage
+*   using the command "quota -s". If you need more space for your project
+*   please contact BLT Admins or IT support for details.
+```
+
+As this message suggests, please do not run any compute-intensive jobs from the login node. It is intended to be a place to set up workflows to be run, store data files, stage data into and out of the workers, and exist as a human interaction layer so that users don't need to deal with things like scheduler abstraction.
+
+When you log in, you will find a number of hidden files in your home directory. (If you're curious, they can be listed with the command ls -a and will be the files that start with a dot (".")) Please do not remove these files as they store important information that the cluster needs access to. You will also find an empty directory called perl5. If you have specific perl libraries you need, you can install them there. If you are not using perl, you can safely ignore or delete this directory.
+
+Feel free to keep whatever data you need in your home directory. It is important to keep your directory organized in a reasonable way in order to ensure that you (and the worker nodes) will always be able to find the needed data efficiently. Also, feel free to look at what programs are installed in /local/cluster/bin, as these programs will always be able to run from any of the workers.
+
+Once you feel comfortable interacting with the login node and are ready to start to submit compute jobs, please continue to the Submitting Jobs page.

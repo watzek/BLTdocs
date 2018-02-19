@@ -5,7 +5,7 @@ bookdown::gitbook:
     toc:
       collapse: subsection
       before: |
-        <li><img src="blt_logo.png" id="logo"></li>
+        <li><a href="./"><img src="blt_logo.png" id="logo"></a></li>
         <li><a href="./">Lewis & Clark BLT Cluster Docs</a></li>
       after: |
         <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
