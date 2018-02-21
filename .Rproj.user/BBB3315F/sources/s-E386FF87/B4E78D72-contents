@@ -1,17 +1,17 @@
 --- 
-title: "Lewis & Clark BLT cluster"
-author: "Watzek DI, etc."
+title: "Lewis & Clark BLT Documentation"
+author: "Ben Glick, Jeremy McWilliams, others!"
 date: "`r Sys.Date()`"
 site: bookdown::bookdown_site
+output: bookdown::gitbook
 documentclass: book
-bibliography: [book.bib]
+bibliography: [book.bib, packages.bib]
 biblio-style: apalike
 link-citations: yes
 github-repo: watzek/BLTdocs
-url: 'https\://github.com/watzek/BLTdocs'
-description: "Docs for using the BLT cluster."
+description: "Documentation for using the Lewis & Clark BLT computing cluster"
 ---
 
-# About BLT {-}
+# Introduction {-}
 
-A description of BLT goes here.
+Lewis & Clark was able to acquire a high performance computing cluster during the summer of 2017, as a result of Greta Binford's capital equipment request. The cluster is a smaller version of the cluster used at Oregon State University's [Center for genome Research and Biocomputing](http://cgrb.oregonstate.edu/). 

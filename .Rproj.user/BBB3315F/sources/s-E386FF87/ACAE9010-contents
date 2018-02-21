@@ -1,7 +1,8 @@
-book_filename: "bookdown-start"
+book_filename: "BLT Cluster Docs"
 chapter_name: ""
-repo: https://github.com/seankross/bookdown-start
+repo: https://github.com/watzek/BLTdocs
 output_dir: docs
 #rmd_files: ["index.Rmd", "01-Introduction.Rmd", "02-Diving-In.Rmd"]
 clean: [packages.bib, bookdown.bbl]
 new_session: yes
+delete_merged_file: true
