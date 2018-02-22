@@ -18,5 +18,5 @@ Date 2/20/18
 Name: Sophia Horigan & Australia 2018 students
 Department: Biology
 Faculty Member: Binford
-Description:
+Description: Introduction to bioinformatics using TransDecoder, an program in the RNA-Seq pipeline that predicts Open-Reading Frames in nucleotide sequences to identify putative amino acid coding regions.
 ```
