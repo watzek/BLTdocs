@@ -1,13 +1,13 @@
 # Admin Reference
 
-###Software Installations and Changes
+### Software Installations and Changes
 This page is intended to document all of the software installation that has been done so that we can re-do it if ever necessary. When something is installed on the cluster, you should document what it is, where it is installed, and how you installed it on this page. Note that small things like python packages do not need to be documented here.
 
 
-###General Notes
+### General Notes
 When you install something, please download the compressed (`.tar.gz`/`.zip`/`.bz2</code>`...) file to `/local/downloads/`. Please leave uncompressed source code there too. Do not remove either of those after installing the software.
 
-###SQLite3
+### SQLite3
 We have (and must have) a slightly non-standard installation of SQLite. This just has to do with where everything is installed on our cluster's parallel filesystem. Because of this, we need to install sqlite3 from source instead of using `yum install sqlite3`. To do this, I essentially followed the tutorial [https://bluebill.net/2016/04/24/install-python-and-sqlite-from-source/](Here). All of the dependencies needed to install sqlite3 should be installed already. The exact commands used (which can be rerun verbatim if needed) are below. Make sure you install python *after* this, because it uses header files that are only included with the distribution of SQLite3.
 ```
 cd /local/downloads/
@@ -18,10 +18,10 @@ cd ./sqlite-autoconf-3120200.tar.gz
 make
 make install
 ```
-###A Note On Python
+### A Note On Python
 Installing, configuring and managing python on a cluster like ours is frankly a mess. We have at least 5 different python interpreters installed, all of which have their own packages and package managers. If you change the configuration of any of them, please be very careful. Make sure you're using the right 'pip' tool by either calling the fully-qualified path (e.g. '`/local/cluster/bin/pip`') or by saying `which pip` and ensuring that the selected one is in `/local/cluster/bin/`. Please do not install packages or make changes to the python in `/usr/bin/python`. This python is important for the `yum` package manager.
 
-###Python36
+### Python36
 Because of the way they are bundled, Python3 must be installed *after* sqlite3 is installed. It is installed from source using the following commands, which were adapted from the same tutorial as we used to get SQLite3 (available [https://bluebill.net/2016/04/24/install-python-and-sqlite-from-source/](Here)).
 
 The exact commands I ran are below:
@@ -41,19 +41,19 @@ LD_RUN_PATH=/local/cluster/lib/ LD_LIBRARY_PATH=/local/cluster/lib/ make install
 
 Python 2 can be installed essentially identically, except with different version numbers on the things you download.
 
-###JupyterHub Notebook Server
+### JupyterHub Notebook Server
 [http://jupyterhub.readthedocs.io/en/latest/](Jupyterhub) is the program we use to serve the multi-user notebook server located at [mayo.blt.lclark.edu:8000](mayo.blt.lclark.edu:8000). Installation of jupyterhub is easy. You can install it with 'sudo /local/cluster/bin/pip3 install jupyterhub'. To run jupyterhub, start a screen or tmux session, run the command `PATH=/local/cluster/bin/:$PATH; cd /local/cluster/jupyterhub-runtime/jupyterhub_run/ && jupyterhub -f jupyterhub_config.py`. Then detach the screen. Configuration is in the file `/local/cluster/jupyterhub-runtime/jupyterhub_config.py`
 
 I needed to make an IPTables entry allowing traffic in and out on port 8000. If you need to change the port, remember to make a new iptables entry.
 
-###Apache Httpd Web Server
+### Apache Httpd Web Server
 We installed apache2 with the standard `sudo yum install httpd`. Apache2 is currently serving from its default server root at `/var/www/html`. PHP v5.4.16 was also installed, and has its configuration at `/etc/php.ini`
 
 I needed to make an IPTables entry allowing traffic in and out on port 80. If you need to change the port, remember to make a new iptables entry.
 
-###OwnCloud
+### OwnCloud
 OwnCloud is essentially a google drive clone that will run on our cluster. We automatically create user owncloud accounts upon user creation and we also symlink their file dropbox to their home directory. For help with installation, follow this tutorial [https://www.digitalocean.com/community/tutorials/how-to-install-and-configure-owncloud-on-centos-7](Here)
 
-###Dropbox CLI
+### Dropbox CLI
 Follow page [https://www.dropbox.com/install-linux] (Here). Our install location is somewhere else, in `/local/cluster/dropbox_dist`.
 
