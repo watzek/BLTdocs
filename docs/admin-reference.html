@@ -7,7 +7,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>Lewis &amp; Clark BLT Documentation</title>
   <meta name="description" content="Documentation for using the Lewis &amp; Clark BLT computing cluster">
-  <meta name="generator" content="bookdown 0.6.2 and GitBook 2.6.7">
+  <meta name="generator" content="bookdown 0.7.1 and GitBook 2.6.7">
 
   <meta property="og:title" content="Lewis &amp; Clark BLT Documentation" />
   <meta property="og:type" content="book" />
@@ -96,7 +96,17 @@
 </ul></li>
 <li class="appendix"><span><b>Appendix</b></span></li>
 <li class="chapter" data-level="A" data-path="job-history.html"><a href="job-history.html"><i class="fa fa-check"></i><b>A</b> Job History</a></li>
-<li class="chapter" data-level="B" data-path="admin-reference.html"><a href="admin-reference.html"><i class="fa fa-check"></i><b>B</b> Admin Reference</a></li>
+<li class="chapter" data-level="B" data-path="admin-reference.html"><a href="admin-reference.html"><i class="fa fa-check"></i><b>B</b> Admin Reference</a><ul>
+<li class="chapter" data-level="B.0.1" data-path="admin-reference.html"><a href="admin-reference.html#software-installations-and-changes"><i class="fa fa-check"></i><b>B.0.1</b> Software Installations and Changes</a></li>
+<li class="chapter" data-level="B.0.2" data-path="admin-reference.html"><a href="admin-reference.html#general-notes"><i class="fa fa-check"></i><b>B.0.2</b> General Notes</a></li>
+<li class="chapter" data-level="B.0.3" data-path="admin-reference.html"><a href="admin-reference.html#sqlite3"><i class="fa fa-check"></i><b>B.0.3</b> SQLite3</a></li>
+<li class="chapter" data-level="B.0.4" data-path="admin-reference.html"><a href="admin-reference.html#a-note-on-python"><i class="fa fa-check"></i><b>B.0.4</b> A Note On Python</a></li>
+<li class="chapter" data-level="B.0.5" data-path="admin-reference.html"><a href="admin-reference.html#python36"><i class="fa fa-check"></i><b>B.0.5</b> Python36</a></li>
+<li class="chapter" data-level="B.0.6" data-path="admin-reference.html"><a href="admin-reference.html#jupyterhub-notebook-server"><i class="fa fa-check"></i><b>B.0.6</b> JupyterHub Notebook Server</a></li>
+<li class="chapter" data-level="B.0.7" data-path="admin-reference.html"><a href="admin-reference.html#apache-httpd-web-server"><i class="fa fa-check"></i><b>B.0.7</b> Apache Httpd Web Server</a></li>
+<li class="chapter" data-level="B.0.8" data-path="admin-reference.html"><a href="admin-reference.html#owncloud"><i class="fa fa-check"></i><b>B.0.8</b> OwnCloud</a></li>
+<li class="chapter" data-level="B.0.9" data-path="admin-reference.html"><a href="admin-reference.html#dropbox-cli"><i class="fa fa-check"></i><b>B.0.9</b> Dropbox CLI</a></li>
+</ul></li>
 <li class="chapter" data-level="C" data-path="media.html"><a href="media.html"><i class="fa fa-check"></i><b>C</b> Media</a></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
@@ -120,7 +130,64 @@
             <section class="normal" id="section-">
 <div id="admin-reference" class="section level1">
 <h1><span class="header-section-number">B</span> Admin Reference</h1>
+<div id="software-installations-and-changes" class="section level3">
+<h3><span class="header-section-number">B.0.1</span> Software Installations and Changes</h3>
+<p>This page is intended to document all of the software installation that has been done so that we can re-do it if ever necessary. When something is installed on the cluster, you should document what it is, where it is installed, and how you installed it on this page. Note that small things like python packages do not need to be documented here.</p>
+</div>
+<div id="general-notes" class="section level3">
+<h3><span class="header-section-number">B.0.2</span> General Notes</h3>
+<p>When you install something, please download the compressed (<code>.tar.gz</code>/<code>.zip</code>/<code>.bz2&lt;/code&gt;</code>…) file to <code>/local/downloads/</code>. Please leave uncompressed source code there too. Do not remove either of those after installing the software.</p>
+</div>
+<div id="sqlite3" class="section level3">
+<h3><span class="header-section-number">B.0.3</span> SQLite3</h3>
+<p>We have (and must have) a slightly non-standard installation of SQLite. This just has to do with where everything is installed on our cluster’s parallel filesystem. Because of this, we need to install sqlite3 from source instead of using <code>yum install sqlite3</code>. To do this, I essentially followed the tutorial <a href="Here">https://bluebill.net/2016/04/24/install-python-and-sqlite-from-source/</a>. All of the dependencies needed to install sqlite3 should be installed already. The exact commands used (which can be rerun verbatim if needed) are below. Make sure you install python <em>after</em> this, because it uses header files that are only included with the distribution of SQLite3.</p>
+<pre><code>cd /local/downloads/
+wget https://www.sqlite.org/2018/sqlite-autoconf-3220000.tar.gz
+tar xf ./sqlite-autoconf-3220000.tar.gz
+cd ./sqlite-autoconf-3120200.tar.gz
+./configure --prefix=/local/cluster --disable-static --enable-fts5 --enable-json1 CFLAGS=&quot;-g -O2 -DSQLITE_ENABLE_FTS3=1 -DSQLITE_ENABLE_FTS4=1 -DSQLITE_ENABLE_RTREE=1&quot;
+make
+make install</code></pre>
+</div>
+<div id="a-note-on-python" class="section level3">
+<h3><span class="header-section-number">B.0.4</span> A Note On Python</h3>
+<p>Installing, configuring and managing python on a cluster like ours is frankly a mess. We have at least 5 different python interpreters installed, all of which have their own packages and package managers. If you change the configuration of any of them, please be very careful. Make sure you’re using the right ‘pip’ tool by either calling the fully-qualified path (e.g. ‘<code>/local/cluster/bin/pip</code>’) or by saying <code>which pip</code> and ensuring that the selected one is in <code>/local/cluster/bin/</code>. Please do not install packages or make changes to the python in <code>/usr/bin/python</code>. This python is important for the <code>yum</code> package manager.</p>
+</div>
+<div id="python36" class="section level3">
+<h3><span class="header-section-number">B.0.5</span> Python36</h3>
+<p>Because of the way they are bundled, Python3 must be installed <em>after</em> sqlite3 is installed. It is installed from source using the following commands, which were adapted from the same tutorial as we used to get SQLite3 (available <a href="Here">https://bluebill.net/2016/04/24/install-python-and-sqlite-from-source/</a>).</p>
+<p>The exact commands I ran are below:</p>
+<pre><code>cd /local/downloads/
+wget https://www.python.org/ftp/python/3.6.4/Python-3.6.4.tgz
+tar xf ./Python-3.5.1.tgz
+cd ./Python-3.5.1
 
+LD_RUN_PATH=/local/cluster/lib/ LD_LIBRARY_PATH=/local/cluster/lib/ ./configure --prefix=/local/cluster LDFLAGS=&quot;-L/local/cluster/lib&quot; CPPFLAGS=&quot;-I /local/cluster/include&quot;
+
+LD_RUN_PATH=/local/cluster/lib/ LD_LIBRARY_PATH=/local/cluster/lib/ make
+LD_RUN_PATH=/local/cluster/lib/ LD_LIBRARY_PATH=/local/cluster/lib/ make test
+LD_RUN_PATH=/local/cluster/lib/ LD_LIBRARY_PATH=/local/cluster/lib/ make install</code></pre>
+<p>Python 2 can be installed essentially identically, except with different version numbers on the things you download.</p>
+</div>
+<div id="jupyterhub-notebook-server" class="section level3">
+<h3><span class="header-section-number">B.0.6</span> JupyterHub Notebook Server</h3>
+<p><a href="Jupyterhub">http://jupyterhub.readthedocs.io/en/latest/</a> is the program we use to serve the multi-user notebook server located at <a href="mayo.blt.lclark.edu:8000" class="uri">mayo.blt.lclark.edu:8000</a>. Installation of jupyterhub is easy. You can install it with ‘sudo /local/cluster/bin/pip3 install jupyterhub’. To run jupyterhub, start a screen or tmux session, run the command <code>PATH=/local/cluster/bin/:$PATH; cd /local/cluster/jupyterhub-runtime/jupyterhub_run/ &amp;&amp; jupyterhub -f jupyterhub_config.py</code>. Then detach the screen. Configuration is in the file <code>/local/cluster/jupyterhub-runtime/jupyterhub_config.py</code></p>
+<p>I needed to make an IPTables entry allowing traffic in and out on port 8000. If you need to change the port, remember to make a new iptables entry.</p>
+</div>
+<div id="apache-httpd-web-server" class="section level3">
+<h3><span class="header-section-number">B.0.7</span> Apache Httpd Web Server</h3>
+<p>We installed apache2 with the standard <code>sudo yum install httpd</code>. Apache2 is currently serving from its default server root at <code>/var/www/html</code>. PHP v5.4.16 was also installed, and has its configuration at <code>/etc/php.ini</code></p>
+<p>I needed to make an IPTables entry allowing traffic in and out on port 80. If you need to change the port, remember to make a new iptables entry.</p>
+</div>
+<div id="owncloud" class="section level3">
+<h3><span class="header-section-number">B.0.8</span> OwnCloud</h3>
+<p>OwnCloud is essentially a google drive clone that will run on our cluster. We automatically create user owncloud accounts upon user creation and we also symlink their file dropbox to their home directory. For help with installation, follow this tutorial <a href="Here">https://www.digitalocean.com/community/tutorials/how-to-install-and-configure-owncloud-on-centos-7</a></p>
+</div>
+<div id="dropbox-cli" class="section level3">
+<h3><span class="header-section-number">B.0.9</span> Dropbox CLI</h3>
+<p>Follow page [<a href="https://www.dropbox.com/install-linux" class="uri">https://www.dropbox.com/install-linux</a>] (Here). Our install location is somewhere else, in <code>/local/cluster/dropbox_dist</code>.</p>
+
+</div>
 </div>
             </section>
 

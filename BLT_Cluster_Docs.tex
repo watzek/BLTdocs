@@ -1,0 +1,659 @@
+\documentclass[]{book}
+\usepackage{lmodern}
+\usepackage{amssymb,amsmath}
+\usepackage{ifxetex,ifluatex}
+\usepackage{fixltx2e} % provides \textsubscript
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+\else % if luatex or xelatex
+  \ifxetex
+    \usepackage{mathspec}
+  \else
+    \usepackage{fontspec}
+  \fi
+  \defaultfontfeatures{Ligatures=TeX,Scale=MatchLowercase}
+\fi
+% use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+% use microtype if available
+\IfFileExists{microtype.sty}{%
+\usepackage{microtype}
+\UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\usepackage[margin=1in]{geometry}
+\usepackage{hyperref}
+\hypersetup{unicode=true,
+            pdftitle={Lewis \& Clark BLT Documentation},
+            pdfauthor={Ben Glick, Jeremy McWilliams, others!},
+            pdfborder={0 0 0},
+            breaklinks=true}
+\urlstyle{same}  % don't use monospace font for urls
+\usepackage{natbib}
+\bibliographystyle{apalike}
+\usepackage{longtable,booktabs}
+\usepackage{graphicx,grffile}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+\IfFileExists{parskip.sty}{%
+\usepackage{parskip}
+}{% else
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt plus 2pt minus 1pt}
+}
+\setlength{\emergencystretch}{3em}  % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{5}
+% Redefines (sub)paragraphs to behave more like sections
+\ifx\paragraph\undefined\else
+\let\oldparagraph\paragraph
+\renewcommand{\paragraph}[1]{\oldparagraph{#1}\mbox{}}
+\fi
+\ifx\subparagraph\undefined\else
+\let\oldsubparagraph\subparagraph
+\renewcommand{\subparagraph}[1]{\oldsubparagraph{#1}\mbox{}}
+\fi
+
+%%% Use protect on footnotes to avoid problems with footnotes in titles
+\let\rmarkdownfootnote\footnote%
+\def\footnote{\protect\rmarkdownfootnote}
+
+%%% Change title format to be more compact
+\usepackage{titling}
+
+% Create subtitle command for use in maketitle
+\newcommand{\subtitle}[1]{
+  \posttitle{
+    \begin{center}\large#1\end{center}
+    }
+}
+
+\setlength{\droptitle}{-2em}
+  \title{Lewis \& Clark BLT Documentation}
+  \pretitle{\vspace{\droptitle}\centering\huge}
+  \posttitle{\par}
+  \author{Ben Glick, Jeremy McWilliams, others!}
+  \preauthor{\centering\large\emph}
+  \postauthor{\par}
+  \predate{\centering\large\emph}
+  \postdate{\par}
+  \date{2018-02-22}
+
+\usepackage{booktabs}
+
+\usepackage{amsthm}
+\newtheorem{theorem}{Theorem}[chapter]
+\newtheorem{lemma}{Lemma}[chapter]
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}[chapter]
+\newtheorem{corollary}{Corollary}[chapter]
+\newtheorem{proposition}{Proposition}[chapter]
+\theoremstyle{definition}
+\newtheorem{example}{Example}[chapter]
+\theoremstyle{definition}
+\newtheorem{exercise}{Exercise}[chapter]
+\theoremstyle{remark}
+\newtheorem*{remark}{Remark}
+\newtheorem*{solution}{Solution}
+\let\BeginKnitrBlock\begin \let\EndKnitrBlock\end
+\begin{document}
+\maketitle
+
+{
+\setcounter{tocdepth}{1}
+\tableofcontents
+}
+\chapter*{Introduction}\label{introduction}
+\addcontentsline{toc}{chapter}{Introduction}
+
+Lewis \& Clark was able to acquire a high performance computing cluster
+during the summer of 2017, as a result of Greta Binford's capital
+equipment request. The cluster is a smaller version of the cluster used
+at Oregon State University's \href{http://cgrb.oregonstate.edu/}{Center
+for genome Research and Biocomputing}.
+
+\chapter{About the Cluster}\label{about-the-cluster}
+
+\section{Cluster Facts}\label{cluster-facts}
+
+The cluster has one multipurpose login node and three identical worker
+nodes. It has a total of 144 processing cores and 1500 gigabytes of
+memory. The login node also functions as the parallel filesystem for all
+of the workers, with 140TB of RAID-redundant disk space. This means that
+workers can access data stored in your home directory, which makes input
+and output staging extremely easy.
+
+The cluster runs the CentOS Linux operating system, version 7.4. You can
+interact with it as you would with any command line based linux
+distribution. A full list of installed software packages and modules
+will be posted on this wiki.
+
+\section{Interacting with the Login
+Node}\label{interacting-with-the-login-node}
+
+The only machine you should ever need to interact with is the login
+node, mayo. If you need help getting access to the machine, please see
+the Getting Connected section.
+
+When you log in to mayo, you will receive a bunch of information,
+including a system summary and a message from the admins, which is
+copied below.
+
+\begin{verbatim}
+*   This machine is for transfering files on and off the BLT computational
+*   infrastructure. Please DO NOT run any jobs on this machine. Please login 
+*   to the server "mayo.blt.lclark.edu" to use the cloud and run
+*   jobs from that machine. 
+*
+*   If we find jobs running on this machine the BLT Admins will kill them to ensure
+*   other users will not be effected.
+*
+*   Users are given 25G of space for free and users can check their usage
+*   using the command "quota -s". If you need more space for your project
+*   please contact BLT Admins or IT support for details.
+\end{verbatim}
+
+As this message suggests, please do not run any compute-intensive jobs
+from the login node. It is intended to be a place to set up workflows to
+be run, store data files, stage data into and out of the workers, and
+exist as a human interaction layer so that users don't need to deal with
+things like scheduler abstraction.
+
+When you log in, you will find a number of hidden files in your home
+directory. (If you're curious, they can be listed with the command ls -a
+and will be the files that start with a dot (``.'')) Please do not
+remove these files as they store important information that the cluster
+needs access to. You will also find an empty directory called perl5. If
+you have specific perl libraries you need, you can install them there.
+If you are not using perl, you can safely ignore or delete this
+directory.
+
+Feel free to keep whatever data you need in your home directory. It is
+important to keep your directory organized in a reasonable way in order
+to ensure that you (and the worker nodes) will always be able to find
+the needed data efficiently. Also, feel free to look at what programs
+are installed in /local/cluster/bin, as these programs will always be
+able to run from any of the workers.
+
+Once you feel comfortable interacting with the login node and are ready
+to start to submit compute jobs, please continue to the Submitting Jobs
+page.
+
+\chapter{Getting Connected}\label{getting-connected}
+
+\section{Accounts}\label{accounts}
+
+In order to gain access to the cluster, you first need an account.
+Contact the BLT Admins to request an account.
+
+NOTE: Once you receive a temporary password, please reset it within 5
+days of gaining access to the system.
+
+\section{Getting on the network}\label{getting-on-the-network}
+
+The BLT cluster is quite isolated from LC's public-facing
+infrastructure. In order to connect to it, you will need a copy of Cisco
+AnyConnect secure mobility client, which is available to LC students,
+faculty, and staff HERE.
+
+If you are using Linux to connect to the cluster, the current version of
+Cisco AnyConnect will fail to install. Luckily, there is an open-source
+equivalent called OpenConnect, which installs as a menu option for
+debian and redhat based OSes. You will need to open your network
+settings and click the green plus button to add a new connection, and
+then select VPN when prompted. After that, put in
+\texttt{vpn.lclark.edu} for the gateway option and the same root CA
+certificate as you used when setting up LC secure. After you click save,
+it will ask for your LC id and password.
+
+After you have installed and started AnyConnect:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Start a VPN session by typing \texttt{vpn.lclark.edu} in the text box
+  and clicking ``connect''
+\item
+  When prompted, put in your LC username and password for access Now,
+  your computer is connected to the same virtual network as the cluster.
+\end{enumerate}
+
+\section{Logging In}\label{logging-in}
+
+NOTE: In order to log in, you will need an SSH client. If you are using
+a Mac or Linux machine, you already have one. If you are using Windows,
+you will need to install PuTTY or similar.
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Open your SSH client
+\end{enumerate}
+
+\begin{itemize}
+\tightlist
+\item
+  On Mac Press the space bar and command key at the same time. then type
+  ``Terminal'' and hit return
+\item
+  On Linux Open a terminal window
+\item
+  On Windows Open PuTTY
+\end{itemize}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{1}
+\tightlist
+\item
+  Log In!
+\end{enumerate}
+
+\begin{itemize}
+\tightlist
+\item
+  On Mac or Linux type
+  \texttt{ssh\ \textless{}lclark\ username\textgreater{}@mayo.blt.lclark.edu}
+  and type your password when prompted
+\item
+  On Windows Open PuTTY, set ``Host Name'' to mayo.blt.lclark.edu and
+  click ``Open'', and follow the prompt. Congratulations! You have
+  logged in to the BLT cluster! See Using the Cluster for more
+  information about what you can do.
+\end{itemize}
+
+\chapter{Submitting Jobs}\label{submitting-jobs}
+
+\section{Checking Usage}\label{checking-usage}
+
+At any time, a user can check what the current availability of the
+cluster is by typing \texttt{SGE\_Avail} on their command line. The
+output will look something like this:
+
+\begin{verbatim}
+               #HOST  TOTRAM FREERAM    TOTSLOTS             Q  QSLOTS  QFREESLOTS   QSTATUS     QTYPE
+               bacon   503.6   500.3          48         all.q      48          48    normal        BP
+             lettuce   503.6   500.2          48         all.q      48          48    normal        BP
+              tomato   503.6   500.2          48         all.q      48          48    normal        BP
+\end{verbatim}
+
+Right now, according to this output, there are 3 hosts running: bacon,
+lettuce, and tomato. They each have 48 total slots and 48 free slots.
+They each have 500 GB of free RAM as well.
+
+Additionally, users can check what the job queue looks like. Users can
+see what jobs are waiting to be run and what jobs are currently running.
+To do this, run the qstat command. If qstat comes back with no output,
+it means there are no jobs running at the moment. Here is some example
+output from the qstat command:
+
+\begin{verbatim}
+job-ID  prior   name       user         state submit/start at     queue                          slots ja-task-ID 
+ -----------------------------------------------------------------------------------------------------------------
+     62 0.00000 runtime_test     glick        r     01/26/2018 18:59:00                                    1        
+     63 0.00000 runitme_test2    glick        qw    01/26/2018 18:59:02                                    1        
+     64 0.00000 runtime_test3    glick        qw    01/26/2018 18:59:04                                    1    
+\end{verbatim}
+
+There are currently 3 jobs on the cluster, all submitted by the user
+``glick''. They are jobs with ids 62,63, and 64. They each take up one
+slot (another name for a core). One is running, while the other two have
+state \texttt{qw}, which is short for ``Queued and Waiting''. This is
+usually an indication that either the cluster is busy or the scheduler
+has not yet scheduled the jobs.
+
+\section{A Note on Data}\label{a-note-on-data}
+
+The home directories, /local/cluster/bin, and a few other things are
+mounted remotely to all of the worker nodes. This makes life easy. It
+means that if your script edits, reads, or otherwise depends on data
+from your home directory, you do not need to move the data, because the
+workers can access it directly. However, this also means that if your
+data edited by multiple jobs, there is no way to ensure that it will
+always be changed in the same order, so keep that in mind.
+
+\section{Jobs on the BLT Cluster}\label{jobs-on-the-blt-cluster}
+
+\subsection{Batch Jobs}\label{batch-jobs}
+
+A Batch job is some set of UNIX command line commands which is executed
+on a single core of a worker node in serial (one after another). Batch
+jobs can be submitted by using the following command:
+
+\begin{verbatim}
+SGE_Batch -r "<some runtime id>" -c "<a UNIX command or commands>"
+\end{verbatim}
+
+\subsection{Parallel Jobs}\label{parallel-jobs}
+
+Parallel jobs are just like Batch jobs, except that in a parallel job,
+multiple cores are reserved, rather than a single core. In order to
+reserve multiple cores, simply add the \texttt{-P} flag to the
+SGE\_Batch command like so:
+
+\begin{verbatim}
+SGE_Batch -r "<runtime id>" -c "UNIX command" -P <number of processors>
+\end{verbatim}
+
+\textbf{Remember that SGE\_Batch will not parallelize your code for you.
+If your code is not meant to run on multiple cores, then using any more
+than 1 processor core is a waste.}
+
+\subsection{Parsl Workflows}\label{parsl-workflows}
+
+Parsl is a python-based workflow management system that we can use to
+run jobs on the cluster without having to interact with the scheduler at
+all. They are run the same way that you would run any script on your
+local machine, and can orchestrate inter-process communication between
+almost any kind of application needed. In depth documentation about
+running parsl jobs is available at the \href{link}{Parsl Workflows}
+page.
+
+\chapter{Parsl Workflows}\label{parsl-workflows-1}
+
+\section{About Parsl}\label{about-parsl}
+
+Parsl is a Python-based parallel scripting library that supports
+development and execution of asynchronous and parallel data-oriented
+workflows (dataflows). These workflows glue together existing
+executables (called Apps) and Python functions with control logic
+written in Python. Parsl brings implicit parallel execution to standard
+Python scripts. Parsl documentation is available
+(here){[}\url{http://parsl.readthedocs.io/en/latest/}{]}.
+
+\section{Using Parsl}\label{using-parsl}
+
+Using parsl is a lot like using plain python. You define scripts that
+can be run the same way as you would normally run a python script:
+\texttt{python3\ parsl\_script.py}. The main difference with parsl
+scripts is that they don't execute on the machine they are run from. The
+parsl script will provision itself resources on the worker nodes of the
+cluster and manage where to run jobs without any human intervention. To
+accomplish this, instead of returning results directly, parsl returns
+futures. A future is a promise that a function will return a value,
+usually of a specific type. The future allows parsl to have an
+understanding of what will be returned from all of the apps it needs to
+run. This helps parsl to calculate what apps can be run at the same
+time.
+
+\section{Parsl Configuration}\label{parsl-configuration}
+
+Parsl requires a configuration in order to understand what kind of an
+environment in which it is running. On this system, the configuration
+should be very similar to the example below:
+
+\begin{verbatim}
+config = {
+    "sites": [{
+        "site": "Local_IPP",
+        "auth": {
+            "channel": "local"
+        },
+        "execution": {
+            "executor": "ipp",
+            "provider": "sge",
+            "script_dir": ".scripts",
+            "scriptDir": ".scripts",
+            "block": {
+                "nodes": 1,
+                "taskBlocks": 1,
+                "walltime": "00:05:00",
+                "initBlocks": 1,
+                "minBlocks": YOUR_MIN_CORES_HERE,
+                "maxBlocks": YOUR_MAX_CORES_HERE,
+                "scriptDir": ".",
+                "options": {
+                    "partition": "debug"
+                }
+            }
+        }
+    }],
+    "globals": {"lazyErrors": True},
+    "controller": {"profile": "default"},
+}
+\end{verbatim}
+
+The parsl configuration is a python object, so the example can be pasted
+into your python script at the top, along with the following line of
+code:
+
+\begin{verbatim}
+dfk = DataFlowKernel(config=config)
+\end{verbatim}
+
+\section{Defining a Parsl Workflow}\label{defining-a-parsl-workflow}
+
+After that, you are ready to start defining your workflow. Here is an
+example workflow which calculates pi by generating random numbers:
+
+\begin{verbatim}
+@App('python', dfk)
+def pi(total):
+    # App functions have to import modules they will use.                                            
+    import random
+    # Set the size of the box (edge length) in which we drop random points                           
+    edge_length = 10000
+    center = edge_length / 2
+    c2 = center ** 2
+    count = 0
+
+    for i in range(total):
+        # Drop a random point in the box.                                                            
+        x, y = random.randint(1, edge_length), random.randint(1, edge_length)
+        # Count points within the circle                                                             
+        if (x - center)**2 + (y - center)**2 < c2:
+            count += 1
+
+    return (count * 4 / total)
+
+
+@App('python', dfk)
+def avg_n(inputs=[]):
+    return sum(inputs) / len(inputs)
+
+if __name__ == '__main__':
+    # Call the workflow:                                                                                 
+    sims = [pi(10**6) for i in range(10)]
+    avg_pi = avg_n([task.result() for task in sims])
+
+    # Print the results                                                                                  
+    print("Average: {0:.12f}".format(avg_pi.result()))
+\end{verbatim}
+
+You will notice a couple of things that are different from regular
+python. First, above each app is a decorator (
+\texttt{@App(\textquotesingle{}python\textquotesingle{},\ dfk)}). This
+tells parsl that the app should be run on a worker machine, and not as a
+normal python function.
+
+Second, the apps which take inputs have a special reserved parameter
+(\texttt{inputs}), which you can pass parsl futures into. Passing a
+future into an app will make the app wait for the result of the future
+before it runs the app.
+
+Another important thing to remember is that all packages you use
+(anything you would use the \texttt{import} statement for) must be
+imported from within the app, otherwise it will not be accessible from
+the worker. You can see this in the example here with the
+\texttt{random} library.
+
+\section{Running a Parsl Workflow}\label{running-a-parsl-workflow}
+
+After you have the proper configuration and workflow definition, you are
+ready to run your workflow! Make sure the workflow is in a python file
+on the login node (mayo) and run it like this:
+\texttt{python3\ /path/to/your/workflow/file}
+
+\section{Video Tutorial}\label{video-tutorial}
+
+coming soon\ldots{}.
+
+\appendix
+
+
+\chapter{Job History}\label{job-history}
+
+\begin{verbatim}
+Date: 2/9/18
+Name: Ben Kolligs
+Department: Physics
+Faculty Member: Anber
+Description: Python script running Monte Carlo simulations of a lattice model to calculate Renyi Entropy with the hope of better understanding the strong nuclear force.
+Research: Funded by the NSF and Murdock Charitable Trust, we are investigating the behavior of string breaking in the strong nuclear force when the temperature is increased.
+\end{verbatim}
+
+\begin{verbatim}
+Date 2/20/18
+Name: Sophia Horigan & Australia 2018 students
+Department: Biology
+Faculty Member: Binford
+Description: Introduction to bioinformatics using TransDecoder, an program in the RNA-Seq pipeline that predicts Open-Reading Frames in nucleotide sequences to identify putative amino acid coding regions.
+\end{verbatim}
+
+\chapter{Admin Reference}\label{admin-reference}
+
+\subsection{Software Installations and
+Changes}\label{software-installations-and-changes}
+
+This page is intended to document all of the software installation that
+has been done so that we can re-do it if ever necessary. When something
+is installed on the cluster, you should document what it is, where it is
+installed, and how you installed it on this page. Note that small things
+like python packages do not need to be documented here.
+
+\subsection{General Notes}\label{general-notes}
+
+When you install something, please download the compressed
+(\texttt{.tar.gz}/\texttt{.zip}/\texttt{.bz2\textless{}/code\textgreater{}}\ldots{})
+file to \texttt{/local/downloads/}. Please leave uncompressed source
+code there too. Do not remove either of those after installing the
+software.
+
+\subsection{SQLite3}\label{sqlite3}
+
+We have (and must have) a slightly non-standard installation of SQLite.
+This just has to do with where everything is installed on our cluster's
+parallel filesystem. Because of this, we need to install sqlite3 from
+source instead of using \texttt{yum\ install\ sqlite3}. To do this, I
+essentially followed the tutorial
+\href{Here}{https://bluebill.net/2016/04/24/install-python-and-sqlite-from-source/}.
+All of the dependencies needed to install sqlite3 should be installed
+already. The exact commands used (which can be rerun verbatim if needed)
+are below. Make sure you install python \emph{after} this, because it
+uses header files that are only included with the distribution of
+SQLite3.
+
+\begin{verbatim}
+cd /local/downloads/
+wget https://www.sqlite.org/2018/sqlite-autoconf-3220000.tar.gz
+tar xf ./sqlite-autoconf-3220000.tar.gz
+cd ./sqlite-autoconf-3120200.tar.gz
+./configure --prefix=/local/cluster --disable-static --enable-fts5 --enable-json1 CFLAGS="-g -O2 -DSQLITE_ENABLE_FTS3=1 -DSQLITE_ENABLE_FTS4=1 -DSQLITE_ENABLE_RTREE=1"
+make
+make install
+\end{verbatim}
+
+\subsection{A Note On Python}\label{a-note-on-python}
+
+Installing, configuring and managing python on a cluster like ours is
+frankly a mess. We have at least 5 different python interpreters
+installed, all of which have their own packages and package managers. If
+you change the configuration of any of them, please be very careful.
+Make sure you're using the right `pip' tool by either calling the
+fully-qualified path (e.g. `\texttt{/local/cluster/bin/pip}') or by
+saying \texttt{which\ pip} and ensuring that the selected one is in
+\texttt{/local/cluster/bin/}. Please do not install packages or make
+changes to the python in \texttt{/usr/bin/python}. This python is
+important for the \texttt{yum} package manager.
+
+\subsection{Python36}\label{python36}
+
+Because of the way they are bundled, Python3 must be installed
+\emph{after} sqlite3 is installed. It is installed from source using the
+following commands, which were adapted from the same tutorial as we used
+to get SQLite3 (available
+\href{Here}{https://bluebill.net/2016/04/24/install-python-and-sqlite-from-source/}).
+
+The exact commands I ran are below:
+
+\begin{verbatim}
+cd /local/downloads/
+wget https://www.python.org/ftp/python/3.6.4/Python-3.6.4.tgz
+tar xf ./Python-3.5.1.tgz
+cd ./Python-3.5.1
+
+LD_RUN_PATH=/local/cluster/lib/ LD_LIBRARY_PATH=/local/cluster/lib/ ./configure --prefix=/local/cluster LDFLAGS="-L/local/cluster/lib" CPPFLAGS="-I /local/cluster/include"
+
+LD_RUN_PATH=/local/cluster/lib/ LD_LIBRARY_PATH=/local/cluster/lib/ make
+LD_RUN_PATH=/local/cluster/lib/ LD_LIBRARY_PATH=/local/cluster/lib/ make test
+LD_RUN_PATH=/local/cluster/lib/ LD_LIBRARY_PATH=/local/cluster/lib/ make install
+\end{verbatim}
+
+Python 2 can be installed essentially identically, except with different
+version numbers on the things you download.
+
+\subsection{JupyterHub Notebook
+Server}\label{jupyterhub-notebook-server}
+
+\href{Jupyterhub}{http://jupyterhub.readthedocs.io/en/latest/} is the
+program we use to serve the multi-user notebook server located at
+\url{mayo.blt.lclark.edu:8000}. Installation of jupyterhub is easy. You
+can install it with `sudo /local/cluster/bin/pip3 install jupyterhub'.
+To run jupyterhub, start a screen or tmux session, run the command
+\texttt{PATH=/local/cluster/bin/:\$PATH;\ cd\ /local/cluster/jupyterhub-runtime/jupyterhub\_run/\ \&\&\ jupyterhub\ -f\ jupyterhub\_config.py}.
+Then detach the screen. Configuration is in the file
+\texttt{/local/cluster/jupyterhub-runtime/jupyterhub\_config.py}
+
+I needed to make an IPTables entry allowing traffic in and out on port
+8000. If you need to change the port, remember to make a new iptables
+entry.
+
+\subsection{Apache Httpd Web Server}\label{apache-httpd-web-server}
+
+We installed apache2 with the standard
+\texttt{sudo\ yum\ install\ httpd}. Apache2 is currently serving from
+its default server root at \texttt{/var/www/html}. PHP v5.4.16 was also
+installed, and has its configuration at \texttt{/etc/php.ini}
+
+I needed to make an IPTables entry allowing traffic in and out on port
+80. If you need to change the port, remember to make a new iptables
+entry.
+
+\subsection{OwnCloud}\label{owncloud}
+
+OwnCloud is essentially a google drive clone that will run on our
+cluster. We automatically create user owncloud accounts upon user
+creation and we also symlink their file dropbox to their home directory.
+For help with installation, follow this tutorial
+\href{Here}{https://www.digitalocean.com/community/tutorials/how-to-install-and-configure-owncloud-on-centos-7}
+
+\subsection{Dropbox CLI}\label{dropbox-cli}
+
+Follow page {[}\url{https://www.dropbox.com/install-linux}{]} (Here).
+Our install location is somewhere else, in
+\texttt{/local/cluster/dropbox\_dist}.
+
+\chapter{Media}\label{media}
+
+\BeginKnitrBlock{theorem}[Pythagorean theorem]
+\protect\hypertarget{thm:pyth}{}{\label{thm:pyth} \iffalse (Pythagorean
+theorem) \fi{} }For a right triangle, if \(c\) denotes the length of the
+hypotenuse and \(a\) and \(b\) denote the lengths of the other two
+sides, we have
+
+\[a^2 + b^2 = c^2\]
+\EndKnitrBlock{theorem}
+
+\bibliography{book.bib,packages.bib}
+
+
+\end{document}
