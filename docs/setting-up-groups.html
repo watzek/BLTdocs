@@ -32,8 +32,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   
   
-<link rel="prev" href="index.html">
-<link rel="next" href="getting-connected.html">
+<link rel="prev" href="parsl-workflows-1.html">
+<link rel="next" href="job-history.html">
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -132,42 +132,30 @@
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="about-the-cluster" class="section level1">
-<h1><span class="header-section-number">1</span> About the Cluster</h1>
-<div id="cluster-facts" class="section level2">
-<h2><span class="header-section-number">1.1</span> Cluster Facts</h2>
-<p>The cluster has one multipurpose login node and three identical worker nodes. It has a total of 144 processing cores and 1500 gigabytes of memory. The login node also functions as the parallel filesystem for all of the workers, with 140TB of RAID-redundant disk space. This means that workers can access data stored in your home directory, which makes input and output staging extremely easy.</p>
-<p>The cluster runs the CentOS Linux operating system, version 7.4. You can interact with it as you would with any command line based linux distribution. A full list of installed software packages and modules will be posted on this wiki.</p>
+<div id="setting-up-groups" class="section level1">
+<h1><span class="header-section-number">5</span> Setting up Groups</h1>
+<div id="senario-for-groups" class="section level2">
+<h2><span class="header-section-number">5.1</span> Senario for Groups</h2>
+<p>This section is for describing how to set up a group of users in which shared files might be needed for computation. Use cases include classroom/group assignments or research labs.</p>
 </div>
-<div id="interacting-with-the-login-node" class="section level2">
-<h2><span class="header-section-number">1.2</span> Interacting with the Login Node</h2>
-<p>The only machine you should ever need to interact with is the login node, mayo. If you need help getting access to the machine, please see the Getting Connected section.</p>
-<p>When you log in to mayo, you will receive a bunch of information, including a system summary and a message from the admins, which is copied below.</p>
-<pre><code>*   This machine is for transfering files on and off the BLT computational
-*   infrastructure. Please DO NOT run any jobs on this machine. Please login 
-*   to the server &quot;mayo.blt.lclark.edu&quot; to use the cloud and run
-*   jobs from that machine. 
-*
-*   If we find jobs running on this machine the BLT Admins will kill them to ensure
-*   other users will not be effected.
-*
-*   Users are given 25G of space for free and users can check their usage
-*   using the command &quot;quota -s&quot;. If you need more space for your project
-*   please contact BLT Admins or IT support for details.</code></pre>
-<p>As this message suggests, please do not run any compute-intensive jobs from the login node. It is intended to be a place to set up workflows to be run, store data files, stage data into and out of the workers, and exist as a human interaction layer so that users don’t need to deal with things like scheduler abstraction.</p>
-<p>When you log in, you will find a number of hidden files in your home directory. (If you’re curious, they can be listed with the command ls -a and will be the files that start with a dot (“.”)) Please do not remove these files as they store important information that the cluster needs access to. You will also find an empty directory called perl5. If you have specific perl libraries you need, you can install them there. If you are not using perl, you can safely ignore or delete this directory.</p>
-<p>Feel free to keep whatever data you need in your home directory. It is important to keep your directory organized in a reasonable way in order to ensure that you (and the worker nodes) will always be able to find the needed data efficiently. Also, feel free to look at what programs are installed in /local/cluster/bin, as these programs will always be able to run from any of the workers.</p>
-<p>Once you feel comfortable interacting with the login node and are ready to start to submit compute jobs, please continue to the Submitting Jobs page.</p>
+<div id="procedures" class="section level2">
+<h2><span class="header-section-number">5.2</span> Procedures</h2>
+<p>Connect to mayo, and navigate to /users/lab</p>
+<pre><code>cd /users/lab</code></pre>
+<p>Create a directory in <code>lab</code>. <add more about naming convention....></p>
 
 </div>
 </div>
+
+
+
             </section>
 
           </div>
         </div>
       </div>
-<a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="getting-connected.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="parsl-workflows-1.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="job-history.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
