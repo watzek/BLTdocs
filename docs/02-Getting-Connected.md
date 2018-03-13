@@ -30,3 +30,8 @@ NOTE: In order to log in, you will need an SSH client. If you are using a Mac or
   + On Mac or Linux type ```ssh <lclark username>@mayo.blt.lclark.edu``` and type your password when prompted
   + On Windows Open PuTTY, set "Host Name" to mayo.blt.lclark.edu and click "Open", and follow the prompt.
 Congratulations! You have logged in to the BLT cluster! See Using the Cluster for more information about what you can do.
+
+##Adding Files to Your Home Directory
+
+If you want to add files to your home directory, you can use essentially any command line remote file transfer system you can think of, including rsync, scp, sftp, etc. We also have a graphical user interface on the web at (http://mayo.blt.lclark.edu/owncloud). You can log in to this service using your inital UNIX user account, but if you change your unix password, it must be manually changed separately in OwnCloud. Files that you drop to the owncloud folder "files" will go to the "files" directory in your home directory.
+
