@@ -7,7 +7,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>Lewis &amp; Clark BLT Documentation</title>
   <meta name="description" content="Documentation for using the Lewis &amp; Clark BLT computing cluster">
-  <meta name="generator" content="bookdown 0.7 and GitBook 2.6.7">
+  <meta name="generator" content="bookdown 0.7.1 and GitBook 2.6.7">
 
   <meta property="og:title" content="Lewis &amp; Clark BLT Documentation" />
   <meta property="og:type" content="book" />
@@ -25,7 +25,7 @@
 <meta name="author" content="Ben Glick, Jeremy McWilliams, others!">
 
 
-<meta name="date" content="2018-02-23">
+<meta name="date" content="2018-03-13">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -33,7 +33,7 @@
   
   
 <link rel="prev" href="job-history.html">
-<link rel="next" href="media.html">
+
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -110,8 +110,12 @@
 <li class="chapter" data-level="B.0.7" data-path="admin-reference.html"><a href="admin-reference.html#apache-httpd-web-server"><i class="fa fa-check"></i><b>B.0.7</b> Apache Httpd Web Server</a></li>
 <li class="chapter" data-level="B.0.8" data-path="admin-reference.html"><a href="admin-reference.html#owncloud"><i class="fa fa-check"></i><b>B.0.8</b> OwnCloud</a></li>
 <li class="chapter" data-level="B.0.9" data-path="admin-reference.html"><a href="admin-reference.html#dropbox-cli"><i class="fa fa-check"></i><b>B.0.9</b> Dropbox CLI</a></li>
+<li class="chapter" data-level="B.0.10" data-path="admin-reference.html"><a href="admin-reference.html#prottest"><i class="fa fa-check"></i><b>B.0.10</b> ProtTest</a></li>
+<li class="chapter" data-level="B.0.11" data-path="admin-reference.html"><a href="admin-reference.html#mrbayes"><i class="fa fa-check"></i><b>B.0.11</b> MrBayes</a></li>
+<li class="chapter" data-level="B.0.12" data-path="admin-reference.html"><a href="admin-reference.html#paml"><i class="fa fa-check"></i><b>B.0.12</b> PAML</a></li>
+<li class="chapter" data-level="B.0.13" data-path="admin-reference.html"><a href="admin-reference.html#modeller"><i class="fa fa-check"></i><b>B.0.13</b> MODELLER</a></li>
+<li class="chapter" data-level="B.0.14" data-path="admin-reference.html"><a href="admin-reference.html#raxml"><i class="fa fa-check"></i><b>B.0.14</b> RAxML</a></li>
 </ul></li>
-<li class="chapter" data-level="C" data-path="media.html"><a href="media.html"><i class="fa fa-check"></i><b>C</b> Media</a></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
 
@@ -190,6 +194,26 @@ LD_RUN_PATH=/local/cluster/lib/ LD_LIBRARY_PATH=/local/cluster/lib/ make install
 <div id="dropbox-cli" class="section level3">
 <h3><span class="header-section-number">B.0.9</span> Dropbox CLI</h3>
 <p>Follow page [<a href="https://www.dropbox.com/install-linux" class="uri">https://www.dropbox.com/install-linux</a>] (Here). Our install location is somewhere else, in <code>/local/cluster/dropbox_dist</code>.</p>
+</div>
+<div id="prottest" class="section level3">
+<h3><span class="header-section-number">B.0.10</span> ProtTest</h3>
+<p>ProtTest is a bioinformatic tool for the selection of best-fit models of aminoacid replacement for the data at hand. ProtTest makes this selection by finding the model in the candidate list with the smallest Akaike Information Criterion (AIC), Bayesian Information Criterion (BIC) score or Decision Theory Criterion (DT). At the same time, ProtTest obtains model-averaged estimates of different parameters (including a model-averaged phylogenetic tree) and calculates their importance(Posada and Buckley 2004). ProtTest differs from its nucleotide analog jModeltest (Posada 2008) in that it does not include likelihood ratio tests, as not all models included in ProtTest are nested. It is written in java with MPJ, and it has a fairly strange installation. It’s installed to <code>/local/cluster/prottest3</code>, and needs to be run from there. People should not put data files in that directory. It can be run something like this: <code>cd $PROTTEST_HOME java -jar prottest-3.4.2.jar -i examples/COX2_PF0016/alignment -all-matrices -all-distributions -threads 2</code></p>
+</div>
+<div id="mrbayes" class="section level3">
+<h3><span class="header-section-number">B.0.11</span> MrBayes</h3>
+<p>MrBayesis a program used for Bayesian inference of phylogeny. It’s installed normally. Instructions for building from source are <a href="Here">https://github.com/NBISweden/MrBayes</a>.</p>
+</div>
+<div id="paml" class="section level3">
+<h3><span class="header-section-number">B.0.12</span> PAML</h3>
+<p>PAML needs to be installed on a per-user basis. It needs to be copied into the user’s home directory and it’s internal <code>bin</code> directory needs to be added to the user’s PATH. It’s compiled executables are in <code>/local/downloads/paml4.9g</code>.</p>
+</div>
+<div id="modeller" class="section level3">
+<h3><span class="header-section-number">B.0.13</span> MODELLER</h3>
+<p>MODELLER is A Program for Protein Structure Modeling. It’s a special python interpreter which is installed normally in /local/cluster/bin/</p>
+</div>
+<div id="raxml" class="section level3">
+<h3><span class="header-section-number">B.0.14</span> RAxML</h3>
+<p>RAxML is a maximum likelihood phylogenetic bioinformatic tool. It’s installed normally. However, there are two versions installed. There is an MPI version (suitable for tasks of size 48 slots or more) as well as a shared memory pool version (suitable for 48 slots or fewer). If you are using exactly 48 slots, flip a coin. The MPI version can be run with <code>raxmlHPC-MPI-AVX2</code> and the SMP version can be run with <code>raxmlHPC-PTHREADS-AVX2</code></p>
 
 </div>
 </div>
@@ -198,8 +222,8 @@ LD_RUN_PATH=/local/cluster/lib/ LD_LIBRARY_PATH=/local/cluster/lib/ make install
           </div>
         </div>
       </div>
-<a href="job-history.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="media.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="job-history.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -240,19 +264,6 @@ gitbook.start({
 });
 </script>
 
-<!-- dynamically load mathjax for compatibility with self-contained -->
-<script>
-  (function () {
-    var script = document.createElement("script");
-    script.type = "text/javascript";
-    var src = "";
-    if (src === "" || src === "true") src = "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML";
-    if (location.protocol !== "file:" && /^https?:/.test(src))
-      src = src.replace(/^https?:/, '');
-    script.src = src;
-    document.getElementsByTagName("head")[0].appendChild(script);
-  })();
-</script>
 </body>
 
 </html>

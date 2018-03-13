@@ -57,3 +57,17 @@ OwnCloud is essentially a google drive clone that will run on our cluster. We au
 ### Dropbox CLI
 Follow page [https://www.dropbox.com/install-linux] (Here). Our install location is somewhere else, in `/local/cluster/dropbox_dist`.
 
+###ProtTest
+ProtTest is a bioinformatic tool for the selection of best-fit models of aminoacid replacement for the data at hand. ProtTest makes this selection by finding the model in the candidate list with the smallest Akaike Information Criterion (AIC), Bayesian Information Criterion (BIC) score or Decision Theory Criterion (DT). At the same time, ProtTest obtains model-averaged estimates of different parameters (including a model-averaged phylogenetic tree) and calculates their importance(Posada and Buckley 2004). ProtTest differs from its nucleotide analog jModeltest (Posada 2008) in that it does not include likelihood ratio tests, as not all models included in ProtTest are nested. It is written in java with MPJ, and it has a fairly strange installation. It's installed to `/local/cluster/prottest3`, and needs to be run from there. People should not put data files in that directory. It can be run something like this: ```cd $PROTTEST_HOME java -jar prottest-3.4.2.jar -i examples/COX2_PF0016/alignment -all-matrices -all-distributions -threads 2 ```
+
+###MrBayes
+MrBayesis a program used for Bayesian inference of phylogeny. It's installed normally. Instructions for building from source are [https://github.com/NBISweden/MrBayes](Here).
+
+###PAML
+PAML needs to be installed on a per-user basis. It needs to be copied into the user's home directory and it's internal `bin` directory needs to be added to the user's PATH. It's compiled executables are in `/local/downloads/paml4.9g`.
+
+###MODELLER
+MODELLER is A Program for Protein Structure Modeling. It's a special python interpreter which is installed normally in /local/cluster/bin/
+
+###RAxML
+RAxML is a maximum likelihood phylogenetic bioinformatic tool. It's installed normally. However, there are two versions installed. There is an MPI version (suitable for tasks of size 48 slots or more) as well as a shared memory pool version (suitable for 48 slots or fewer). If you are using exactly 48 slots, flip a coin. The MPI version can be run with `raxmlHPC-MPI-AVX2` and the SMP version can be run with `raxmlHPC-PTHREADS-AVX2`
