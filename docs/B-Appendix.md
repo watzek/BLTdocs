@@ -46,6 +46,8 @@ Python 2 can be installed essentially identically, except with different version
 
 I needed to make an IPTables entry allowing traffic in and out on port 8000. If you need to change the port, remember to make a new iptables entry.
 
+Jupyterhub example user password (for use case demonstrations): user:example, pass:processtruster76
+
 ### Apache Httpd Web Server
 We installed apache2 with the standard `sudo yum install httpd`. Apache2 is currently serving from its default server root at `/var/www/html`. PHP v5.4.16 was also installed, and has its configuration at `/etc/php.ini`
 
