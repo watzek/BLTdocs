@@ -71,3 +71,28 @@ MODELLER is A Program for Protein Structure Modeling. It's a special python inte
 
 ###RAxML
 RAxML is a maximum likelihood phylogenetic bioinformatic tool. It's installed normally. However, there are two versions installed. There is an MPI version (suitable for tasks of size 48 slots or more) as well as a shared memory pool version (suitable for 48 slots or fewer). If you are using exactly 48 slots, flip a coin. The MPI version can be run with `raxmlHPC-MPI-AVX2` and the SMP version can be run with `raxmlHPC-PTHREADS-AVX2`
+
+###Intel OpenCL Runtime
+The Intel OpenCL Runtime is required to run OpenCL programs on Intel CPUs. The latest packages are available [https://software.intel.com/en-us/articles/opencl-drivers](here) under OpenCL Runtime for Intel Core and Intel Xeon Processors. To install, run the install script and select `/local/cluster` as the target prefix. The files will be installed in `/local/cluster/opt/intel`. Be sure to symlink the libraries in `/local/cluster/opt/intel/opencl-${version_number}/lib64` to `/local/cluster/lib`:
+```
+find "$(realpath /local/cluster/opt/intel/opencl)/lib64/" -type f -name '*.so*' -print0 \
+  | xargs -0 ln -s -t /local/cluster/lib
+```
+We are explicitly linking to the libraries in the version specific directory since the generic symlink requires `/etc/alternatives/opencl*` which won't be recreated on worker nodes.
+
+Setting up OpenCL to run on worker nodes will require some additional work. The OpenCL runtime searches for platform specific ICDs in `/etc/OpenCL/vendors` by default. While the documentation states that this search path can be modified with an environment variable, `OPENCL_VENDOR_PATH`, it seems that not all ICD loader implementations support this. As a temporary workaround, we will recreate this directory structure in `/local/cluster/etc/opencl_icd_fix`:
+```
+fixdir='/local/cluster/etc/opencl_icd_fix'
+for d in "$fixdir" "${fixdir}/vendors; do
+	if ! [ -d "$d" ]; then
+		mkdir "$d"
+	fi
+done
+find "$(realpath /local/cluster/opt/intel/opencl)/etc/" -type f -name '*.icd' -print0 \
+  | xargs -0 ln -s -t "${fixdir}/vendors"
+```
+
+If `OPENCL_VENDOR_PATH` worked with the implementation shipped with Intel's runtime, we could just set it to our fix directory. Unfortunately, it does not. We need to create symlinks in each worker node:
+```
+ln -s /local/cluster/etc/opencl_icd_fix /etc/OpenCL
+```
