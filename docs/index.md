@@ -1,7 +1,7 @@
 --- 
 title: "Lewis & Clark BLT Documentation"
 author: "Ben Glick, Jeremy McWilliams, others!"
-date: "2018-03-13"
+date: "2018-06-19"
 site: bookdown::bookdown_site
 output: bookdown::gitbook
 documentclass: book

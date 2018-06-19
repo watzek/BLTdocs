@@ -7,7 +7,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>Lewis &amp; Clark BLT Documentation</title>
   <meta name="description" content="Documentation for using the Lewis &amp; Clark BLT computing cluster">
-  <meta name="generator" content="bookdown 0.7.1 and GitBook 2.6.7">
+  <meta name="generator" content="bookdown 0.7.13 and GitBook 2.6.7">
 
   <meta property="og:title" content="Lewis &amp; Clark BLT Documentation" />
   <meta property="og:type" content="book" />
@@ -25,7 +25,7 @@
 <meta name="author" content="Ben Glick, Jeremy McWilliams, others!">
 
 
-<meta name="date" content="2018-03-13">
+<meta name="date" content="2018-06-19">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -74,7 +74,10 @@
 </ul></li>
 <li class="chapter" data-level="2" data-path="getting-connected.html"><a href="getting-connected.html"><i class="fa fa-check"></i><b>2</b> Getting Connected</a><ul>
 <li class="chapter" data-level="2.1" data-path="getting-connected.html"><a href="getting-connected.html#accounts"><i class="fa fa-check"></i><b>2.1</b> Accounts</a></li>
-<li class="chapter" data-level="2.2" data-path="getting-connected.html"><a href="getting-connected.html#getting-on-the-network"><i class="fa fa-check"></i><b>2.2</b> Getting on the network</a></li>
+<li class="chapter" data-level="2.2" data-path="getting-connected.html"><a href="getting-connected.html#getting-on-the-network"><i class="fa fa-check"></i><b>2.2</b> Getting on the network</a><ul>
+<li class="chapter" data-level="2.2.1" data-path="getting-connected.html"><a href="getting-connected.html#for-windows-and-osx-users"><i class="fa fa-check"></i><b>2.2.1</b> For Windows and OSX Users</a></li>
+<li class="chapter" data-level="2.2.2" data-path="getting-connected.html"><a href="getting-connected.html#for-linux-users"><i class="fa fa-check"></i><b>2.2.2</b> For Linux Users</a></li>
+</ul></li>
 <li class="chapter" data-level="2.3" data-path="getting-connected.html"><a href="getting-connected.html#logging-in"><i class="fa fa-check"></i><b>2.3</b> Logging In</a></li>
 <li class="chapter" data-level="2.4" data-path="getting-connected.html"><a href="getting-connected.html#adding-files-to-your-home-directory"><i class="fa fa-check"></i><b>2.4</b> Adding Files to Your Home Directory</a></li>
 </ul></li>
@@ -116,6 +119,7 @@
 <li class="chapter" data-level="B.0.12" data-path="admin-reference.html"><a href="admin-reference.html#paml"><i class="fa fa-check"></i><b>B.0.12</b> PAML</a></li>
 <li class="chapter" data-level="B.0.13" data-path="admin-reference.html"><a href="admin-reference.html#modeller"><i class="fa fa-check"></i><b>B.0.13</b> MODELLER</a></li>
 <li class="chapter" data-level="B.0.14" data-path="admin-reference.html"><a href="admin-reference.html#raxml"><i class="fa fa-check"></i><b>B.0.14</b> RAxML</a></li>
+<li class="chapter" data-level="B.0.15" data-path="admin-reference.html"><a href="admin-reference.html#intel-opencl-runtime"><i class="fa fa-check"></i><b>B.0.15</b> Intel OpenCL Runtime</a></li>
 </ul></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
@@ -182,6 +186,7 @@ LD_RUN_PATH=/local/cluster/lib/ LD_LIBRARY_PATH=/local/cluster/lib/ make install
 <h3><span class="header-section-number">B.0.6</span> JupyterHub Notebook Server</h3>
 <p><a href="Jupyterhub">http://jupyterhub.readthedocs.io/en/latest/</a> is the program we use to serve the multi-user notebook server located at <a href="mayo.blt.lclark.edu:8000" class="uri">mayo.blt.lclark.edu:8000</a>. Installation of jupyterhub is easy. You can install it with ‘sudo /local/cluster/bin/pip3 install jupyterhub’. To run jupyterhub, start a screen or tmux session, run the command <code>PATH=/local/cluster/bin/:$PATH; cd /local/cluster/jupyterhub-runtime/jupyterhub_run/ &amp;&amp; jupyterhub -f jupyterhub_config.py</code>. Then detach the screen. Configuration is in the file <code>/local/cluster/jupyterhub-runtime/jupyterhub_config.py</code></p>
 <p>I needed to make an IPTables entry allowing traffic in and out on port 8000. If you need to change the port, remember to make a new iptables entry.</p>
+<p>Jupyterhub example user password (for use case demonstrations): user:example, pass:processtruster76</p>
 </div>
 <div id="apache-httpd-web-server" class="section level3">
 <h3><span class="header-section-number">B.0.7</span> Apache Httpd Web Server</h3>
@@ -215,6 +220,24 @@ LD_RUN_PATH=/local/cluster/lib/ LD_LIBRARY_PATH=/local/cluster/lib/ make install
 <div id="raxml" class="section level3">
 <h3><span class="header-section-number">B.0.14</span> RAxML</h3>
 <p>RAxML is a maximum likelihood phylogenetic bioinformatic tool. It’s installed normally. However, there are two versions installed. There is an MPI version (suitable for tasks of size 48 slots or more) as well as a shared memory pool version (suitable for 48 slots or fewer). If you are using exactly 48 slots, flip a coin. The MPI version can be run with <code>raxmlHPC-MPI-AVX2</code> and the SMP version can be run with <code>raxmlHPC-PTHREADS-AVX2</code></p>
+</div>
+<div id="intel-opencl-runtime" class="section level3">
+<h3><span class="header-section-number">B.0.15</span> Intel OpenCL Runtime</h3>
+<p>The Intel OpenCL Runtime is required to run OpenCL programs on Intel CPUs. The latest packages are available <a href="here">https://software.intel.com/en-us/articles/opencl-drivers</a> under OpenCL Runtime for Intel Core and Intel Xeon Processors. To install, run the install script and select <code>/local/cluster</code> as the target prefix. The files will be installed in <code>/local/cluster/opt/intel</code>. Be sure to symlink the libraries in <code>/local/cluster/opt/intel/opencl-${version_number}/lib64</code> to <code>/local/cluster/lib</code>:</p>
+<pre><code>find &quot;$(realpath /local/cluster/opt/intel/opencl)/lib64/&quot; -type f -name &#39;*.so*&#39; -print0 \
+  | xargs -0 ln -s -t /local/cluster/lib</code></pre>
+<p>We are explicitly linking to the libraries in the version specific directory since the generic symlink requires <code>/etc/alternatives/opencl*</code> which won’t be recreated on worker nodes.</p>
+<p>Setting up OpenCL to run on worker nodes will require some additional work. The OpenCL runtime searches for platform specific ICDs in <code>/etc/OpenCL/vendors</code> by default. While the documentation states that this search path can be modified with an environment variable, <code>OPENCL_VENDOR_PATH</code>, it seems that not all ICD loader implementations support this. As a temporary workaround, we will recreate this directory structure in <code>/local/cluster/etc/opencl_icd_fix</code>:</p>
+<pre><code>fixdir=&#39;/local/cluster/etc/opencl_icd_fix&#39;
+for d in &quot;$fixdir&quot; &quot;${fixdir}/vendors&quot;; do
+    if ! [ -d &quot;$d&quot; ]; then
+        mkdir &quot;$d&quot;
+    fi
+done
+find &quot;$(realpath /local/cluster/opt/intel/opencl)/etc/&quot; -type f -name &#39;*.icd&#39; -print0 \
+  | xargs -0 ln -s -t &quot;${fixdir}/vendors&quot;</code></pre>
+<p>If <code>OPENCL_VENDOR_PATH</code> worked with the implementation shipped with Intel’s runtime, we could just set it to our fix directory. Unfortunately, it does not. We need to create symlinks in each worker node:</p>
+<pre><code>ln -s /local/cluster/etc/opencl_icd_fix /etc/OpenCL</code></pre>
 
 </div>
 </div>

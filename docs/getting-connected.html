@@ -7,7 +7,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>Lewis &amp; Clark BLT Documentation</title>
   <meta name="description" content="Documentation for using the Lewis &amp; Clark BLT computing cluster">
-  <meta name="generator" content="bookdown 0.7.1 and GitBook 2.6.7">
+  <meta name="generator" content="bookdown 0.7.13 and GitBook 2.6.7">
 
   <meta property="og:title" content="Lewis &amp; Clark BLT Documentation" />
   <meta property="og:type" content="book" />
@@ -25,7 +25,7 @@
 <meta name="author" content="Ben Glick, Jeremy McWilliams, others!">
 
 
-<meta name="date" content="2018-03-13">
+<meta name="date" content="2018-06-19">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -74,7 +74,10 @@
 </ul></li>
 <li class="chapter" data-level="2" data-path="getting-connected.html"><a href="getting-connected.html"><i class="fa fa-check"></i><b>2</b> Getting Connected</a><ul>
 <li class="chapter" data-level="2.1" data-path="getting-connected.html"><a href="getting-connected.html#accounts"><i class="fa fa-check"></i><b>2.1</b> Accounts</a></li>
-<li class="chapter" data-level="2.2" data-path="getting-connected.html"><a href="getting-connected.html#getting-on-the-network"><i class="fa fa-check"></i><b>2.2</b> Getting on the network</a></li>
+<li class="chapter" data-level="2.2" data-path="getting-connected.html"><a href="getting-connected.html#getting-on-the-network"><i class="fa fa-check"></i><b>2.2</b> Getting on the network</a><ul>
+<li class="chapter" data-level="2.2.1" data-path="getting-connected.html"><a href="getting-connected.html#for-windows-and-osx-users"><i class="fa fa-check"></i><b>2.2.1</b> For Windows and OSX Users</a></li>
+<li class="chapter" data-level="2.2.2" data-path="getting-connected.html"><a href="getting-connected.html#for-linux-users"><i class="fa fa-check"></i><b>2.2.2</b> For Linux Users</a></li>
+</ul></li>
 <li class="chapter" data-level="2.3" data-path="getting-connected.html"><a href="getting-connected.html#logging-in"><i class="fa fa-check"></i><b>2.3</b> Logging In</a></li>
 <li class="chapter" data-level="2.4" data-path="getting-connected.html"><a href="getting-connected.html#adding-files-to-your-home-directory"><i class="fa fa-check"></i><b>2.4</b> Adding Files to Your Home Directory</a></li>
 </ul></li>
@@ -116,6 +119,7 @@
 <li class="chapter" data-level="B.0.12" data-path="admin-reference.html"><a href="admin-reference.html#paml"><i class="fa fa-check"></i><b>B.0.12</b> PAML</a></li>
 <li class="chapter" data-level="B.0.13" data-path="admin-reference.html"><a href="admin-reference.html#modeller"><i class="fa fa-check"></i><b>B.0.13</b> MODELLER</a></li>
 <li class="chapter" data-level="B.0.14" data-path="admin-reference.html"><a href="admin-reference.html#raxml"><i class="fa fa-check"></i><b>B.0.14</b> RAxML</a></li>
+<li class="chapter" data-level="B.0.15" data-path="admin-reference.html"><a href="admin-reference.html#intel-opencl-runtime"><i class="fa fa-check"></i><b>B.0.15</b> Intel OpenCL Runtime</a></li>
 </ul></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
@@ -146,13 +150,19 @@
 </div>
 <div id="getting-on-the-network" class="section level2">
 <h2><span class="header-section-number">2.2</span> Getting on the network</h2>
+<div id="for-windows-and-osx-users" class="section level3">
+<h3><span class="header-section-number">2.2.1</span> For Windows and OSX Users</h3>
 <p>The BLT cluster is quite isolated from LC’s public-facing infrastructure. In order to connect to it, you will need a copy of Cisco AnyConnect secure mobility client, which is available to LC students, faculty, and staff HERE.</p>
-<p>If you are using Linux to connect to the cluster, the current version of Cisco AnyConnect will fail to install. Luckily, there is an open-source equivalent called OpenConnect, which installs as a menu option for debian and redhat based OSes. You will need to open your network settings and click the green plus button to add a new connection, and then select VPN when prompted. After that, put in <code>vpn.lclark.edu</code> for the gateway option and the same root CA certificate as you used when setting up LC secure. After you click save, it will ask for your LC id and password.</p>
 <p>After you have installed and started AnyConnect:</p>
 <ol style="list-style-type: decimal">
 <li>Start a VPN session by typing <code>vpn.lclark.edu</code> in the text box and clicking “connect”</li>
 <li>When prompted, put in your LC username and password for access Now, your computer is connected to the same virtual network as the cluster.</li>
 </ol>
+</div>
+<div id="for-linux-users" class="section level3">
+<h3><span class="header-section-number">2.2.2</span> For Linux Users</h3>
+<p>If you are using Linux to connect to the cluster, the current version of Cisco AnyConnect will fail to install. Luckily, there is an open-source equivalent called OpenConnect, which installs as a menu option for debian and redhat based OSes. You will need to open your network settings and click the green plus button to add a new connection, and then select VPN when prompted. After that, put in <code>vpn.lclark.edu</code> for the gateway option and the same root CA certificate as you used when setting up LC secure. After you click save, it will ask for your LC id and password.</p>
+</div>
 </div>
 <div id="logging-in" class="section level2">
 <h2><span class="header-section-number">2.3</span> Logging In</h2>
