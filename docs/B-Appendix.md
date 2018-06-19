@@ -8,7 +8,7 @@ This page is intended to document all of the software installation that has been
 When you install something, please download the compressed (`.tar.gz`/`.zip`/`.bz2</code>`...) file to `/local/downloads/`. Please leave uncompressed source code there too. Do not remove either of those after installing the software.
 
 ### SQLite3
-We have (and must have) a slightly non-standard installation of SQLite. This just has to do with where everything is installed on our cluster's parallel filesystem. Because of this, we need to install sqlite3 from source instead of using `yum install sqlite3`. To do this, I essentially followed the tutorial [https://bluebill.net/2016/04/24/install-python-and-sqlite-from-source/](Here). All of the dependencies needed to install sqlite3 should be installed already. The exact commands used (which can be rerun verbatim if needed) are below. Make sure you install python *after* this, because it uses header files that are only included with the distribution of SQLite3.
+We have (and must have) a slightly non-standard installation of SQLite. This just has to do with where everything is installed on our cluster's parallel filesystem. Because of this, we need to install sqlite3 from source instead of using `yum install sqlite3`. To do this, I essentially followed the tutorial [here](https://bluebill.net/2016/04/24/install-python-and-sqlite-from-source/). All of the dependencies needed to install sqlite3 should be installed already. The exact commands used (which can be rerun verbatim if needed) are below. Make sure you install python *after* this, because it uses header files that are only included with the distribution of SQLite3.
 ```
 cd /local/downloads/
 wget https://www.sqlite.org/2018/sqlite-autoconf-3220000.tar.gz
@@ -22,7 +22,7 @@ make install
 Installing, configuring and managing python on a cluster like ours is frankly a mess. We have at least 5 different python interpreters installed, all of which have their own packages and package managers. If you change the configuration of any of them, please be very careful. Make sure you're using the right 'pip' tool by either calling the fully-qualified path (e.g. '`/local/cluster/bin/pip`') or by saying `which pip` and ensuring that the selected one is in `/local/cluster/bin/`. Please do not install packages or make changes to the python in `/usr/bin/python`. This python is important for the `yum` package manager.
 
 ### Python36
-Because of the way they are bundled, Python3 must be installed *after* sqlite3 is installed. It is installed from source using the following commands, which were adapted from the same tutorial as we used to get SQLite3 (available [https://bluebill.net/2016/04/24/install-python-and-sqlite-from-source/](Here)).
+Because of the way they are bundled, Python3 must be installed *after* sqlite3 is installed. It is installed from source using the following commands, which were adapted from the same tutorial as we used to get SQLite3 (available [here](https://bluebill.net/2016/04/24/install-python-and-sqlite-from-source/)).
 
 The exact commands I ran are below:
 
@@ -42,7 +42,7 @@ LD_RUN_PATH=/local/cluster/lib/ LD_LIBRARY_PATH=/local/cluster/lib/ make install
 Python 2 can be installed essentially identically, except with different version numbers on the things you download.
 
 ### JupyterHub Notebook Server
-[http://jupyterhub.readthedocs.io/en/latest/](Jupyterhub) is the program we use to serve the multi-user notebook server located at [mayo.blt.lclark.edu:8000](mayo.blt.lclark.edu:8000). Installation of jupyterhub is easy. You can install it with 'sudo /local/cluster/bin/pip3 install jupyterhub'. To run jupyterhub, start a screen or tmux session, run the command `PATH=/local/cluster/bin/:$PATH; cd /local/cluster/jupyterhub-runtime/jupyterhub_run/ && jupyterhub -f jupyterhub_config.py`. Then detach the screen. Configuration is in the file `/local/cluster/jupyterhub-runtime/jupyterhub_config.py`
+[Jupyterhub](http://jupyterhub.readthedocs.io/en/latest/) is the program we use to serve the multi-user notebook server located at [mayo.blt.lclark.edu:8000](mayo.blt.lclark.edu:8000). Installation of jupyterhub is easy. You can install it with 'sudo /local/cluster/bin/pip3 install jupyterhub'. To run jupyterhub, start a screen or tmux session, run the command `PATH=/local/cluster/bin/:$PATH; cd /local/cluster/jupyterhub-runtime/jupyterhub_run/ && jupyterhub -f jupyterhub_config.py`. Then detach the screen. Configuration is in the file `/local/cluster/jupyterhub-runtime/jupyterhub_config.py`
 
 I needed to make an IPTables entry allowing traffic in and out on port 8000. If you need to change the port, remember to make a new iptables entry.
 
@@ -54,27 +54,27 @@ We installed apache2 with the standard `sudo yum install httpd`. Apache2 is curr
 I needed to make an IPTables entry allowing traffic in and out on port 80. If you need to change the port, remember to make a new iptables entry.
 
 ### OwnCloud
-OwnCloud is essentially a google drive clone that will run on our cluster. We automatically create user owncloud accounts upon user creation and we also symlink their file dropbox to their home directory. For help with installation, follow this tutorial [https://www.digitalocean.com/community/tutorials/how-to-install-and-configure-owncloud-on-centos-7](Here)
+OwnCloud is essentially a google drive clone that will run on our cluster. We automatically create user owncloud accounts upon user creation and we also symlink their file dropbox to their home directory. For help with installation, follow this tutorial [here](https://www.digitalocean.com/community/tutorials/how-to-install-and-configure-owncloud-on-centos-7).
 
 ### Dropbox CLI
-Follow page [https://www.dropbox.com/install-linux] (Here). Our install location is somewhere else, in `/local/cluster/dropbox_dist`.
+Follow page [here](https://www.dropbox.com/install-linux). Our install location is somewhere else, in `/local/cluster/dropbox_dist`.
 
-###ProtTest
+### ProtTest
 ProtTest is a bioinformatic tool for the selection of best-fit models of aminoacid replacement for the data at hand. ProtTest makes this selection by finding the model in the candidate list with the smallest Akaike Information Criterion (AIC), Bayesian Information Criterion (BIC) score or Decision Theory Criterion (DT). At the same time, ProtTest obtains model-averaged estimates of different parameters (including a model-averaged phylogenetic tree) and calculates their importance(Posada and Buckley 2004). ProtTest differs from its nucleotide analog jModeltest (Posada 2008) in that it does not include likelihood ratio tests, as not all models included in ProtTest are nested. It is written in java with MPJ, and it has a fairly strange installation. It's installed to `/local/cluster/prottest3`, and needs to be run from there. People should not put data files in that directory. It can be run something like this: ```cd $PROTTEST_HOME java -jar prottest-3.4.2.jar -i examples/COX2_PF0016/alignment -all-matrices -all-distributions -threads 2 ```
 
-###MrBayes
-MrBayesis a program used for Bayesian inference of phylogeny. It's installed normally. Instructions for building from source are [https://github.com/NBISweden/MrBayes](Here).
+### MrBayes
+MrBayesis a program used for Bayesian inference of phylogeny. It's installed normally. Instructions for building from source are [here](https://github.com/NBISweden/MrBayes).
 
-###PAML
+### PAML
 PAML needs to be installed on a per-user basis. It needs to be copied into the user's home directory and it's internal `bin` directory needs to be added to the user's PATH. It's compiled executables are in `/local/downloads/paml4.9g`.
 
-###MODELLER
+### MODELLER
 MODELLER is A Program for Protein Structure Modeling. It's a special python interpreter which is installed normally in /local/cluster/bin/
 
-###RAxML
+### RAxML
 RAxML is a maximum likelihood phylogenetic bioinformatic tool. It's installed normally. However, there are two versions installed. There is an MPI version (suitable for tasks of size 48 slots or more) as well as a shared memory pool version (suitable for 48 slots or fewer). If you are using exactly 48 slots, flip a coin. The MPI version can be run with `raxmlHPC-MPI-AVX2` and the SMP version can be run with `raxmlHPC-PTHREADS-AVX2`
 
-###Intel OpenCL Runtime
+### Intel OpenCL Runtime
 The Intel OpenCL Runtime is required to run OpenCL programs on Intel CPUs. The latest packages are available [here](https://software.intel.com/en-us/articles/opencl-drivers) under OpenCL Runtime for Intel Core and Intel Xeon Processors. To install, run the install script and select `/local/cluster` as the target prefix. The files will be installed in `/local/cluster/opt/intel`. Be sure to symlink the libraries in `/local/cluster/opt/intel/opencl-${version_number}/lib64` to `/local/cluster/lib`:
 ```
 find "$(realpath /local/cluster/opt/intel/opencl)/lib64/" -type f -name '*.so*' -print0 \

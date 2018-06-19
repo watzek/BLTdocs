@@ -154,7 +154,7 @@
 </div>
 <div id="sqlite3" class="section level3">
 <h3><span class="header-section-number">B.0.3</span> SQLite3</h3>
-<p>We have (and must have) a slightly non-standard installation of SQLite. This just has to do with where everything is installed on our cluster’s parallel filesystem. Because of this, we need to install sqlite3 from source instead of using <code>yum install sqlite3</code>. To do this, I essentially followed the tutorial <a href="Here">https://bluebill.net/2016/04/24/install-python-and-sqlite-from-source/</a>. All of the dependencies needed to install sqlite3 should be installed already. The exact commands used (which can be rerun verbatim if needed) are below. Make sure you install python <em>after</em> this, because it uses header files that are only included with the distribution of SQLite3.</p>
+<p>We have (and must have) a slightly non-standard installation of SQLite. This just has to do with where everything is installed on our cluster’s parallel filesystem. Because of this, we need to install sqlite3 from source instead of using <code>yum install sqlite3</code>. To do this, I essentially followed the tutorial <a href="https://bluebill.net/2016/04/24/install-python-and-sqlite-from-source/">here</a>. All of the dependencies needed to install sqlite3 should be installed already. The exact commands used (which can be rerun verbatim if needed) are below. Make sure you install python <em>after</em> this, because it uses header files that are only included with the distribution of SQLite3.</p>
 <pre><code>cd /local/downloads/
 wget https://www.sqlite.org/2018/sqlite-autoconf-3220000.tar.gz
 tar xf ./sqlite-autoconf-3220000.tar.gz
@@ -169,7 +169,7 @@ make install</code></pre>
 </div>
 <div id="python36" class="section level3">
 <h3><span class="header-section-number">B.0.5</span> Python36</h3>
-<p>Because of the way they are bundled, Python3 must be installed <em>after</em> sqlite3 is installed. It is installed from source using the following commands, which were adapted from the same tutorial as we used to get SQLite3 (available <a href="Here">https://bluebill.net/2016/04/24/install-python-and-sqlite-from-source/</a>).</p>
+<p>Because of the way they are bundled, Python3 must be installed <em>after</em> sqlite3 is installed. It is installed from source using the following commands, which were adapted from the same tutorial as we used to get SQLite3 (available <a href="https://bluebill.net/2016/04/24/install-python-and-sqlite-from-source/">here</a>).</p>
 <p>The exact commands I ran are below:</p>
 <pre><code>cd /local/downloads/
 wget https://www.python.org/ftp/python/3.6.4/Python-3.6.4.tgz
@@ -185,7 +185,7 @@ LD_RUN_PATH=/local/cluster/lib/ LD_LIBRARY_PATH=/local/cluster/lib/ make install
 </div>
 <div id="jupyterhub-notebook-server" class="section level3">
 <h3><span class="header-section-number">B.0.6</span> JupyterHub Notebook Server</h3>
-<p><a href="Jupyterhub">http://jupyterhub.readthedocs.io/en/latest/</a> is the program we use to serve the multi-user notebook server located at <a href="mayo.blt.lclark.edu:8000" class="uri">mayo.blt.lclark.edu:8000</a>. Installation of jupyterhub is easy. You can install it with ‘sudo /local/cluster/bin/pip3 install jupyterhub’. To run jupyterhub, start a screen or tmux session, run the command <code>PATH=/local/cluster/bin/:$PATH; cd /local/cluster/jupyterhub-runtime/jupyterhub_run/ &amp;&amp; jupyterhub -f jupyterhub_config.py</code>. Then detach the screen. Configuration is in the file <code>/local/cluster/jupyterhub-runtime/jupyterhub_config.py</code></p>
+<p><a href="http://jupyterhub.readthedocs.io/en/latest/">Jupyterhub</a> is the program we use to serve the multi-user notebook server located at <a href="mayo.blt.lclark.edu:8000" class="uri">mayo.blt.lclark.edu:8000</a>. Installation of jupyterhub is easy. You can install it with ‘sudo /local/cluster/bin/pip3 install jupyterhub’. To run jupyterhub, start a screen or tmux session, run the command <code>PATH=/local/cluster/bin/:$PATH; cd /local/cluster/jupyterhub-runtime/jupyterhub_run/ &amp;&amp; jupyterhub -f jupyterhub_config.py</code>. Then detach the screen. Configuration is in the file <code>/local/cluster/jupyterhub-runtime/jupyterhub_config.py</code></p>
 <p>I needed to make an IPTables entry allowing traffic in and out on port 8000. If you need to change the port, remember to make a new iptables entry.</p>
 <p>Jupyterhub example user password (for use case demonstrations): user:example, pass:processtruster76</p>
 </div>
@@ -196,11 +196,11 @@ LD_RUN_PATH=/local/cluster/lib/ LD_LIBRARY_PATH=/local/cluster/lib/ make install
 </div>
 <div id="owncloud" class="section level3">
 <h3><span class="header-section-number">B.0.8</span> OwnCloud</h3>
-<p>OwnCloud is essentially a google drive clone that will run on our cluster. We automatically create user owncloud accounts upon user creation and we also symlink their file dropbox to their home directory. For help with installation, follow this tutorial <a href="Here">https://www.digitalocean.com/community/tutorials/how-to-install-and-configure-owncloud-on-centos-7</a></p>
+<p>OwnCloud is essentially a google drive clone that will run on our cluster. We automatically create user owncloud accounts upon user creation and we also symlink their file dropbox to their home directory. For help with installation, follow this tutorial <a href="https://www.digitalocean.com/community/tutorials/how-to-install-and-configure-owncloud-on-centos-7">here</a>.</p>
 </div>
 <div id="dropbox-cli" class="section level3">
 <h3><span class="header-section-number">B.0.9</span> Dropbox CLI</h3>
-<p>Follow page [<a href="https://www.dropbox.com/install-linux" class="uri">https://www.dropbox.com/install-linux</a>] (Here). Our install location is somewhere else, in <code>/local/cluster/dropbox_dist</code>.</p>
+<p>Follow page <a href="https://www.dropbox.com/install-linux">here</a>. Our install location is somewhere else, in <code>/local/cluster/dropbox_dist</code>.</p>
 </div>
 <div id="prottest" class="section level3">
 <h3><span class="header-section-number">B.0.10</span> ProtTest</h3>
@@ -208,7 +208,7 @@ LD_RUN_PATH=/local/cluster/lib/ LD_LIBRARY_PATH=/local/cluster/lib/ make install
 </div>
 <div id="mrbayes" class="section level3">
 <h3><span class="header-section-number">B.0.11</span> MrBayes</h3>
-<p>MrBayesis a program used for Bayesian inference of phylogeny. It’s installed normally. Instructions for building from source are <a href="Here">https://github.com/NBISweden/MrBayes</a>.</p>
+<p>MrBayesis a program used for Bayesian inference of phylogeny. It’s installed normally. Instructions for building from source are <a href="https://github.com/NBISweden/MrBayes">here</a>.</p>
 </div>
 <div id="paml" class="section level3">
 <h3><span class="header-section-number">B.0.12</span> PAML</h3>
