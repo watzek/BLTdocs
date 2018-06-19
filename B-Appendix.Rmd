@@ -46,6 +46,8 @@ Python 2 can be installed essentially identically, except with different version
 
 I needed to make an IPTables entry allowing traffic in and out on port 8000. If you need to change the port, remember to make a new iptables entry.
 
+Jupyterhub example user password (for use case demonstrations): user:example, pass:processtruster76
+
 ### Apache Httpd Web Server
 We installed apache2 with the standard `sudo yum install httpd`. Apache2 is currently serving from its default server root at `/var/www/html`. PHP v5.4.16 was also installed, and has its configuration at `/etc/php.ini`
 
@@ -83,7 +85,7 @@ We are explicitly linking to the libraries in the version specific directory sin
 Setting up OpenCL to run on worker nodes will require some additional work. The OpenCL runtime searches for platform specific ICDs in `/etc/OpenCL/vendors` by default. While the documentation states that this search path can be modified with an environment variable, `OPENCL_VENDOR_PATH`, it seems that not all ICD loader implementations support this. As a temporary workaround, we will recreate this directory structure in `/local/cluster/etc/opencl_icd_fix`:
 ```
 fixdir='/local/cluster/etc/opencl_icd_fix'
-for d in "$fixdir" "${fixdir}/vendors; do
+for d in "$fixdir" "${fixdir}/vendors"; do
 	if ! [ -d "$d" ]; then
 		mkdir "$d"
 	fi
