@@ -98,3 +98,6 @@ If `OPENCL_VENDOR_PATH` worked with the implementation shipped with Intel's runt
 ```
 ln -s /local/cluster/etc/opencl_icd_fix /etc/OpenCL
 ```
+
+### Hashcat
+Hashcat is a suite of password cracking tools. It requires OpenCL supported devices along with the appropriate OpenCL runtimes and drivers. The latest release is available [here](https://hashcat.net/hashcat/). To install hashcat, first download the source tarball and untar it. Since hashcat lacks a configure script, we'll need to edit the Makefile manually. Find the definition of the `PREFIX` in the Makefile and define it as `/local/cluster`. Then run `make` and `make install`.

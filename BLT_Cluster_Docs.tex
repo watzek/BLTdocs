@@ -76,32 +76,19 @@
 }
 
 \setlength{\droptitle}{-2em}
+
   \title{Lewis \& Clark BLT Documentation}
-  \pretitle{\vspace{\droptitle}\centering\huge}
+    \pretitle{\vspace{\droptitle}\centering\huge}
   \posttitle{\par}
-  \author{Ben Glick, Jeremy McWilliams, others!}
-  \preauthor{\centering\large\emph}
+    \author{Ben Glick, Jeremy McWilliams, others!}
+    \preauthor{\centering\large\emph}
   \postauthor{\par}
-  \predate{\centering\large\emph}
+      \predate{\centering\large\emph}
   \postdate{\par}
-  \date{2018-03-13}
+    \date{2018-06-19}
 
 \usepackage{booktabs}
 
-\usepackage{amsthm}
-\newtheorem{theorem}{Theorem}[chapter]
-\newtheorem{lemma}{Lemma}[chapter]
-\theoremstyle{definition}
-\newtheorem{definition}{Definition}[chapter]
-\newtheorem{corollary}{Corollary}[chapter]
-\newtheorem{proposition}{Proposition}[chapter]
-\theoremstyle{definition}
-\newtheorem{example}{Example}[chapter]
-\theoremstyle{definition}
-\newtheorem{exercise}{Exercise}[chapter]
-\theoremstyle{remark}
-\newtheorem*{remark}{Remark}
-\newtheorem*{solution}{Solution}
 \begin{document}
 \maketitle
 
@@ -197,20 +184,12 @@ days of gaining access to the system.
 
 \section{Getting on the network}\label{getting-on-the-network}
 
+\subsection{For Windows and OSX Users}\label{for-windows-and-osx-users}
+
 The BLT cluster is quite isolated from LC's public-facing
 infrastructure. In order to connect to it, you will need a copy of Cisco
 AnyConnect secure mobility client, which is available to LC students,
-faculty, and staff HERE.
-
-If you are using Linux to connect to the cluster, the current version of
-Cisco AnyConnect will fail to install. Luckily, there is an open-source
-equivalent called OpenConnect, which installs as a menu option for
-debian and redhat based OSes. You will need to open your network
-settings and click the green plus button to add a new connection, and
-then select VPN when prompted. After that, put in
-\texttt{vpn.lclark.edu} for the gateway option and the same root CA
-certificate as you used when setting up LC secure. After you click save,
-it will ask for your LC id and password.
+faculty, and staff \href{https://vpn.lclark.edu}{HERE}.
 
 After you have installed and started AnyConnect:
 
@@ -224,6 +203,18 @@ After you have installed and started AnyConnect:
   When prompted, put in your LC username and password for access Now,
   your computer is connected to the same virtual network as the cluster.
 \end{enumerate}
+
+\subsection{For Linux Users}\label{for-linux-users}
+
+If you are using Linux to connect to the cluster, the current version of
+Cisco AnyConnect will fail to install. Luckily, there is an open-source
+equivalent called OpenConnect, which installs as a menu option for
+debian and redhat based OSes. You will need to open your network
+settings and click the green plus button to add a new connection, and
+then select VPN when prompted. After that, put in
+\texttt{vpn.lclark.edu} for the gateway option and the same root CA
+certificate as you used when setting up LC secure. After you click save,
+it will ask for your LC id and password.
 
 \section{Logging In}\label{logging-in}
 
@@ -269,6 +260,18 @@ you will need to install PuTTY or similar.
   logged in to the BLT cluster! See Using the Cluster for more
   information about what you can do.
 \end{itemize}
+
+\section{Adding Files to Your Home
+Directory}\label{adding-files-to-your-home-directory}
+
+If you want to add files to your home directory, you can use essentially
+any command line remote file transfer system you can think of, including
+rsync, scp, sftp, etc. We also have a graphical user interface on the
+web at (\url{http://mayo.blt.lclark.edu/owncloud}). You can log in to
+this service using your inital UNIX user account, but if you change your
+unix password, it must be manually changed separately in OwnCloud. Files
+that you drop to the owncloud folder ``files'' will go to the ``files''
+directory in your home directory.
 
 \chapter{Submitting Jobs}\label{submitting-jobs}
 
@@ -634,6 +637,9 @@ I needed to make an IPTables entry allowing traffic in and out on port
 8000. If you need to change the port, remember to make a new iptables
 entry.
 
+Jupyterhub example user password (for use case demonstrations):
+user:example, pass:processtruster76
+
 \subsection{Apache Httpd Web Server}\label{apache-httpd-web-server}
 
 We installed apache2 with the standard
@@ -704,6 +710,69 @@ a shared memory pool version (suitable for 48 slots or fewer). If you
 are using exactly 48 slots, flip a coin. The MPI version can be run with
 \texttt{raxmlHPC-MPI-AVX2} and the SMP version can be run with
 \texttt{raxmlHPC-PTHREADS-AVX2}
+
+\subsection{Intel OpenCL Runtime}\label{intel-opencl-runtime}
+
+The Intel OpenCL Runtime is required to run OpenCL programs on Intel
+CPUs. The latest packages are available
+\href{here}{https://software.intel.com/en-us/articles/opencl-drivers}
+under OpenCL Runtime for Intel Core and Intel Xeon Processors. To
+install, run the install script and select \texttt{/local/cluster} as
+the target prefix. The files will be installed in
+\texttt{/local/cluster/opt/intel}. Be sure to symlink the libraries in
+\texttt{/local/cluster/opt/intel/opencl-\$\{version\_number\}/lib64} to
+\texttt{/local/cluster/lib}:
+
+\begin{verbatim}
+find "$(realpath /local/cluster/opt/intel/opencl)/lib64/" -type f -name '*.so*' -print0 \
+  | xargs -0 ln -s -t /local/cluster/lib
+\end{verbatim}
+
+We are explicitly linking to the libraries in the version specific
+directory since the generic symlink requires
+\texttt{/etc/alternatives/opencl*} which won't be recreated on worker
+nodes.
+
+Setting up OpenCL to run on worker nodes will require some additional
+work. The OpenCL runtime searches for platform specific ICDs in
+\texttt{/etc/OpenCL/vendors} by default. While the documentation states
+that this search path can be modified with an environment variable,
+\texttt{OPENCL\_VENDOR\_PATH}, it seems that not all ICD loader
+implementations support this. As a temporary workaround, we will
+recreate this directory structure in
+\texttt{/local/cluster/etc/opencl\_icd\_fix}:
+
+\begin{verbatim}
+fixdir='/local/cluster/etc/opencl_icd_fix'
+for d in "$fixdir" "${fixdir}/vendors"; do
+    if ! [ -d "$d" ]; then
+        mkdir "$d"
+    fi
+done
+find "$(realpath /local/cluster/opt/intel/opencl)/etc/" -type f -name '*.icd' -print0 \
+  | xargs -0 ln -s -t "${fixdir}/vendors"
+\end{verbatim}
+
+If \texttt{OPENCL\_VENDOR\_PATH} worked with the implementation shipped
+with Intel's runtime, we could just set it to our fix directory.
+Unfortunately, it does not. We need to create symlinks in each worker
+node:
+
+\begin{verbatim}
+ln -s /local/cluster/etc/opencl_icd_fix /etc/OpenCL
+\end{verbatim}
+
+\subsection{Hashcat}\label{hashcat}
+
+Hashcat is a suite of password cracking tools. It requires OpenCL
+supported devices along with the appropriate OpenCL runtimes and
+drivers. The latest release is available
+\href{https://hashcat.net/hashcat/}{here}. To install hashcat, first
+download the source tarball and untar it. Since hashcat lacks a
+configure script, we'll need to edit the Makefile manually. Find the
+definition of the \texttt{PREFIX} in the Makefile and define it as
+\texttt{/local/cluster}. Then run \texttt{make} and
+\texttt{make\ install}.
 
 \bibliography{book.bib,packages.bib}
 

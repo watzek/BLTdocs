@@ -120,6 +120,7 @@
 <li class="chapter" data-level="B.0.13" data-path="admin-reference.html"><a href="admin-reference.html#modeller"><i class="fa fa-check"></i><b>B.0.13</b> MODELLER</a></li>
 <li class="chapter" data-level="B.0.14" data-path="admin-reference.html"><a href="admin-reference.html#raxml"><i class="fa fa-check"></i><b>B.0.14</b> RAxML</a></li>
 <li class="chapter" data-level="B.0.15" data-path="admin-reference.html"><a href="admin-reference.html#intel-opencl-runtime"><i class="fa fa-check"></i><b>B.0.15</b> Intel OpenCL Runtime</a></li>
+<li class="chapter" data-level="B.0.16" data-path="admin-reference.html"><a href="admin-reference.html#hashcat"><i class="fa fa-check"></i><b>B.0.16</b> Hashcat</a></li>
 </ul></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
@@ -238,6 +239,10 @@ find &quot;$(realpath /local/cluster/opt/intel/opencl)/etc/&quot; -type f -name 
   | xargs -0 ln -s -t &quot;${fixdir}/vendors&quot;</code></pre>
 <p>If <code>OPENCL_VENDOR_PATH</code> worked with the implementation shipped with Intel’s runtime, we could just set it to our fix directory. Unfortunately, it does not. We need to create symlinks in each worker node:</p>
 <pre><code>ln -s /local/cluster/etc/opencl_icd_fix /etc/OpenCL</code></pre>
+</div>
+<div id="hashcat" class="section level3">
+<h3><span class="header-section-number">B.0.16</span> Hashcat</h3>
+<p>Hashcat is a suite of password cracking tools. It requires OpenCL supported devices along with the appropriate OpenCL runtimes and drivers. The latest release is available <a href="https://hashcat.net/hashcat/">here</a>. To install hashcat, first download the source tarball and untar it. Since hashcat lacks a configure script, we’ll need to edit the Makefile manually. Find the definition of the <code>PREFIX</code> in the Makefile and define it as <code>/local/cluster</code>. Then run <code>make</code> and <code>make install</code>.</p>
 
 </div>
 </div>
