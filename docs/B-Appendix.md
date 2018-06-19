@@ -75,7 +75,7 @@ MODELLER is A Program for Protein Structure Modeling. It's a special python inte
 RAxML is a maximum likelihood phylogenetic bioinformatic tool. It's installed normally. However, there are two versions installed. There is an MPI version (suitable for tasks of size 48 slots or more) as well as a shared memory pool version (suitable for 48 slots or fewer). If you are using exactly 48 slots, flip a coin. The MPI version can be run with `raxmlHPC-MPI-AVX2` and the SMP version can be run with `raxmlHPC-PTHREADS-AVX2`
 
 ###Intel OpenCL Runtime
-The Intel OpenCL Runtime is required to run OpenCL programs on Intel CPUs. The latest packages are available [https://software.intel.com/en-us/articles/opencl-drivers](here) under OpenCL Runtime for Intel Core and Intel Xeon Processors. To install, run the install script and select `/local/cluster` as the target prefix. The files will be installed in `/local/cluster/opt/intel`. Be sure to symlink the libraries in `/local/cluster/opt/intel/opencl-${version_number}/lib64` to `/local/cluster/lib`:
+The Intel OpenCL Runtime is required to run OpenCL programs on Intel CPUs. The latest packages are available [here](https://software.intel.com/en-us/articles/opencl-drivers) under OpenCL Runtime for Intel Core and Intel Xeon Processors. To install, run the install script and select `/local/cluster` as the target prefix. The files will be installed in `/local/cluster/opt/intel`. Be sure to symlink the libraries in `/local/cluster/opt/intel/opencl-${version_number}/lib64` to `/local/cluster/lib`:
 ```
 find "$(realpath /local/cluster/opt/intel/opencl)/lib64/" -type f -name '*.so*' -print0 \
   | xargs -0 ln -s -t /local/cluster/lib
