@@ -8,7 +8,7 @@ NOTE: Once you receive a temporary password, please reset it within 5 days of ga
 ## Getting on the network
 
 ### For Windows and OSX Users
-The BLT cluster is quite isolated from LC's public-facing infrastructure. In order to connect to it, you will need a copy of Cisco AnyConnect secure mobility client, which is available to LC students, faculty, and staff HERE.
+The BLT cluster is quite isolated from LC's public-facing infrastructure. In order to connect to it, you will need a copy of Cisco AnyConnect secure mobility client, which is available to LC students, faculty, and staff [HERE](https://vpn.lclark.edu).
 
 After you have installed and started AnyConnect:
 
