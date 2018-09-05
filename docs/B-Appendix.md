@@ -101,3 +101,40 @@ ln -s /local/cluster/etc/opencl_icd_fix /etc/OpenCL
 
 ### Hashcat
 Hashcat is a suite of password cracking tools. It requires OpenCL supported devices along with the appropriate OpenCL runtimes and drivers. The latest release is available [here](https://hashcat.net/hashcat/). To install hashcat, first download the source tarball and untar it. Since hashcat lacks a configure script, we'll need to edit the Makefile manually. Find the definition of the `PREFIX` in the Makefile and define it as `/local/cluster`. Then run `make` and `make install`.
+
+### Set up procedure for classes/projects
+
+Classes and projects often require shared materials (files/folders/etc.). We are able to do this with UNIX groups. To make a UNIX group for a class, first ensure that all students who need to be in the group have user accounts on the system.
+
+Then, create the group:
+```groupadd <GROUP NAME>```
+
+Create a shared folder in `/home/data`, and set its' owner and permissions accordingly:
+```mkdir /home/data/<GROUP NAME>
+chown <OWNER>:<GROUP NAME> /home/data/<GROUP NAME>
+chmod 755 /home/data/<GROUP NAME>```
+where `<OWNER>` is the username of the group owner (usually professor)
+
+Now, add all the students to the group as follows (you can do this individually as follows or automate it as after that):
+```
+usermod -a -G <GROUP NAME> <STUDENT USERNAME>
+```
+
+To do this automatically, do the following:
+
+First, create a file which contains a student's username on each line, like so:
+```
+jimmy
+timmy
+tommy
+terry
+jerry
+```
+Save this file as `users.txt`.
+Then, run the following script, changing the group name as necessary:
+```
+gn=<GROUP NAME>
+while read p; do
+  usermod -a -G $gn $p
+done <users.txt
+```
