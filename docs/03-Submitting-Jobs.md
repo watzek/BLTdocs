@@ -48,6 +48,24 @@ Parallel jobs are just like Batch jobs, except that in a parallel job, multiple 
 SGE_Batch -r "<runtime id>" -c "UNIX command" -P <number of processors>
 ```
 
+### GPU Jobs
+
+To submit a job to the GPU queue, all you need to do is add the `-q gpu.q` option. This will submit your job to the GPU node, which has 4 NVIDIA GeForce GTX2080 ti accelerators.
+
+An example of this is:
+
+```
+SGE_Batch -r "<runtime id>" -c "UNIX command" -P <number of processors> -q gpu.q
+```
+
+### Deleting A Job
+
+To delete a job, use the `qdel` command. The syntax is as follows:
+```
+qdel <JOB ID>
+```
+The job ID can be found from using `qstat`
+
 **Remember that SGE_Batch will not parallelize your code for you. If your code is not meant to run on multiple cores, then using any more than 1 processor core is a waste.**
 
 ### Parsl Workflows

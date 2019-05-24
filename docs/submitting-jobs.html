@@ -1,15 +1,14 @@
 <!DOCTYPE html>
-<html >
-
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
 <head>
 
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Lewis &amp; Clark BLT Documentation</title>
-  <meta name="description" content="Documentation for using the Lewis &amp; Clark BLT computing cluster">
-  <meta name="generator" content="bookdown 0.7 and GitBook 2.6.7">
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>3 Submitting Jobs | Lewis &amp; Clark BLT Documentation</title>
+  <meta name="description" content="Documentation for using the Lewis &amp; Clark BLT computing cluster" />
+  <meta name="generator" content="bookdown 0.10 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Lewis &amp; Clark BLT Documentation" />
+  <meta property="og:title" content="3 Submitting Jobs | Lewis &amp; Clark BLT Documentation" />
   <meta property="og:type" content="book" />
   
   
@@ -17,25 +16,26 @@
   <meta name="github-repo" content="watzek/BLTdocs" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Lewis &amp; Clark BLT Documentation" />
+  <meta name="twitter:title" content="3 Submitting Jobs | Lewis &amp; Clark BLT Documentation" />
   
   <meta name="twitter:description" content="Documentation for using the Lewis &amp; Clark BLT computing cluster" />
   
 
-<meta name="author" content="Ben Glick, Jeremy McWilliams, others!">
+<meta name="author" content="Ben Glick, Jeremy McWilliams, others!" />
 
 
-<meta name="date" content="2018-09-05">
+<meta name="date" content="2019-05-24" />
 
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
 <link rel="prev" href="getting-connected.html">
 <link rel="next" href="parsl-workflows-1.html">
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
@@ -87,7 +87,9 @@
 <li class="chapter" data-level="3.3" data-path="submitting-jobs.html"><a href="submitting-jobs.html#jobs-on-the-blt-cluster"><i class="fa fa-check"></i><b>3.3</b> Jobs on the BLT Cluster</a><ul>
 <li class="chapter" data-level="3.3.1" data-path="submitting-jobs.html"><a href="submitting-jobs.html#batch-jobs"><i class="fa fa-check"></i><b>3.3.1</b> Batch Jobs</a></li>
 <li class="chapter" data-level="3.3.2" data-path="submitting-jobs.html"><a href="submitting-jobs.html#parallel-jobs"><i class="fa fa-check"></i><b>3.3.2</b> Parallel Jobs</a></li>
-<li class="chapter" data-level="3.3.3" data-path="submitting-jobs.html"><a href="submitting-jobs.html#parsl-workflows"><i class="fa fa-check"></i><b>3.3.3</b> Parsl Workflows</a></li>
+<li class="chapter" data-level="3.3.3" data-path="submitting-jobs.html"><a href="submitting-jobs.html#gpu-jobs"><i class="fa fa-check"></i><b>3.3.3</b> GPU Jobs</a></li>
+<li class="chapter" data-level="3.3.4" data-path="submitting-jobs.html"><a href="submitting-jobs.html#deleting-a-job"><i class="fa fa-check"></i><b>3.3.4</b> Deleting A Job</a></li>
+<li class="chapter" data-level="3.3.5" data-path="submitting-jobs.html"><a href="submitting-jobs.html#parsl-workflows"><i class="fa fa-check"></i><b>3.3.5</b> Parsl Workflows</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="parsl-workflows-1.html"><a href="parsl-workflows-1.html"><i class="fa fa-check"></i><b>4</b> Parsl Workflows</a><ul>
@@ -177,10 +179,22 @@
 <h3><span class="header-section-number">3.3.2</span> Parallel Jobs</h3>
 <p>Parallel jobs are just like Batch jobs, except that in a parallel job, multiple cores are reserved, rather than a single core. In order to reserve multiple cores, simply add the <code>-P</code> flag to the SGE_Batch command like so:</p>
 <pre><code>SGE_Batch -r &quot;&lt;runtime id&gt;&quot; -c &quot;UNIX command&quot; -P &lt;number of processors&gt;</code></pre>
+</div>
+<div id="gpu-jobs" class="section level3">
+<h3><span class="header-section-number">3.3.3</span> GPU Jobs</h3>
+<p>To submit a job to the GPU queue, all you need to do is add the <code>-q gpu.q</code> option. This will submit your job to the GPU node, which has 4 NVIDIA GeForce GTX2080 ti accelerators.</p>
+<p>An example of this is:</p>
+<pre><code>SGE_Batch -r &quot;&lt;runtime id&gt;&quot; -c &quot;UNIX command&quot; -P &lt;number of processors&gt; -q gpu.q</code></pre>
+</div>
+<div id="deleting-a-job" class="section level3">
+<h3><span class="header-section-number">3.3.4</span> Deleting A Job</h3>
+<p>To delete a job, use the <code>qdel</code> command. The syntax is as follows:</p>
+<pre><code>qdel &lt;JOB ID&gt;</code></pre>
+<p>The job ID can be found from using <code>qstat</code></p>
 <p><strong>Remember that SGE_Batch will not parallelize your code for you. If your code is not meant to run on multiple cores, then using any more than 1 processor core is a waste.</strong></p>
 </div>
 <div id="parsl-workflows" class="section level3">
-<h3><span class="header-section-number">3.3.3</span> Parsl Workflows</h3>
+<h3><span class="header-section-number">3.3.5</span> Parsl Workflows</h3>
 <p>Parsl is a python-based workflow management system that we can use to run jobs on the cluster without having to interact with the scheduler at all. They are run the same way that you would run any script on your local machine, and can orchestrate inter-process communication between almost any kind of application needed. In depth documentation about running parsl jobs is available at the <a href="link">Parsl Workflows</a> page.</p>
 
 </div>
@@ -212,7 +226,7 @@ gitbook.start({
 "google": false,
 "linkedin": false,
 "weibo": false,
-"instapper": false,
+"instapaper": false,
 "vk": false,
 "all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
 },
@@ -222,6 +236,10 @@ gitbook.start({
 "size": 2
 },
 "edit": {
+"link": null,
+"text": null
+},
+"history": {
 "link": null,
 "text": null
 },
