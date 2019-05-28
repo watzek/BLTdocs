@@ -71,6 +71,9 @@ PAML needs to be installed on a per-user basis. It needs to be copied into the u
 ### MODELLER
 MODELLER is A Program for Protein Structure Modeling. It's a special python interpreter which is installed normally in /local/cluster/bin/
 
+### STAR
+STAR (Spliced Transcripts Alignment to a Reference) is a bioinformatics tool to align large ENCODE Transcriptome RNA-seq datasets.  Its executables (STAR and STARlong) are in /local/cluster/bin. Background on STAR can be found <a href="https://www.ncbi.nlm.nih.gov/pubmed/23104886" target="_blank">here</a>, and full docs are <a href="https://github.com/alexdobin/STAR/blob/master/doc/STARmanual.pdf" target="_blank">here</a>.
+
 ### RAxML
 RAxML is a maximum likelihood phylogenetic bioinformatic tool. It's installed normally. However, there are two versions installed. There is an MPI version (suitable for tasks of size 48 slots or more) as well as a shared memory pool version (suitable for 48 slots or fewer). If you are using exactly 48 slots, flip a coin. The MPI version can be run with `raxmlHPC-MPI-AVX2` and the SMP version can be run with `raxmlHPC-PTHREADS-AVX2`
 

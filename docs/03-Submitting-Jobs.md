@@ -32,6 +32,10 @@ The home directories, /local/cluster/bin, and a few other things are mounted rem
 
 ## Jobs on the BLT Cluster
 
+### Grid Engine
+
+BLT uses the GridEngine scheduler system to schedule HPC jobs. There are good docs available on the SGE toolkit [HERE](https://arc.liv.ac.uk/SGE/)
+
 ### Batch Jobs
 
 A Batch job is some set of UNIX command line commands which is executed on a single core of a worker node in serial (one after another). Batch jobs can be submitted by using the following command:

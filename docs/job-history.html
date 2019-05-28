@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>A Job History | Lewis &amp; Clark BLT Documentation</title>
   <meta name="description" content="Documentation for using the Lewis &amp; Clark BLT computing cluster" />
-  <meta name="generator" content="bookdown 0.10 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.10.2 and GitBook 2.6.7" />
 
   <meta property="og:title" content="A Job History | Lewis &amp; Clark BLT Documentation" />
   <meta property="og:type" content="book" />
@@ -24,7 +24,7 @@
 <meta name="author" content="Ben Glick, Jeremy McWilliams, others!" />
 
 
-<meta name="date" content="2019-05-24" />
+<meta name="date" content="2019-05-28" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -85,11 +85,12 @@
 <li class="chapter" data-level="3.1" data-path="submitting-jobs.html"><a href="submitting-jobs.html#checking-usage"><i class="fa fa-check"></i><b>3.1</b> Checking Usage</a></li>
 <li class="chapter" data-level="3.2" data-path="submitting-jobs.html"><a href="submitting-jobs.html#a-note-on-data"><i class="fa fa-check"></i><b>3.2</b> A Note on Data</a></li>
 <li class="chapter" data-level="3.3" data-path="submitting-jobs.html"><a href="submitting-jobs.html#jobs-on-the-blt-cluster"><i class="fa fa-check"></i><b>3.3</b> Jobs on the BLT Cluster</a><ul>
-<li class="chapter" data-level="3.3.1" data-path="submitting-jobs.html"><a href="submitting-jobs.html#batch-jobs"><i class="fa fa-check"></i><b>3.3.1</b> Batch Jobs</a></li>
-<li class="chapter" data-level="3.3.2" data-path="submitting-jobs.html"><a href="submitting-jobs.html#parallel-jobs"><i class="fa fa-check"></i><b>3.3.2</b> Parallel Jobs</a></li>
-<li class="chapter" data-level="3.3.3" data-path="submitting-jobs.html"><a href="submitting-jobs.html#gpu-jobs"><i class="fa fa-check"></i><b>3.3.3</b> GPU Jobs</a></li>
-<li class="chapter" data-level="3.3.4" data-path="submitting-jobs.html"><a href="submitting-jobs.html#deleting-a-job"><i class="fa fa-check"></i><b>3.3.4</b> Deleting A Job</a></li>
-<li class="chapter" data-level="3.3.5" data-path="submitting-jobs.html"><a href="submitting-jobs.html#parsl-workflows"><i class="fa fa-check"></i><b>3.3.5</b> Parsl Workflows</a></li>
+<li class="chapter" data-level="3.3.1" data-path="submitting-jobs.html"><a href="submitting-jobs.html#grid-engine"><i class="fa fa-check"></i><b>3.3.1</b> Grid Engine</a></li>
+<li class="chapter" data-level="3.3.2" data-path="submitting-jobs.html"><a href="submitting-jobs.html#batch-jobs"><i class="fa fa-check"></i><b>3.3.2</b> Batch Jobs</a></li>
+<li class="chapter" data-level="3.3.3" data-path="submitting-jobs.html"><a href="submitting-jobs.html#parallel-jobs"><i class="fa fa-check"></i><b>3.3.3</b> Parallel Jobs</a></li>
+<li class="chapter" data-level="3.3.4" data-path="submitting-jobs.html"><a href="submitting-jobs.html#gpu-jobs"><i class="fa fa-check"></i><b>3.3.4</b> GPU Jobs</a></li>
+<li class="chapter" data-level="3.3.5" data-path="submitting-jobs.html"><a href="submitting-jobs.html#deleting-a-job"><i class="fa fa-check"></i><b>3.3.5</b> Deleting A Job</a></li>
+<li class="chapter" data-level="3.3.6" data-path="submitting-jobs.html"><a href="submitting-jobs.html#parsl-workflows"><i class="fa fa-check"></i><b>3.3.6</b> Parsl Workflows</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="parsl-workflows-1.html"><a href="parsl-workflows-1.html"><i class="fa fa-check"></i><b>4</b> Parsl Workflows</a><ul>
@@ -120,10 +121,11 @@
 <li class="chapter" data-level="B.0.11" data-path="admin-reference.html"><a href="admin-reference.html#mrbayes"><i class="fa fa-check"></i><b>B.0.11</b> MrBayes</a></li>
 <li class="chapter" data-level="B.0.12" data-path="admin-reference.html"><a href="admin-reference.html#paml"><i class="fa fa-check"></i><b>B.0.12</b> PAML</a></li>
 <li class="chapter" data-level="B.0.13" data-path="admin-reference.html"><a href="admin-reference.html#modeller"><i class="fa fa-check"></i><b>B.0.13</b> MODELLER</a></li>
-<li class="chapter" data-level="B.0.14" data-path="admin-reference.html"><a href="admin-reference.html#raxml"><i class="fa fa-check"></i><b>B.0.14</b> RAxML</a></li>
-<li class="chapter" data-level="B.0.15" data-path="admin-reference.html"><a href="admin-reference.html#intel-opencl-runtime"><i class="fa fa-check"></i><b>B.0.15</b> Intel OpenCL Runtime</a></li>
-<li class="chapter" data-level="B.0.16" data-path="admin-reference.html"><a href="admin-reference.html#hashcat"><i class="fa fa-check"></i><b>B.0.16</b> Hashcat</a></li>
-<li class="chapter" data-level="B.0.17" data-path="admin-reference.html"><a href="admin-reference.html#set-up-procedure-for-classesprojects"><i class="fa fa-check"></i><b>B.0.17</b> Set up procedure for classes/projects</a></li>
+<li class="chapter" data-level="B.0.14" data-path="admin-reference.html"><a href="admin-reference.html#star"><i class="fa fa-check"></i><b>B.0.14</b> STAR</a></li>
+<li class="chapter" data-level="B.0.15" data-path="admin-reference.html"><a href="admin-reference.html#raxml"><i class="fa fa-check"></i><b>B.0.15</b> RAxML</a></li>
+<li class="chapter" data-level="B.0.16" data-path="admin-reference.html"><a href="admin-reference.html#intel-opencl-runtime"><i class="fa fa-check"></i><b>B.0.16</b> Intel OpenCL Runtime</a></li>
+<li class="chapter" data-level="B.0.17" data-path="admin-reference.html"><a href="admin-reference.html#hashcat"><i class="fa fa-check"></i><b>B.0.17</b> Hashcat</a></li>
+<li class="chapter" data-level="B.0.18" data-path="admin-reference.html"><a href="admin-reference.html#set-up-procedure-for-classesprojects"><i class="fa fa-check"></i><b>B.0.18</b> Set up procedure for classes/projects</a></li>
 </ul></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
