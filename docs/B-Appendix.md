@@ -59,6 +59,11 @@ OwnCloud is essentially a google drive clone that will run on our cluster. We au
 ### Dropbox CLI
 Follow page [here](https://www.dropbox.com/install-linux). Our install location is somewhere else, in `/local/cluster/dropbox_dist`.
 
+### Shellinabox
+Shellinabox is a browser-based method to access command line on mayo. Once signed in to VPN, shellinabox is accessible at [http://mayo.blt.lclark.edu/shell/](http://mayo.blt.lclark.edu/shell/). The installation is at `/local/cluster/shellinabox`. If it goes down, navigate to that directory, and run the startup script: `./shellinabox`
+
+
+
 ### ProtTest
 ProtTest is a bioinformatic tool for the selection of best-fit models of aminoacid replacement for the data at hand. ProtTest makes this selection by finding the model in the candidate list with the smallest Akaike Information Criterion (AIC), Bayesian Information Criterion (BIC) score or Decision Theory Criterion (DT). At the same time, ProtTest obtains model-averaged estimates of different parameters (including a model-averaged phylogenetic tree) and calculates their importance(Posada and Buckley 2004). ProtTest differs from its nucleotide analog jModeltest (Posada 2008) in that it does not include likelihood ratio tests, as not all models included in ProtTest are nested. It is written in java with MPJ, and it has a fairly strange installation. It's installed to `/local/cluster/prottest3`, and needs to be run from there. People should not put data files in that directory. It can be run something like this: ```cd $PROTTEST_HOME java -jar prottest-3.4.2.jar -i examples/COX2_PF0016/alignment -all-matrices -all-distributions -threads 2 ```
 
