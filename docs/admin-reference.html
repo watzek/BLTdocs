@@ -24,7 +24,7 @@
 <meta name="author" content="Ben Glick, Jeremy McWilliams, others!" />
 
 
-<meta name="date" content="2019-06-25" />
+<meta name="date" content="2019-07-08" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -127,6 +127,7 @@
 <li class="chapter" data-level="B.0.17" data-path="admin-reference.html"><a href="admin-reference.html#intel-opencl-runtime"><i class="fa fa-check"></i><b>B.0.17</b> Intel OpenCL Runtime</a></li>
 <li class="chapter" data-level="B.0.18" data-path="admin-reference.html"><a href="admin-reference.html#hashcat"><i class="fa fa-check"></i><b>B.0.18</b> Hashcat</a></li>
 <li class="chapter" data-level="B.0.19" data-path="admin-reference.html"><a href="admin-reference.html#set-up-procedure-for-classesprojects"><i class="fa fa-check"></i><b>B.0.19</b> Set up procedure for classes/projects</a></li>
+<li class="chapter" data-level="B.0.20" data-path="admin-reference.html"><a href="admin-reference.html#troubleshooting"><i class="fa fa-check"></i><b>B.0.20</b> Troubleshooting</a></li>
 </ul></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
@@ -277,6 +278,20 @@ jerry</code></pre>
 while read p; do
   usermod -a -G $gn $p
 done &lt;users.txt</code></pre>
+</div>
+<div id="troubleshooting" class="section level3">
+<h3><span class="header-section-number">B.0.20</span> Troubleshooting</h3>
+<p>Upon running <code>qstat -f</code>, if you see a status as “au” (alarm unreachable), there are a couple things to check: * do the nodes need remounting? * is SGE running on the nodes? We encountered this in July 2019, and here was the fix, after SSH-ing into Mayo:</p>
+<pre><code>sudo su root
+ssh tomato
+cd /local
+ls -la</code></pre>
+<p>If <code>/local</code> is empty, then run:</p>
+<pre><code>mount -a</code></pre>
+<p>Now in the same node:</p>
+<pre><code>cd /etc/init.d
+./sgeexecd.BLT start</code></pre>
+<p>This should start SGE on the node. Repeat this process for each node that is down.</p>
 
 </div>
 </div>

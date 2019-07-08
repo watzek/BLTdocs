@@ -146,3 +146,26 @@ while read p; do
   usermod -a -G $gn $p
 done <users.txt
 ```
+
+### Troubleshooting
+
+Upon running `qstat -f`, if you see a status as "au" (alarm unreachable), there are a couple things to check:
+* do the nodes need remounting?
+* is SGE running on the nodes?
+We encountered this in July 2019, and here was the fix, after SSH-ing into Mayo:
+```
+sudo su root
+ssh tomato
+cd /local
+ls -la
+```
+If `/local` is empty, then run:
+```
+mount -a
+```
+Now in the same node:
+```
+cd /etc/init.d
+./sgeexecd.BLT start
+```
+This should start SGE on the node. Repeat this process for each node that is down.
