@@ -42,7 +42,15 @@ LD_RUN_PATH=/local/cluster/lib/ LD_LIBRARY_PATH=/local/cluster/lib/ make install
 Python 2 can be installed essentially identically, except with different version numbers on the things you download.
 
 ### JupyterHub Notebook Server
-[Jupyterhub](http://jupyterhub.readthedocs.io/en/latest/) is the program we use to serve the multi-user notebook server located at [mayo.blt.lclark.edu:8000](mayo.blt.lclark.edu:8000). Installation of jupyterhub is easy. You can install it with 'sudo /local/cluster/bin/pip3 install jupyterhub'. To run jupyterhub, start a screen or tmux session, run the command `PATH=/local/cluster/bin/:$PATH; cd /local/cluster/jupyterhub-runtime/jupyterhub_run/ && jupyterhub -f jupyterhub_config.py`. Then detach the screen. Configuration is in the file `/local/cluster/jupyterhub-runtime/jupyterhub_config.py`
+[Jupyterhub](http://jupyterhub.readthedocs.io/en/latest/) is the program we use to serve the multi-user notebook server located at [mayo.blt.lclark.edu:8000](mayo.blt.lclark.edu:8000). Installation of jupyterhub is easy. You can install it with 'sudo /local/cluster/bin/pip3 install jupyterhub'. 
+
+If jupyterhub is down, do this sequence of commands:
+* sign in as root
+* start a new screen, by running `screen -S jupyterhub`
+* run `PATH=/local/cluster/bin/:$PATH; cd /local/cluster/jupyterhub-runtime/jupyterhub_run/ && ./jupyterhub_start.sh`
+* after it starts running, detach from the screen by typing `ctrl-A` and then `d`
+
+ Configuration is in the file `/local/cluster/jupyterhub-runtime/jupyterhub_config.py`
 
 I needed to make an IPTables entry allowing traffic in and out on port 8000. If you need to change the port, remember to make a new iptables entry.
 
