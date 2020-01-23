@@ -45,6 +45,7 @@ Python 2 can be installed essentially identically, except with different version
 [Jupyterhub](http://jupyterhub.readthedocs.io/en/latest/) is the program we use to serve the multi-user notebook server located at [mayo.blt.lclark.edu:8000](mayo.blt.lclark.edu:8000). Installation of jupyterhub is easy. You can install it with 'sudo /local/cluster/bin/pip3 install jupyterhub'. 
 
 If jupyterhub is down, do this sequence of commands:
+
 * sign in as root
 * start a new screen, by running `screen -S jupyterhub`
 * run `PATH=/local/cluster/bin/:$PATH; cd /local/cluster/jupyterhub-runtime/jupyterhub_run/ && ./jupyterhub_start.sh`
