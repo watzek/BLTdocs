@@ -1,15 +1,14 @@
 <!DOCTYPE html>
-<html >
-
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
 <head>
 
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Lewis &amp; Clark BLT Documentation</title>
-  <meta name="description" content="Documentation for using the Lewis &amp; Clark BLT computing cluster">
-  <meta name="generator" content="bookdown 0.7 and GitBook 2.6.7">
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>B Admin Reference | Lewis &amp; Clark BLT Documentation</title>
+  <meta name="description" content="Documentation for using the Lewis &amp; Clark BLT computing cluster" />
+  <meta name="generator" content="bookdown 0.12 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Lewis &amp; Clark BLT Documentation" />
+  <meta property="og:title" content="B Admin Reference | Lewis &amp; Clark BLT Documentation" />
   <meta property="og:type" content="book" />
   
   
@@ -17,25 +16,26 @@
   <meta name="github-repo" content="watzek/BLTdocs" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Lewis &amp; Clark BLT Documentation" />
+  <meta name="twitter:title" content="B Admin Reference | Lewis &amp; Clark BLT Documentation" />
   
   <meta name="twitter:description" content="Documentation for using the Lewis &amp; Clark BLT computing cluster" />
   
 
-<meta name="author" content="Ben Glick, Jeremy McWilliams, others!">
+<meta name="author" content="Ben Glick, Jeremy McWilliams, others!" />
 
 
-<meta name="date" content="2020-01-23">
+<meta name="date" content="2020-05-14" />
 
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
 <link rel="prev" href="job-history.html">
 
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
@@ -192,7 +192,7 @@ LD_RUN_PATH=/local/cluster/lib/ LD_LIBRARY_PATH=/local/cluster/lib/ make install
 </div>
 <div id="jupyterhub-notebook-server" class="section level3">
 <h3><span class="header-section-number">B.0.6</span> JupyterHub Notebook Server</h3>
-<p><a href="http://jupyterhub.readthedocs.io/en/latest/">Jupyterhub</a> is the program we use to serve the multi-user notebook server located at <a href="mayo.blt.lclark.edu:8000" class="uri">mayo.blt.lclark.edu:8000</a>. Installation of jupyterhub is easy. You can install it with ‘sudo /local/cluster/bin/pip3 install jupyterhub’.</p>
+<p><a href="http://jupyterhub.readthedocs.io/en/latest/">Jupyterhub</a> is the program we use to serve the multi-user notebook server located at <a href="mayo.blt.lclark.edu:8000">mayo.blt.lclark.edu:8000</a>. Installation of jupyterhub is easy. You can install it with ‘sudo /local/cluster/bin/pip3 install jupyterhub’.</p>
 <p>If jupyterhub is down, do this sequence of commands:</p>
 <ul>
 <li>sign in as root</li>
@@ -219,7 +219,7 @@ LD_RUN_PATH=/local/cluster/lib/ LD_LIBRARY_PATH=/local/cluster/lib/ make install
 </div>
 <div id="shellinabox" class="section level3">
 <h3><span class="header-section-number">B.0.10</span> Shellinabox</h3>
-<p>Shellinabox is a browser-based method to access command line on mayo. Once signed in to VPN, shellinabox is accessible at <a href="http://mayo.blt.lclark.edu/shell/" class="uri">http://mayo.blt.lclark.edu/shell/</a>. The installation is at <code>/local/cluster/shellinabox</code>. If it goes down, navigate to that directory, and run the startup script: <code>./shellinabox</code></p>
+<p>Shellinabox is a browser-based method to access command line on mayo. Once signed in to VPN, shellinabox is accessible at <a href="http://mayo.blt.lclark.edu/shell/">http://mayo.blt.lclark.edu/shell/</a>. The installation is at <code>/local/cluster/shellinabox</code>. If it goes down, navigate to that directory, and run the startup script: <code>./shellinabox</code></p>
 </div>
 <div id="prottest" class="section level3">
 <h3><span class="header-section-number">B.0.11</span> ProtTest</h3>
@@ -270,8 +270,11 @@ find &quot;$(realpath /local/cluster/opt/intel/opencl)/etc/&quot; -type f -name 
 <div id="set-up-procedure-for-classesprojects" class="section level3">
 <h3><span class="header-section-number">B.0.19</span> Set up procedure for classes/projects</h3>
 <p>Classes and projects often require shared materials (files/folders/etc.). We are able to do this with UNIX groups. To make a UNIX group for a class, first ensure that all students who need to be in the group have user accounts on the system.</p>
-<p>Then, create the group: <code>groupadd &lt;GROUP NAME&gt;</code></p>
-<p>Create a shared folder in <code>/home/data</code>, and set its’ owner and permissions accordingly: <code>mkdir /home/data/&lt;GROUP NAME&gt; chown &lt;OWNER&gt;:&lt;GROUP NAME&gt; /home/data/&lt;GROUP NAME&gt; chmod 755 /home/data/&lt;GROUP NAME&gt;</code> where <code>&lt;OWNER&gt;</code> is the username of the group owner (usually professor)</p>
+<p>Then, create the group:
+<code>groupadd &lt;GROUP NAME&gt;</code></p>
+<p>Create a shared folder in <code>/home/data</code>, and set its’ owner and permissions accordingly:
+<code>mkdir /home/data/&lt;GROUP NAME&gt; chown &lt;OWNER&gt;:&lt;GROUP NAME&gt; /home/data/&lt;GROUP NAME&gt; chmod 755 /home/data/&lt;GROUP NAME&gt;</code>
+where <code>&lt;OWNER&gt;</code> is the username of the group owner (usually professor)</p>
 <p>Now, add all the students to the group as follows (you can do this individually as follows or automate it as after that):</p>
 <pre><code>usermod -a -G &lt;GROUP NAME&gt; &lt;STUDENT USERNAME&gt;</code></pre>
 <p>To do this automatically, do the following:</p>
@@ -281,7 +284,8 @@ timmy
 tommy
 terry
 jerry</code></pre>
-<p>Save this file as <code>users.txt</code>. Then, run the following script, changing the group name as necessary:</p>
+<p>Save this file as <code>users.txt</code>.
+Then, run the following script, changing the group name as necessary:</p>
 <pre><code>gn=&lt;GROUP NAME&gt;
 while read p; do
   usermod -a -G $gn $p
@@ -289,7 +293,10 @@ done &lt;users.txt</code></pre>
 </div>
 <div id="troubleshooting" class="section level3">
 <h3><span class="header-section-number">B.0.20</span> Troubleshooting</h3>
-<p>Upon running <code>qstat -f</code>, if you see a status as “au” (alarm unreachable), there are a couple things to check: * do the nodes need remounting? * is SGE running on the nodes? We encountered this in July 2019, and here was the fix, after SSH-ing into Mayo:</p>
+<p>Upon running <code>qstat -f</code>, if you see a status as “au” (alarm unreachable), there are a couple things to check:
+* do the nodes need remounting?
+* is SGE running on the nodes?
+We encountered this in July 2019, and here was the fix, after SSH-ing into Mayo:</p>
 <pre><code>sudo su root
 ssh tomato
 cd /local
@@ -329,7 +336,7 @@ gitbook.start({
 "google": false,
 "linkedin": false,
 "weibo": false,
-"instapper": false,
+"instapaper": false,
 "vk": false,
 "all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
 },
@@ -339,6 +346,10 @@ gitbook.start({
 "size": 2
 },
 "edit": {
+"link": null,
+"text": null
+},
+"history": {
 "link": null,
 "text": null
 },
