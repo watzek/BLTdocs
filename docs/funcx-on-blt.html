@@ -114,9 +114,7 @@
 <li class="chapter" data-level="6" data-path="funcx-on-blt.html"><a href="funcx-on-blt.html"><i class="fa fa-check"></i><b>6</b> Funcx On BLT</a><ul>
 <li class="chapter" data-level="6.1" data-path="funcx-on-blt.html"><a href="funcx-on-blt.html#what-is-funcx"><i class="fa fa-check"></i><b>6.1</b> What is Funcx?</a></li>
 <li class="chapter" data-level="6.2" data-path="funcx-on-blt.html"><a href="funcx-on-blt.html#blt-funcx-offerings"><i class="fa fa-check"></i><b>6.2</b> BLT Funcx Offerings</a></li>
-<li class="chapter" data-level="6.3" data-path="funcx-on-blt.html"><a href="funcx-on-blt.html#how-to-configure-funcx"><i class="fa fa-check"></i><b>6.3</b> How to Configure Funcx</a></li>
-<li class="chapter" data-level="6.4" data-path="funcx-on-blt.html"><a href="funcx-on-blt.html#how-to-use-funcx-on-blt"><i class="fa fa-check"></i><b>6.4</b> How to Use Funcx on BLT</a></li>
-<li class="chapter" data-level="6.5" data-path="funcx-on-blt.html"><a href="funcx-on-blt.html#external-links"><i class="fa fa-check"></i><b>6.5</b> External Links</a></li>
+<li class="chapter" data-level="6.3" data-path="funcx-on-blt.html"><a href="funcx-on-blt.html#how-to-use-funcx-on-blt"><i class="fa fa-check"></i><b>6.3</b> How to Use Funcx on BLT</a></li>
 </ul></li>
 <li class="appendix"><span><b>Appendix</b></span></li>
 <li class="chapter" data-level="A" data-path="job-history.html"><a href="job-history.html"><i class="fa fa-check"></i><b>A</b> Job History</a></li>
@@ -169,15 +167,51 @@
 </div>
 <div id="blt-funcx-offerings" class="section level2">
 <h2><span class="header-section-number">6.2</span> BLT Funcx Offerings</h2>
-</div>
-<div id="how-to-configure-funcx" class="section level2">
-<h2><span class="header-section-number">6.3</span> How to Configure Funcx</h2>
+<p>JOIN HPC SLACK IF NOT SURE
+CHOOSE ENDPOINT FOR WHAT YOU NEED</p>
+<p>The current BLT endpoints available are as follows:</p>
+<pre><code>+---------------+-------------------------------------------------------+
+| Endpoint Name |  Description   |             Endpoint ID              |
++===============+=======================================================+
+| blt_small     | 1 core         | 3c3f0b4f-4ae4-4241-8497-d7339972ff4a |
++---------------+-------------------------------------------------------+
+| blt_medium    | 4 cores        | a145aa44-abfa-4ff8-8131-2097dcdb90e9 |
++---------------+-------------------------------------------------------+
+| blt_large     | 8 cores        | f197c41b-95c3-44ae-8218-35b682319a64 |
++---------------+-------------------------------------------------------+
+| blt_xlarge    | 16 cores       | b89de769-d0ce-446c-ae04-bdc19266b566 |
++---------------+-------------------------------------------------------+
+| blt_wholenode | 48 cores       | d937af25-8a7e-46e7-a241-68ef4e86b576 |
++---------------+-------------------------------------------------------+
+| blt_gpu       | 1 core + 1 gpu | 6d542cd1-140d-47c7-a26a-c0873ec15818 |
++---------------+-------------------------------------------------------+</code></pre>
 </div>
 <div id="how-to-use-funcx-on-blt" class="section level2">
-<h2><span class="header-section-number">6.4</span> How to Use Funcx on BLT</h2>
-</div>
-<div id="external-links" class="section level2">
-<h2><span class="header-section-number">6.5</span> External Links</h2>
+<h2><span class="header-section-number">6.3</span> How to Use Funcx on BLT</h2>
+<p>TALK ABOUT WHAT YOU’RE DOING IN CODE</p>
+<p>VIRTUAL ENVIRONMENT MAKE FIRST TIME, ACTIVATE NEXT</p>
+<p>First, you will need to install the funcx module for Python.</p>
+<pre><code>pip[3] install funcx ONLY HAPPENS FIRST TIME</code></pre>
+<p>PYTHON3.6+ ONLY
+Next, run Python3 or ipython3 in a terminal and enter in the following lines:</p>
+<pre><code>from funcx.sdk.client import FuncXClient    
+fxc = FuncXClient()   INITIALIZING CONNECTION TO FUNCX</code></pre>
+<p>Here, you will be given a URL. Copy and paste the URL into a web browser, and follow the instructions. <em>lOG IN WITH LC CREDS</em> Once you log in, it will output an authorization code. Copy and paste it back into the terminal. GLOBUS GROUP<em><a href="https://app.globus.org/groups/c1f52348-140b-11eb-b43d-0ebeaabad955/about" class="uri">https://app.globus.org/groups/c1f52348-140b-11eb-b43d-0ebeaabad955/about</a></em> <a href="https//:link.com">link</a> ONLY HAPPENS FIRST TIME (POSSIBLE YOU NEED TO LOG IN AGAIN)</p>
+<p>The next step is to define a function containing the program you would like to run. As an example:</p>
+<pre><code>def your_program():
+  return &quot;This is your program!&quot;</code></pre>
+<p>On the next line, you will register your function with Funcx. Enter in the name of the function you defined where it says “your_program”:</p>
+<pre><code>func_uuid = fxc.register_function(your_program)   REGISTERING FUNCTION AND GETTING AN ID FOR IT</code></pre>
+<p>Next, you will define which endpoint you will be using for you work. From the list available and activated endpoints, select the one which will best suit your needs. Once chosen, copy and Endpoint ID and replace “your_endpoint_id” with the ID: LIST IN DIFFEENT SECTINO OF DOCUMENT SEE LIST</p>
+<pre><code>blt_ep = &quot;your_endpoint_id&quot;   EACH HAVE UNIQUE IDENTIFIER
+/* For example: blt_ep = &quot;8e1bc858-feda-42b3-8b7a-5a058c0ef6ec&quot; */</code></pre>
+<p>The second to last step is to send your program to BLT:</p>
+<pre><code>res = fxc.run(endpoint_id=blt_ep, function_id=func_uuid)    RUNNING FUNCTION ON ENDPOINT ON BLT</code></pre>
+<p>It may take several minutes for BLT to prepare your results. After waiting, enter in the final line of code:</p>
+<pre><code>print(fxc.get_result(res))    OBTAINING THE RESULT</code></pre>
+<p>EXCEPTION IS NORMAL (COPY AND PASTE EXCEPTION)</p>
+<p>CONGRATS
+## External Links</p>
 
 </div>
 </div>
