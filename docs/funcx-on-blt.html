@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>6 Funcx On BLT | Lewis &amp; Clark BLT Documentation</title>
+  <meta name="description" content="Documentation for using the Lewis &amp; Clark BLT computing cluster" />
+  <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="6 Funcx On BLT | Lewis &amp; Clark BLT Documentation" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="Documentation for using the Lewis &amp; Clark BLT computing cluster" />
+  <meta name="github-repo" content="watzek/BLTdocs" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="6 Funcx On BLT | Lewis &amp; Clark BLT Documentation" />
+  
+  <meta name="twitter:description" content="Documentation for using the Lewis &amp; Clark BLT computing cluster" />
+  
+
+<meta name="author" content="Ben Glick, Jeremy McWilliams, others!" />
+
+
+<meta name="date" content="2020-05-14" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="setting-up-groups.html"/>
+<link rel="next" href="job-history.html"/>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
+<link href="libs/anchor-sections-1.0/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0/anchor-sections.js"></script>
+
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./"><img src="blt_logo.png" id="logo"></a></li>
+<li><a href="./">Lewis & Clark BLT Cluster Docs</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Introduction</a></li>
+<li class="chapter" data-level="1" data-path="about-the-cluster.html"><a href="about-the-cluster.html"><i class="fa fa-check"></i><b>1</b> About the Cluster</a><ul>
+<li class="chapter" data-level="1.1" data-path="about-the-cluster.html"><a href="about-the-cluster.html#cluster-facts"><i class="fa fa-check"></i><b>1.1</b> Cluster Facts</a></li>
+<li class="chapter" data-level="1.2" data-path="about-the-cluster.html"><a href="about-the-cluster.html#interacting-with-the-login-node"><i class="fa fa-check"></i><b>1.2</b> Interacting with the Login Node</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="getting-connected.html"><a href="getting-connected.html"><i class="fa fa-check"></i><b>2</b> Getting Connected</a><ul>
+<li class="chapter" data-level="2.1" data-path="getting-connected.html"><a href="getting-connected.html#accounts"><i class="fa fa-check"></i><b>2.1</b> Accounts</a></li>
+<li class="chapter" data-level="2.2" data-path="getting-connected.html"><a href="getting-connected.html#getting-on-the-network"><i class="fa fa-check"></i><b>2.2</b> Getting on the network</a><ul>
+<li class="chapter" data-level="2.2.1" data-path="getting-connected.html"><a href="getting-connected.html#for-windows-and-osx-users"><i class="fa fa-check"></i><b>2.2.1</b> For Windows and OSX Users</a></li>
+<li class="chapter" data-level="2.2.2" data-path="getting-connected.html"><a href="getting-connected.html#for-linux-users"><i class="fa fa-check"></i><b>2.2.2</b> For Linux Users</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="getting-connected.html"><a href="getting-connected.html#logging-in"><i class="fa fa-check"></i><b>2.3</b> Logging In</a></li>
+<li class="chapter" data-level="2.4" data-path="getting-connected.html"><a href="getting-connected.html#adding-files-to-your-home-directory"><i class="fa fa-check"></i><b>2.4</b> Adding Files to Your Home Directory</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="submitting-jobs.html"><a href="submitting-jobs.html"><i class="fa fa-check"></i><b>3</b> Submitting Jobs</a><ul>
+<li class="chapter" data-level="3.1" data-path="submitting-jobs.html"><a href="submitting-jobs.html#checking-usage"><i class="fa fa-check"></i><b>3.1</b> Checking Usage</a></li>
+<li class="chapter" data-level="3.2" data-path="submitting-jobs.html"><a href="submitting-jobs.html#a-note-on-data"><i class="fa fa-check"></i><b>3.2</b> A Note on Data</a></li>
+<li class="chapter" data-level="3.3" data-path="submitting-jobs.html"><a href="submitting-jobs.html#jobs-on-the-blt-cluster"><i class="fa fa-check"></i><b>3.3</b> Jobs on the BLT Cluster</a><ul>
+<li class="chapter" data-level="3.3.1" data-path="submitting-jobs.html"><a href="submitting-jobs.html#grid-engine"><i class="fa fa-check"></i><b>3.3.1</b> Grid Engine</a></li>
+<li class="chapter" data-level="3.3.2" data-path="submitting-jobs.html"><a href="submitting-jobs.html#batch-jobs"><i class="fa fa-check"></i><b>3.3.2</b> Batch Jobs</a></li>
+<li class="chapter" data-level="3.3.3" data-path="submitting-jobs.html"><a href="submitting-jobs.html#parallel-jobs"><i class="fa fa-check"></i><b>3.3.3</b> Parallel Jobs</a></li>
+<li class="chapter" data-level="3.3.4" data-path="submitting-jobs.html"><a href="submitting-jobs.html#gpu-jobs"><i class="fa fa-check"></i><b>3.3.4</b> GPU Jobs</a></li>
+<li class="chapter" data-level="3.3.5" data-path="submitting-jobs.html"><a href="submitting-jobs.html#deleting-a-job"><i class="fa fa-check"></i><b>3.3.5</b> Deleting A Job</a></li>
+<li class="chapter" data-level="3.3.6" data-path="submitting-jobs.html"><a href="submitting-jobs.html#parsl-workflows"><i class="fa fa-check"></i><b>3.3.6</b> Parsl Workflows</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="parsl-workflows-1.html"><a href="parsl-workflows-1.html"><i class="fa fa-check"></i><b>4</b> Parsl Workflows</a><ul>
+<li class="chapter" data-level="4.1" data-path="parsl-workflows-1.html"><a href="parsl-workflows-1.html#about-parsl"><i class="fa fa-check"></i><b>4.1</b> About Parsl</a></li>
+<li class="chapter" data-level="4.2" data-path="parsl-workflows-1.html"><a href="parsl-workflows-1.html#using-parsl"><i class="fa fa-check"></i><b>4.2</b> Using Parsl</a></li>
+<li class="chapter" data-level="4.3" data-path="parsl-workflows-1.html"><a href="parsl-workflows-1.html#parsl-configuration"><i class="fa fa-check"></i><b>4.3</b> Parsl Configuration</a></li>
+<li class="chapter" data-level="4.4" data-path="parsl-workflows-1.html"><a href="parsl-workflows-1.html#defining-a-parsl-workflow"><i class="fa fa-check"></i><b>4.4</b> Defining a Parsl Workflow</a></li>
+<li class="chapter" data-level="4.5" data-path="parsl-workflows-1.html"><a href="parsl-workflows-1.html#running-a-parsl-workflow"><i class="fa fa-check"></i><b>4.5</b> Running a Parsl Workflow</a></li>
+<li class="chapter" data-level="4.6" data-path="parsl-workflows-1.html"><a href="parsl-workflows-1.html#video-tutorial"><i class="fa fa-check"></i><b>4.6</b> Video Tutorial</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="setting-up-groups.html"><a href="setting-up-groups.html"><i class="fa fa-check"></i><b>5</b> Setting up Groups</a><ul>
+<li class="chapter" data-level="5.1" data-path="setting-up-groups.html"><a href="setting-up-groups.html#senario-for-groups"><i class="fa fa-check"></i><b>5.1</b> Senario for Groups</a></li>
+<li class="chapter" data-level="5.2" data-path="setting-up-groups.html"><a href="setting-up-groups.html#procedures"><i class="fa fa-check"></i><b>5.2</b> Procedures</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="funcx-on-blt.html"><a href="funcx-on-blt.html"><i class="fa fa-check"></i><b>6</b> Funcx On BLT</a><ul>
+<li class="chapter" data-level="6.1" data-path="funcx-on-blt.html"><a href="funcx-on-blt.html#what-is-funcx"><i class="fa fa-check"></i><b>6.1</b> What is Funcx?</a></li>
+<li class="chapter" data-level="6.2" data-path="funcx-on-blt.html"><a href="funcx-on-blt.html#blt-funcx-offerings"><i class="fa fa-check"></i><b>6.2</b> BLT Funcx Offerings</a></li>
+<li class="chapter" data-level="6.3" data-path="funcx-on-blt.html"><a href="funcx-on-blt.html#how-to-use-funcx-on-blt"><i class="fa fa-check"></i><b>6.3</b> How to Use Funcx on BLT</a></li>
+</ul></li>
+<li class="appendix"><span><b>Appendix</b></span></li>
+<li class="chapter" data-level="A" data-path="job-history.html"><a href="job-history.html"><i class="fa fa-check"></i><b>A</b> Job History</a></li>
+<li class="chapter" data-level="B" data-path="admin-reference.html"><a href="admin-reference.html"><i class="fa fa-check"></i><b>B</b> Admin Reference</a><ul>
+<li class="chapter" data-level="B.0.1" data-path="admin-reference.html"><a href="admin-reference.html#software-installations-and-changes"><i class="fa fa-check"></i><b>B.0.1</b> Software Installations and Changes</a></li>
+<li class="chapter" data-level="B.0.2" data-path="admin-reference.html"><a href="admin-reference.html#general-notes"><i class="fa fa-check"></i><b>B.0.2</b> General Notes</a></li>
+<li class="chapter" data-level="B.0.3" data-path="admin-reference.html"><a href="admin-reference.html#sqlite3"><i class="fa fa-check"></i><b>B.0.3</b> SQLite3</a></li>
+<li class="chapter" data-level="B.0.4" data-path="admin-reference.html"><a href="admin-reference.html#a-note-on-python"><i class="fa fa-check"></i><b>B.0.4</b> A Note On Python</a></li>
+<li class="chapter" data-level="B.0.5" data-path="admin-reference.html"><a href="admin-reference.html#python36"><i class="fa fa-check"></i><b>B.0.5</b> Python36</a></li>
+<li class="chapter" data-level="B.0.6" data-path="admin-reference.html"><a href="admin-reference.html#jupyterhub-notebook-server"><i class="fa fa-check"></i><b>B.0.6</b> JupyterHub Notebook Server</a></li>
+<li class="chapter" data-level="B.0.7" data-path="admin-reference.html"><a href="admin-reference.html#apache-httpd-web-server"><i class="fa fa-check"></i><b>B.0.7</b> Apache Httpd Web Server</a></li>
+<li class="chapter" data-level="B.0.8" data-path="admin-reference.html"><a href="admin-reference.html#owncloud"><i class="fa fa-check"></i><b>B.0.8</b> OwnCloud</a></li>
+<li class="chapter" data-level="B.0.9" data-path="admin-reference.html"><a href="admin-reference.html#dropbox-cli"><i class="fa fa-check"></i><b>B.0.9</b> Dropbox CLI</a></li>
+<li class="chapter" data-level="B.0.10" data-path="admin-reference.html"><a href="admin-reference.html#shellinabox"><i class="fa fa-check"></i><b>B.0.10</b> Shellinabox</a></li>
+<li class="chapter" data-level="B.0.11" data-path="admin-reference.html"><a href="admin-reference.html#prottest"><i class="fa fa-check"></i><b>B.0.11</b> ProtTest</a></li>
+<li class="chapter" data-level="B.0.12" data-path="admin-reference.html"><a href="admin-reference.html#mrbayes"><i class="fa fa-check"></i><b>B.0.12</b> MrBayes</a></li>
+<li class="chapter" data-level="B.0.13" data-path="admin-reference.html"><a href="admin-reference.html#paml"><i class="fa fa-check"></i><b>B.0.13</b> PAML</a></li>
+<li class="chapter" data-level="B.0.14" data-path="admin-reference.html"><a href="admin-reference.html#modeller"><i class="fa fa-check"></i><b>B.0.14</b> MODELLER</a></li>
+<li class="chapter" data-level="B.0.15" data-path="admin-reference.html"><a href="admin-reference.html#star"><i class="fa fa-check"></i><b>B.0.15</b> STAR</a></li>
+<li class="chapter" data-level="B.0.16" data-path="admin-reference.html"><a href="admin-reference.html#raxml"><i class="fa fa-check"></i><b>B.0.16</b> RAxML</a></li>
+<li class="chapter" data-level="B.0.17" data-path="admin-reference.html"><a href="admin-reference.html#intel-opencl-runtime"><i class="fa fa-check"></i><b>B.0.17</b> Intel OpenCL Runtime</a></li>
+<li class="chapter" data-level="B.0.18" data-path="admin-reference.html"><a href="admin-reference.html#hashcat"><i class="fa fa-check"></i><b>B.0.18</b> Hashcat</a></li>
+<li class="chapter" data-level="B.0.19" data-path="admin-reference.html"><a href="admin-reference.html#set-up-procedure-for-classesprojects"><i class="fa fa-check"></i><b>B.0.19</b> Set up procedure for classes/projects</a></li>
+<li class="chapter" data-level="B.0.20" data-path="admin-reference.html"><a href="admin-reference.html#troubleshooting"><i class="fa fa-check"></i><b>B.0.20</b> Troubleshooting</a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Lewis &amp; Clark BLT Documentation</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="funcx-on-blt" class="section level1">
+<h1><span class="header-section-number">6</span> Funcx On BLT</h1>
+<div id="what-is-funcx" class="section level2">
+<h2><span class="header-section-number">6.1</span> What is Funcx?</h2>
+</div>
+<div id="blt-funcx-offerings" class="section level2">
+<h2><span class="header-section-number">6.2</span> BLT Funcx Offerings</h2>
+<p>If you ever need any help, feel free to join the HPC Slack Channel to ask questions: INSERT INVITE HERE</p>
+<p>Choose the endpoint that best suits your need. The current BLT endpoints available are as follows:</p>
+<pre><code>+---------------+----------------+--------------------------------------+
+| Endpoint Name |  Description   |             Endpoint ID              |
++===============+================+======================================+
+| blt_small     | 1 core         | 3c3f0b4f-4ae4-4241-8497-d7339972ff4a |
++---------------+----------------+--------------------------------------+
+| blt_medium    | 4 cores        | a145aa44-abfa-4ff8-8131-2097dcdb90e9 |
++---------------+----------------+--------------------------------------+
+| blt_large     | 8 cores        | f197c41b-95c3-44ae-8218-35b682319a64 |
++---------------+----------------+--------------------------------------+
+| blt_xlarge    | 16 cores       | b89de769-d0ce-446c-ae04-bdc19266b566 |
++---------------+----------------+--------------------------------------+
+| blt_wholenode | 48 cores       | d937af25-8a7e-46e7-a241-68ef4e86b576 |
++---------------+----------------+--------------------------------------+
+| blt_gpu       | 1 core + 1 gpu | 6d542cd1-140d-47c7-a26a-c0873ec15818 |
++---------------+----------------+--------------------------------------+</code></pre>
+</div>
+<div id="how-to-use-funcx-on-blt" class="section level2">
+<h2><span class="header-section-number">6.3</span> How to Use Funcx on BLT</h2>
+<p>We recommend that you setup a virtual environment. This step is optional and only a suggestion.</p>
+<pre><code>pip[3] install virtualenv
+virtualenv funcx
+source funcx/bin/activate</code></pre>
+<p>You can name your virtual environment whatever you like. Once you either setup a virtual environment or not, continue on to running your program. Before you do so, you will need to install the funcx module for Python. You will only have to do this on your first time (NOTE: requires at least Python 3.6):</p>
+<pre><code>pip[3] install funcx</code></pre>
+<p>Next, run Python3 or ipython3 in a terminal and enter in the following lines:</p>
+<pre><code>from funcx.sdk.client import FuncXClient    
+fxc = FuncXClient()</code></pre>
+<p>Here, you are initializing your connection to funcx. After you enter these lines of code, you will be given a URL. Copy and paste the URL into a web browser, and follow the instructions. When prompted to, log in with your Lewis &amp; Clark credentials. Once you log in, it will output an authorization code. Copy and paste it back into the terminal. Next, you will need to Globus Group using <a href="https://app.globus.org/groups/c1f52348-140b-11eb-b43d-0ebeaabad955/about">this</a> link. Both of these actions will only have to be completed on your first time. However, it is possible you may need to log in again.</p>
+<p>The next step is to define a function containing the program you would like to run. As an example:</p>
+<pre><code>def your_program():
+  return &quot;This is your program!&quot;</code></pre>
+<p>On the next line, you will register your function with Funcx and get an ID for your function. Enter in the name of the function you defined where it says “your_program”:</p>
+<pre><code>func_uuid = fxc.register_function(your_program)</code></pre>
+<p>Next, you will define which endpoint you will be using for you work. From the list of available endpoints (see above), select the one which will best suit your needs. Once chosen, copy and paste the Endpoint ID and replace “your_endpoint_id” with the unique ID:</p>
+<pre><code>blt_ep = &quot;your_endpoint_id&quot;</code></pre>
+<p>For example:</p>
+<pre><code>blt_endpoint = &quot;8e1bc858-feda-42b3-8b7a-5a058c0ef6ec&quot;</code></pre>
+<p>The second to last step is to send your program to BLT. Doing this will run your function on the selected Endpoint:</p>
+<pre><code>res = fxc.run(endpoint_id=blt_endpoint, function_id=func_uuid)</code></pre>
+<p>NOTE:
+An exception will occur, and this is normal. This does not mean that something went wrong and this should happen. It will look something like this:</p>
+<pre><code>GlobusHTTPResponse({&#39;status&#39;: &#39;Success&#39;, &#39;task_uuid&#39;: &#39;185f1bc7-33c8-450f-aea0-f8d865af6eec&#39;, &#39;task_uuids&#39;: [&#39;185f1bc7-33c8-450f-aea0-f8d865af6eec&#39;]})</code></pre>
+<p>It may take several minutes for BLT to prepare your results. After waiting, enter in the final line of code to obtain your result:</p>
+<pre><code>print(fxc.get_result(res))</code></pre>
+<p>Congrats! You just ran a program on BLT!
+## External Links</p>
+
+</div>
+</div>
+
+
+
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="setting-up-groups.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="job-history.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>
