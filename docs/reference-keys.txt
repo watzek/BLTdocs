@@ -56,3 +56,4 @@ intel-opencl-runtime
 hashcat
 set-up-procedure-for-classesprojects
 troubleshooting
+note
