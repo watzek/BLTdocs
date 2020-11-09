@@ -115,6 +115,7 @@
 <li class="chapter" data-level="6.1" data-path="funcx-on-blt.html"><a href="funcx-on-blt.html#what-is-funcx"><i class="fa fa-check"></i><b>6.1</b> What is Funcx?</a></li>
 <li class="chapter" data-level="6.2" data-path="funcx-on-blt.html"><a href="funcx-on-blt.html#blt-funcx-offerings"><i class="fa fa-check"></i><b>6.2</b> BLT Funcx Offerings</a></li>
 <li class="chapter" data-level="6.3" data-path="funcx-on-blt.html"><a href="funcx-on-blt.html#how-to-use-funcx-on-blt"><i class="fa fa-check"></i><b>6.3</b> How to Use Funcx on BLT</a></li>
+<li class="chapter" data-level="6.4" data-path="funcx-on-blt.html"><a href="funcx-on-blt.html#external-links"><i class="fa fa-check"></i><b>6.4</b> External Links</a></li>
 </ul></li>
 <li class="appendix"><span><b>Appendix</b></span></li>
 <li class="chapter" data-level="A" data-path="job-history.html"><a href="job-history.html"><i class="fa fa-check"></i><b>A</b> Job History</a></li>
@@ -164,6 +165,8 @@
 <h1><span class="header-section-number">6</span> Funcx On BLT</h1>
 <div id="what-is-funcx" class="section level2">
 <h2><span class="header-section-number">6.1</span> What is Funcx?</h2>
+<p>Funcx is a scientific functions-as-a-service project hosted jointly between Argonne National Lab and the University of Chicago. The goal is to provide an infrastructure-light way to interact with HPC resources. It is a High performance function serving system designed to orchestrate scientific workloads across heterogeneous computing resources, from laptops and local servers, through to campus clusters, clouds, and supercomputers.</p>
+<p>Lewis &amp; Clark maintains a deployment of Funcx connecteed to the BLT research computing cluster.</p>
 </div>
 <div id="blt-funcx-offerings" class="section level2">
 <h2><span class="header-section-number">6.2</span> BLT Funcx Offerings</h2>
@@ -213,8 +216,16 @@ An exception will occur, and this is normal. This does not mean that something w
 <pre><code>GlobusHTTPResponse({&#39;status&#39;: &#39;Success&#39;, &#39;task_uuid&#39;: &#39;185f1bc7-33c8-450f-aea0-f8d865af6eec&#39;, &#39;task_uuids&#39;: [&#39;185f1bc7-33c8-450f-aea0-f8d865af6eec&#39;]})</code></pre>
 <p>It may take several minutes for BLT to prepare your results. After waiting, enter in the final line of code to obtain your result:</p>
 <pre><code>print(fxc.get_result(res))</code></pre>
-<p>Congrats! You just ran a program on BLT!
-## External Links</p>
+<p>Congrats! You just ran a program on BLT!</p>
+</div>
+<div id="external-links" class="section level2">
+<h2><span class="header-section-number">6.4</span> External Links</h2>
+<p>For a simple example of BLT funcx configuration and admin setup, see <a href="https://github.com/benhg/blt-funcx-demo">this link</a>.</p>
+<p>For LC-specific Funcx management tools, see <a href="https://github.com/watzek/funcx-management-scripts">this link</a>.</p>
+<p>For help with learning to use funcx, see <a href="https://mybinder.org/v2/gh/funcx-faas/funcx/master?filepath=examples%2FTutorial.ipynb">this link</a>.</p>
+<p>Also, see the official <a href="https://funcx.readthedocs.io/en/latest/client.html#">funcx client docs</a>.</p>
+<p>For help setting up funcx, see <a href="https://funcx.readthedocs.io/en/latest/quickstart.html">this link</a>.</p>
+<p>For a comprehensive guide on all of the features of FuncX, see the <a href="https://funcx.readthedocs.io/en/latest/">Official Docs.</a></p>
 
 </div>
 </div>

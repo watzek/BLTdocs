@@ -1,6 +1,15 @@
+---
+output:
+  pdf_document: default
+  html_document: default
+---
 # Funcx On BLT
 
 ## What is Funcx?
+
+Funcx is a scientific functions-as-a-service project hosted jointly between Argonne National Lab and the University of Chicago. The goal is to provide an infrastructure-light way to interact with HPC resources. It is a High performance function serving system designed to orchestrate scientific workloads across heterogeneous computing resources, from laptops and local servers, through to campus clusters, clouds, and supercomputers.
+
+Lewis & Clark maintains a deployment of Funcx connecteed to the BLT research computing cluster.
 
 ## BLT Funcx Offerings
 If you ever need any help, feel free to join the HPC Slack Channel to ask questions: INSERT INVITE HERE
@@ -73,4 +82,17 @@ It may take several minutes for BLT to prepare your results. After waiting, ente
 print(fxc.get_result(res))
 ```
 Congrats! You just ran a program on BLT!
+
 ## External Links
+
+For a simple example of BLT funcx configuration and admin setup, see [this link](https://github.com/benhg/blt-funcx-demo).
+
+For LC-specific Funcx management tools, see [this link](https://github.com/watzek/funcx-management-scripts).
+
+For help with learning to use funcx, see [this link](https://mybinder.org/v2/gh/funcx-faas/funcx/master?filepath=examples%2FTutorial.ipynb).
+
+Also, see the official [funcx client docs](https://funcx.readthedocs.io/en/latest/client.html#).
+
+For help setting up funcx, see [this link](https://funcx.readthedocs.io/en/latest/quickstart.html).
+
+For a comprehensive guide on all of the features of FuncX, see the [Official Docs.](https://funcx.readthedocs.io/en/latest/)
