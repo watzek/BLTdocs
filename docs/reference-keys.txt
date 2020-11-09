@@ -31,7 +31,6 @@ procedures
 funcx-on-blt
 what-is-funcx
 blt-funcx-offerings
-how-to-configure-funcx
 how-to-use-funcx-on-blt
 external-links
 job-history
@@ -56,4 +55,3 @@ intel-opencl-runtime
 hashcat
 set-up-procedure-for-classesprojects
 troubleshooting
-note
