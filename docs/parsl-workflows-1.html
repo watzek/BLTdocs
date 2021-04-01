@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>4 Parsl Workflows | Lewis &amp; Clark BLT Documentation</title>
   <meta name="description" content="Documentation for using the Lewis &amp; Clark BLT computing cluster" />
-  <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.21.9 and GitBook 2.6.7" />
 
   <meta property="og:title" content="4 Parsl Workflows | Lewis &amp; Clark BLT Documentation" />
   <meta property="og:type" content="book" />
@@ -24,7 +24,7 @@
 <meta name="author" content="Ben Glick, Jeremy McWilliams, others!" />
 
 
-<meta name="date" content="2020-11-08" />
+<meta name="date" content="2021-04-01" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -33,6 +33,7 @@
   
 <link rel="prev" href="submitting-jobs.html"/>
 <link rel="next" href="setting-up-groups.html"/>
+<script src="libs/header-attrs-2.7/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -50,9 +51,9 @@
 
 
 
-<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
-<link href="libs/anchor-sections-1.0/anchor-sections.css" rel="stylesheet" />
-<script src="libs/anchor-sections-1.0/anchor-sections.js"></script>
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+
 
 
 
@@ -74,32 +75,39 @@
 
 <li class="divider"></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Introduction</a></li>
-<li class="chapter" data-level="1" data-path="about-the-cluster.html"><a href="about-the-cluster.html"><i class="fa fa-check"></i><b>1</b> About the Cluster</a><ul>
+<li class="chapter" data-level="1" data-path="about-the-cluster.html"><a href="about-the-cluster.html"><i class="fa fa-check"></i><b>1</b> About the Cluster</a>
+<ul>
 <li class="chapter" data-level="1.1" data-path="about-the-cluster.html"><a href="about-the-cluster.html#cluster-facts"><i class="fa fa-check"></i><b>1.1</b> Cluster Facts</a></li>
 <li class="chapter" data-level="1.2" data-path="about-the-cluster.html"><a href="about-the-cluster.html#interacting-with-the-login-node"><i class="fa fa-check"></i><b>1.2</b> Interacting with the Login Node</a></li>
 </ul></li>
-<li class="chapter" data-level="2" data-path="getting-connected.html"><a href="getting-connected.html"><i class="fa fa-check"></i><b>2</b> Getting Connected</a><ul>
+<li class="chapter" data-level="2" data-path="getting-connected.html"><a href="getting-connected.html"><i class="fa fa-check"></i><b>2</b> Getting Connected</a>
+<ul>
 <li class="chapter" data-level="2.1" data-path="getting-connected.html"><a href="getting-connected.html#accounts"><i class="fa fa-check"></i><b>2.1</b> Accounts</a></li>
-<li class="chapter" data-level="2.2" data-path="getting-connected.html"><a href="getting-connected.html#getting-on-the-network"><i class="fa fa-check"></i><b>2.2</b> Getting on the network</a><ul>
+<li class="chapter" data-level="2.2" data-path="getting-connected.html"><a href="getting-connected.html#getting-on-the-network"><i class="fa fa-check"></i><b>2.2</b> Getting on the network</a>
+<ul>
 <li class="chapter" data-level="2.2.1" data-path="getting-connected.html"><a href="getting-connected.html#for-windows-and-osx-users"><i class="fa fa-check"></i><b>2.2.1</b> For Windows and OSX Users</a></li>
 <li class="chapter" data-level="2.2.2" data-path="getting-connected.html"><a href="getting-connected.html#for-linux-users"><i class="fa fa-check"></i><b>2.2.2</b> For Linux Users</a></li>
 </ul></li>
 <li class="chapter" data-level="2.3" data-path="getting-connected.html"><a href="getting-connected.html#logging-in"><i class="fa fa-check"></i><b>2.3</b> Logging In</a></li>
 <li class="chapter" data-level="2.4" data-path="getting-connected.html"><a href="getting-connected.html#adding-files-to-your-home-directory"><i class="fa fa-check"></i><b>2.4</b> Adding Files to Your Home Directory</a></li>
 </ul></li>
-<li class="chapter" data-level="3" data-path="submitting-jobs.html"><a href="submitting-jobs.html"><i class="fa fa-check"></i><b>3</b> Submitting Jobs</a><ul>
+<li class="chapter" data-level="3" data-path="submitting-jobs.html"><a href="submitting-jobs.html"><i class="fa fa-check"></i><b>3</b> Submitting Jobs</a>
+<ul>
 <li class="chapter" data-level="3.1" data-path="submitting-jobs.html"><a href="submitting-jobs.html#checking-usage"><i class="fa fa-check"></i><b>3.1</b> Checking Usage</a></li>
 <li class="chapter" data-level="3.2" data-path="submitting-jobs.html"><a href="submitting-jobs.html#a-note-on-data"><i class="fa fa-check"></i><b>3.2</b> A Note on Data</a></li>
-<li class="chapter" data-level="3.3" data-path="submitting-jobs.html"><a href="submitting-jobs.html#jobs-on-the-blt-cluster"><i class="fa fa-check"></i><b>3.3</b> Jobs on the BLT Cluster</a><ul>
-<li class="chapter" data-level="3.3.1" data-path="submitting-jobs.html"><a href="submitting-jobs.html#grid-engine"><i class="fa fa-check"></i><b>3.3.1</b> Grid Engine</a></li>
-<li class="chapter" data-level="3.3.2" data-path="submitting-jobs.html"><a href="submitting-jobs.html#batch-jobs"><i class="fa fa-check"></i><b>3.3.2</b> Batch Jobs</a></li>
-<li class="chapter" data-level="3.3.3" data-path="submitting-jobs.html"><a href="submitting-jobs.html#parallel-jobs"><i class="fa fa-check"></i><b>3.3.3</b> Parallel Jobs</a></li>
-<li class="chapter" data-level="3.3.4" data-path="submitting-jobs.html"><a href="submitting-jobs.html#gpu-jobs"><i class="fa fa-check"></i><b>3.3.4</b> GPU Jobs</a></li>
-<li class="chapter" data-level="3.3.5" data-path="submitting-jobs.html"><a href="submitting-jobs.html#deleting-a-job"><i class="fa fa-check"></i><b>3.3.5</b> Deleting A Job</a></li>
-<li class="chapter" data-level="3.3.6" data-path="submitting-jobs.html"><a href="submitting-jobs.html#parsl-workflows"><i class="fa fa-check"></i><b>3.3.6</b> Parsl Workflows</a></li>
+<li class="chapter" data-level="3.3" data-path="submitting-jobs.html"><a href="submitting-jobs.html#running-python-in-virtual-environments"><i class="fa fa-check"></i><b>3.3</b> Running Python in Virtual Environments</a></li>
+<li class="chapter" data-level="3.4" data-path="submitting-jobs.html"><a href="submitting-jobs.html#jobs-on-the-blt-cluster"><i class="fa fa-check"></i><b>3.4</b> Jobs on the BLT Cluster</a>
+<ul>
+<li class="chapter" data-level="3.4.1" data-path="submitting-jobs.html"><a href="submitting-jobs.html#grid-engine"><i class="fa fa-check"></i><b>3.4.1</b> Grid Engine</a></li>
+<li class="chapter" data-level="3.4.2" data-path="submitting-jobs.html"><a href="submitting-jobs.html#batch-jobs"><i class="fa fa-check"></i><b>3.4.2</b> Batch Jobs</a></li>
+<li class="chapter" data-level="3.4.3" data-path="submitting-jobs.html"><a href="submitting-jobs.html#parallel-jobs"><i class="fa fa-check"></i><b>3.4.3</b> Parallel Jobs</a></li>
+<li class="chapter" data-level="3.4.4" data-path="submitting-jobs.html"><a href="submitting-jobs.html#gpu-jobs"><i class="fa fa-check"></i><b>3.4.4</b> GPU Jobs</a></li>
+<li class="chapter" data-level="3.4.5" data-path="submitting-jobs.html"><a href="submitting-jobs.html#deleting-a-job"><i class="fa fa-check"></i><b>3.4.5</b> Deleting A Job</a></li>
+<li class="chapter" data-level="3.4.6" data-path="submitting-jobs.html"><a href="submitting-jobs.html#parsl-workflows"><i class="fa fa-check"></i><b>3.4.6</b> Parsl Workflows</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="parsl-workflows-1.html"><a href="parsl-workflows-1.html"><i class="fa fa-check"></i><b>4</b> Parsl Workflows</a><ul>
+<li class="chapter" data-level="4" data-path="parsl-workflows-1.html"><a href="parsl-workflows-1.html"><i class="fa fa-check"></i><b>4</b> Parsl Workflows</a>
+<ul>
 <li class="chapter" data-level="4.1" data-path="parsl-workflows-1.html"><a href="parsl-workflows-1.html#about-parsl"><i class="fa fa-check"></i><b>4.1</b> About Parsl</a></li>
 <li class="chapter" data-level="4.2" data-path="parsl-workflows-1.html"><a href="parsl-workflows-1.html#using-parsl"><i class="fa fa-check"></i><b>4.2</b> Using Parsl</a></li>
 <li class="chapter" data-level="4.3" data-path="parsl-workflows-1.html"><a href="parsl-workflows-1.html#parsl-configuration"><i class="fa fa-check"></i><b>4.3</b> Parsl Configuration</a></li>
@@ -107,11 +115,13 @@
 <li class="chapter" data-level="4.5" data-path="parsl-workflows-1.html"><a href="parsl-workflows-1.html#running-a-parsl-workflow"><i class="fa fa-check"></i><b>4.5</b> Running a Parsl Workflow</a></li>
 <li class="chapter" data-level="4.6" data-path="parsl-workflows-1.html"><a href="parsl-workflows-1.html#video-tutorial"><i class="fa fa-check"></i><b>4.6</b> Video Tutorial</a></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="setting-up-groups.html"><a href="setting-up-groups.html"><i class="fa fa-check"></i><b>5</b> Setting up Groups</a><ul>
+<li class="chapter" data-level="5" data-path="setting-up-groups.html"><a href="setting-up-groups.html"><i class="fa fa-check"></i><b>5</b> Setting up Groups</a>
+<ul>
 <li class="chapter" data-level="5.1" data-path="setting-up-groups.html"><a href="setting-up-groups.html#senario-for-groups"><i class="fa fa-check"></i><b>5.1</b> Senario for Groups</a></li>
 <li class="chapter" data-level="5.2" data-path="setting-up-groups.html"><a href="setting-up-groups.html#procedures"><i class="fa fa-check"></i><b>5.2</b> Procedures</a></li>
 </ul></li>
-<li class="chapter" data-level="6" data-path="funcx-on-blt.html"><a href="funcx-on-blt.html"><i class="fa fa-check"></i><b>6</b> Funcx On BLT</a><ul>
+<li class="chapter" data-level="6" data-path="funcx-on-blt.html"><a href="funcx-on-blt.html"><i class="fa fa-check"></i><b>6</b> Funcx On BLT</a>
+<ul>
 <li class="chapter" data-level="6.1" data-path="funcx-on-blt.html"><a href="funcx-on-blt.html#what-is-funcx"><i class="fa fa-check"></i><b>6.1</b> What is Funcx?</a></li>
 <li class="chapter" data-level="6.2" data-path="funcx-on-blt.html"><a href="funcx-on-blt.html#blt-funcx-offerings"><i class="fa fa-check"></i><b>6.2</b> BLT Funcx Offerings</a></li>
 <li class="chapter" data-level="6.3" data-path="funcx-on-blt.html"><a href="funcx-on-blt.html#how-to-use-funcx-on-blt"><i class="fa fa-check"></i><b>6.3</b> How to Use Funcx on BLT</a></li>
@@ -119,7 +129,8 @@
 </ul></li>
 <li class="appendix"><span><b>Appendix</b></span></li>
 <li class="chapter" data-level="A" data-path="job-history.html"><a href="job-history.html"><i class="fa fa-check"></i><b>A</b> Job History</a></li>
-<li class="chapter" data-level="B" data-path="admin-reference.html"><a href="admin-reference.html"><i class="fa fa-check"></i><b>B</b> Admin Reference</a><ul>
+<li class="chapter" data-level="B" data-path="admin-reference.html"><a href="admin-reference.html"><i class="fa fa-check"></i><b>B</b> Admin Reference</a>
+<ul>
 <li class="chapter" data-level="B.0.1" data-path="admin-reference.html"><a href="admin-reference.html#software-installations-and-changes"><i class="fa fa-check"></i><b>B.0.1</b> Software Installations and Changes</a></li>
 <li class="chapter" data-level="B.0.2" data-path="admin-reference.html"><a href="admin-reference.html#general-notes"><i class="fa fa-check"></i><b>B.0.2</b> General Notes</a></li>
 <li class="chapter" data-level="B.0.3" data-path="admin-reference.html"><a href="admin-reference.html#sqlite3"><i class="fa fa-check"></i><b>B.0.3</b> SQLite3</a></li>
@@ -161,17 +172,17 @@
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="parsl-workflows-1" class="section level1">
+<div id="parsl-workflows-1" class="section level1" number="4">
 <h1><span class="header-section-number">4</span> Parsl Workflows</h1>
-<div id="about-parsl" class="section level2">
+<div id="about-parsl" class="section level2" number="4.1">
 <h2><span class="header-section-number">4.1</span> About Parsl</h2>
 <p>Parsl is a Python-based parallel scripting library that supports development and execution of asynchronous and parallel data-oriented workflows (dataflows). These workflows glue together existing executables (called Apps) and Python functions with control logic written in Python. Parsl brings implicit parallel execution to standard Python scripts. Parsl documentation is available (here)[<a href="http://parsl.readthedocs.io/en/latest/" class="uri">http://parsl.readthedocs.io/en/latest/</a>].</p>
 </div>
-<div id="using-parsl" class="section level2">
+<div id="using-parsl" class="section level2" number="4.2">
 <h2><span class="header-section-number">4.2</span> Using Parsl</h2>
 <p>Using parsl is a lot like using plain python. You define scripts that can be run the same way as you would normally run a python script: <code>python3 parsl_script.py</code>. The main difference with parsl scripts is that they don’t execute on the machine they are run from. The parsl script will provision itself resources on the worker nodes of the cluster and manage where to run jobs without any human intervention. To accomplish this, instead of returning results directly, parsl returns futures. A future is a promise that a function will return a value, usually of a specific type. The future allows parsl to have an understanding of what will be returned from all of the apps it needs to run. This helps parsl to calculate what apps can be run at the same time.</p>
 </div>
-<div id="parsl-configuration" class="section level2">
+<div id="parsl-configuration" class="section level2" number="4.3">
 <h2><span class="header-section-number">4.3</span> Parsl Configuration</h2>
 <p>Parsl requires a configuration in order to understand what kind of an environment in which it is running. On this system, the configuration should be very similar to the example below:</p>
 <pre><code>config = {
@@ -205,7 +216,7 @@
 <p>The parsl configuration is a python object, so the example can be pasted into your python script at the top, along with the following line of code:</p>
 <pre><code>dfk = DataFlowKernel(config=config)</code></pre>
 </div>
-<div id="defining-a-parsl-workflow" class="section level2">
+<div id="defining-a-parsl-workflow" class="section level2" number="4.4">
 <h2><span class="header-section-number">4.4</span> Defining a Parsl Workflow</h2>
 <p>After that, you are ready to start defining your workflow. Here is an example workflow which calculates pi by generating random numbers:</p>
 <pre><code>@App(&#39;python&#39;, dfk)
@@ -244,11 +255,11 @@ if __name__ == &#39;__main__&#39;:
 <p>Second, the apps which take inputs have a special reserved parameter (<code>inputs</code>), which you can pass parsl futures into. Passing a future into an app will make the app wait for the result of the future before it runs the app.</p>
 <p>Another important thing to remember is that all packages you use (anything you would use the <code>import</code> statement for) must be imported from within the app, otherwise it will not be accessible from the worker. You can see this in the example here with the <code>random</code> library.</p>
 </div>
-<div id="running-a-parsl-workflow" class="section level2">
+<div id="running-a-parsl-workflow" class="section level2" number="4.5">
 <h2><span class="header-section-number">4.5</span> Running a Parsl Workflow</h2>
 <p>After you have the proper configuration and workflow definition, you are ready to run your workflow! Make sure the workflow is in a python file on the login node (mayo) and run it like this: <code>python3 /path/to/your/workflow/file</code></p>
 </div>
-<div id="video-tutorial" class="section level2">
+<div id="video-tutorial" class="section level2" number="4.6">
 <h2><span class="header-section-number">4.6</span> Video Tutorial</h2>
 <p>coming soon….</p>
 

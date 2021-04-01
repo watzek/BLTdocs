@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>3 Submitting Jobs | Lewis &amp; Clark BLT Documentation</title>
   <meta name="description" content="Documentation for using the Lewis &amp; Clark BLT computing cluster" />
-  <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.21.9 and GitBook 2.6.7" />
 
   <meta property="og:title" content="3 Submitting Jobs | Lewis &amp; Clark BLT Documentation" />
   <meta property="og:type" content="book" />
@@ -24,7 +24,7 @@
 <meta name="author" content="Ben Glick, Jeremy McWilliams, others!" />
 
 
-<meta name="date" content="2020-11-08" />
+<meta name="date" content="2021-04-01" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -33,6 +33,7 @@
   
 <link rel="prev" href="getting-connected.html"/>
 <link rel="next" href="parsl-workflows-1.html"/>
+<script src="libs/header-attrs-2.7/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -50,9 +51,9 @@
 
 
 
-<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
-<link href="libs/anchor-sections-1.0/anchor-sections.css" rel="stylesheet" />
-<script src="libs/anchor-sections-1.0/anchor-sections.js"></script>
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+
 
 
 
@@ -74,32 +75,39 @@
 
 <li class="divider"></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Introduction</a></li>
-<li class="chapter" data-level="1" data-path="about-the-cluster.html"><a href="about-the-cluster.html"><i class="fa fa-check"></i><b>1</b> About the Cluster</a><ul>
+<li class="chapter" data-level="1" data-path="about-the-cluster.html"><a href="about-the-cluster.html"><i class="fa fa-check"></i><b>1</b> About the Cluster</a>
+<ul>
 <li class="chapter" data-level="1.1" data-path="about-the-cluster.html"><a href="about-the-cluster.html#cluster-facts"><i class="fa fa-check"></i><b>1.1</b> Cluster Facts</a></li>
 <li class="chapter" data-level="1.2" data-path="about-the-cluster.html"><a href="about-the-cluster.html#interacting-with-the-login-node"><i class="fa fa-check"></i><b>1.2</b> Interacting with the Login Node</a></li>
 </ul></li>
-<li class="chapter" data-level="2" data-path="getting-connected.html"><a href="getting-connected.html"><i class="fa fa-check"></i><b>2</b> Getting Connected</a><ul>
+<li class="chapter" data-level="2" data-path="getting-connected.html"><a href="getting-connected.html"><i class="fa fa-check"></i><b>2</b> Getting Connected</a>
+<ul>
 <li class="chapter" data-level="2.1" data-path="getting-connected.html"><a href="getting-connected.html#accounts"><i class="fa fa-check"></i><b>2.1</b> Accounts</a></li>
-<li class="chapter" data-level="2.2" data-path="getting-connected.html"><a href="getting-connected.html#getting-on-the-network"><i class="fa fa-check"></i><b>2.2</b> Getting on the network</a><ul>
+<li class="chapter" data-level="2.2" data-path="getting-connected.html"><a href="getting-connected.html#getting-on-the-network"><i class="fa fa-check"></i><b>2.2</b> Getting on the network</a>
+<ul>
 <li class="chapter" data-level="2.2.1" data-path="getting-connected.html"><a href="getting-connected.html#for-windows-and-osx-users"><i class="fa fa-check"></i><b>2.2.1</b> For Windows and OSX Users</a></li>
 <li class="chapter" data-level="2.2.2" data-path="getting-connected.html"><a href="getting-connected.html#for-linux-users"><i class="fa fa-check"></i><b>2.2.2</b> For Linux Users</a></li>
 </ul></li>
 <li class="chapter" data-level="2.3" data-path="getting-connected.html"><a href="getting-connected.html#logging-in"><i class="fa fa-check"></i><b>2.3</b> Logging In</a></li>
 <li class="chapter" data-level="2.4" data-path="getting-connected.html"><a href="getting-connected.html#adding-files-to-your-home-directory"><i class="fa fa-check"></i><b>2.4</b> Adding Files to Your Home Directory</a></li>
 </ul></li>
-<li class="chapter" data-level="3" data-path="submitting-jobs.html"><a href="submitting-jobs.html"><i class="fa fa-check"></i><b>3</b> Submitting Jobs</a><ul>
+<li class="chapter" data-level="3" data-path="submitting-jobs.html"><a href="submitting-jobs.html"><i class="fa fa-check"></i><b>3</b> Submitting Jobs</a>
+<ul>
 <li class="chapter" data-level="3.1" data-path="submitting-jobs.html"><a href="submitting-jobs.html#checking-usage"><i class="fa fa-check"></i><b>3.1</b> Checking Usage</a></li>
 <li class="chapter" data-level="3.2" data-path="submitting-jobs.html"><a href="submitting-jobs.html#a-note-on-data"><i class="fa fa-check"></i><b>3.2</b> A Note on Data</a></li>
-<li class="chapter" data-level="3.3" data-path="submitting-jobs.html"><a href="submitting-jobs.html#jobs-on-the-blt-cluster"><i class="fa fa-check"></i><b>3.3</b> Jobs on the BLT Cluster</a><ul>
-<li class="chapter" data-level="3.3.1" data-path="submitting-jobs.html"><a href="submitting-jobs.html#grid-engine"><i class="fa fa-check"></i><b>3.3.1</b> Grid Engine</a></li>
-<li class="chapter" data-level="3.3.2" data-path="submitting-jobs.html"><a href="submitting-jobs.html#batch-jobs"><i class="fa fa-check"></i><b>3.3.2</b> Batch Jobs</a></li>
-<li class="chapter" data-level="3.3.3" data-path="submitting-jobs.html"><a href="submitting-jobs.html#parallel-jobs"><i class="fa fa-check"></i><b>3.3.3</b> Parallel Jobs</a></li>
-<li class="chapter" data-level="3.3.4" data-path="submitting-jobs.html"><a href="submitting-jobs.html#gpu-jobs"><i class="fa fa-check"></i><b>3.3.4</b> GPU Jobs</a></li>
-<li class="chapter" data-level="3.3.5" data-path="submitting-jobs.html"><a href="submitting-jobs.html#deleting-a-job"><i class="fa fa-check"></i><b>3.3.5</b> Deleting A Job</a></li>
-<li class="chapter" data-level="3.3.6" data-path="submitting-jobs.html"><a href="submitting-jobs.html#parsl-workflows"><i class="fa fa-check"></i><b>3.3.6</b> Parsl Workflows</a></li>
+<li class="chapter" data-level="3.3" data-path="submitting-jobs.html"><a href="submitting-jobs.html#running-python-in-virtual-environments"><i class="fa fa-check"></i><b>3.3</b> Running Python in Virtual Environments</a></li>
+<li class="chapter" data-level="3.4" data-path="submitting-jobs.html"><a href="submitting-jobs.html#jobs-on-the-blt-cluster"><i class="fa fa-check"></i><b>3.4</b> Jobs on the BLT Cluster</a>
+<ul>
+<li class="chapter" data-level="3.4.1" data-path="submitting-jobs.html"><a href="submitting-jobs.html#grid-engine"><i class="fa fa-check"></i><b>3.4.1</b> Grid Engine</a></li>
+<li class="chapter" data-level="3.4.2" data-path="submitting-jobs.html"><a href="submitting-jobs.html#batch-jobs"><i class="fa fa-check"></i><b>3.4.2</b> Batch Jobs</a></li>
+<li class="chapter" data-level="3.4.3" data-path="submitting-jobs.html"><a href="submitting-jobs.html#parallel-jobs"><i class="fa fa-check"></i><b>3.4.3</b> Parallel Jobs</a></li>
+<li class="chapter" data-level="3.4.4" data-path="submitting-jobs.html"><a href="submitting-jobs.html#gpu-jobs"><i class="fa fa-check"></i><b>3.4.4</b> GPU Jobs</a></li>
+<li class="chapter" data-level="3.4.5" data-path="submitting-jobs.html"><a href="submitting-jobs.html#deleting-a-job"><i class="fa fa-check"></i><b>3.4.5</b> Deleting A Job</a></li>
+<li class="chapter" data-level="3.4.6" data-path="submitting-jobs.html"><a href="submitting-jobs.html#parsl-workflows"><i class="fa fa-check"></i><b>3.4.6</b> Parsl Workflows</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="parsl-workflows-1.html"><a href="parsl-workflows-1.html"><i class="fa fa-check"></i><b>4</b> Parsl Workflows</a><ul>
+<li class="chapter" data-level="4" data-path="parsl-workflows-1.html"><a href="parsl-workflows-1.html"><i class="fa fa-check"></i><b>4</b> Parsl Workflows</a>
+<ul>
 <li class="chapter" data-level="4.1" data-path="parsl-workflows-1.html"><a href="parsl-workflows-1.html#about-parsl"><i class="fa fa-check"></i><b>4.1</b> About Parsl</a></li>
 <li class="chapter" data-level="4.2" data-path="parsl-workflows-1.html"><a href="parsl-workflows-1.html#using-parsl"><i class="fa fa-check"></i><b>4.2</b> Using Parsl</a></li>
 <li class="chapter" data-level="4.3" data-path="parsl-workflows-1.html"><a href="parsl-workflows-1.html#parsl-configuration"><i class="fa fa-check"></i><b>4.3</b> Parsl Configuration</a></li>
@@ -107,11 +115,13 @@
 <li class="chapter" data-level="4.5" data-path="parsl-workflows-1.html"><a href="parsl-workflows-1.html#running-a-parsl-workflow"><i class="fa fa-check"></i><b>4.5</b> Running a Parsl Workflow</a></li>
 <li class="chapter" data-level="4.6" data-path="parsl-workflows-1.html"><a href="parsl-workflows-1.html#video-tutorial"><i class="fa fa-check"></i><b>4.6</b> Video Tutorial</a></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="setting-up-groups.html"><a href="setting-up-groups.html"><i class="fa fa-check"></i><b>5</b> Setting up Groups</a><ul>
+<li class="chapter" data-level="5" data-path="setting-up-groups.html"><a href="setting-up-groups.html"><i class="fa fa-check"></i><b>5</b> Setting up Groups</a>
+<ul>
 <li class="chapter" data-level="5.1" data-path="setting-up-groups.html"><a href="setting-up-groups.html#senario-for-groups"><i class="fa fa-check"></i><b>5.1</b> Senario for Groups</a></li>
 <li class="chapter" data-level="5.2" data-path="setting-up-groups.html"><a href="setting-up-groups.html#procedures"><i class="fa fa-check"></i><b>5.2</b> Procedures</a></li>
 </ul></li>
-<li class="chapter" data-level="6" data-path="funcx-on-blt.html"><a href="funcx-on-blt.html"><i class="fa fa-check"></i><b>6</b> Funcx On BLT</a><ul>
+<li class="chapter" data-level="6" data-path="funcx-on-blt.html"><a href="funcx-on-blt.html"><i class="fa fa-check"></i><b>6</b> Funcx On BLT</a>
+<ul>
 <li class="chapter" data-level="6.1" data-path="funcx-on-blt.html"><a href="funcx-on-blt.html#what-is-funcx"><i class="fa fa-check"></i><b>6.1</b> What is Funcx?</a></li>
 <li class="chapter" data-level="6.2" data-path="funcx-on-blt.html"><a href="funcx-on-blt.html#blt-funcx-offerings"><i class="fa fa-check"></i><b>6.2</b> BLT Funcx Offerings</a></li>
 <li class="chapter" data-level="6.3" data-path="funcx-on-blt.html"><a href="funcx-on-blt.html#how-to-use-funcx-on-blt"><i class="fa fa-check"></i><b>6.3</b> How to Use Funcx on BLT</a></li>
@@ -119,7 +129,8 @@
 </ul></li>
 <li class="appendix"><span><b>Appendix</b></span></li>
 <li class="chapter" data-level="A" data-path="job-history.html"><a href="job-history.html"><i class="fa fa-check"></i><b>A</b> Job History</a></li>
-<li class="chapter" data-level="B" data-path="admin-reference.html"><a href="admin-reference.html"><i class="fa fa-check"></i><b>B</b> Admin Reference</a><ul>
+<li class="chapter" data-level="B" data-path="admin-reference.html"><a href="admin-reference.html"><i class="fa fa-check"></i><b>B</b> Admin Reference</a>
+<ul>
 <li class="chapter" data-level="B.0.1" data-path="admin-reference.html"><a href="admin-reference.html#software-installations-and-changes"><i class="fa fa-check"></i><b>B.0.1</b> Software Installations and Changes</a></li>
 <li class="chapter" data-level="B.0.2" data-path="admin-reference.html"><a href="admin-reference.html#general-notes"><i class="fa fa-check"></i><b>B.0.2</b> General Notes</a></li>
 <li class="chapter" data-level="B.0.3" data-path="admin-reference.html"><a href="admin-reference.html#sqlite3"><i class="fa fa-check"></i><b>B.0.3</b> SQLite3</a></li>
@@ -161,9 +172,9 @@
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="submitting-jobs" class="section level1">
+<div id="submitting-jobs" class="section level1" number="3">
 <h1><span class="header-section-number">3</span> Submitting Jobs</h1>
-<div id="checking-usage" class="section level2">
+<div id="checking-usage" class="section level2" number="3.1">
 <h2><span class="header-section-number">3.1</span> Checking Usage</h2>
 <p>At any time, a user can check what the current availability of the cluster is by typing <code>SGE_Avail</code> on their command line. The output will look something like this:</p>
 <pre><code>               #HOST  TOTRAM FREERAM    TOTSLOTS             Q  QSLOTS  QFREESLOTS   QSTATUS     QTYPE
@@ -178,43 +189,47 @@
      62 0.00000 runtime_test     glick        r     01/26/2018 18:59:00                                    1        
      63 0.00000 runitme_test2    glick        qw    01/26/2018 18:59:02                                    1        
      64 0.00000 runtime_test3    glick        qw    01/26/2018 18:59:04                                    1    </code></pre>
-<p>There are currently 3 jobs on the cluster, all submitted by the user “glick”. They are jobs with ids 62,63, and 64. They each take up one slot (another name for a core). One is running, while the other two have state <code>qw</code>, which is short for “Queued and Waiting”. This is usually an indication that either the cluster is busy or the scheduler has not yet scheduled the jobs.</p>
+<p>There are currently 3 jobs on the cluster, all submitted by the user “glick.” They are jobs with ids 62,63, and 64. They each take up one slot (another name for a core). One is running, while the other two have state <code>qw</code>, which is short for “Queued and Waiting.” This is usually an indication that either the cluster is busy or the scheduler has not yet scheduled the jobs.</p>
 </div>
-<div id="a-note-on-data" class="section level2">
+<div id="a-note-on-data" class="section level2" number="3.2">
 <h2><span class="header-section-number">3.2</span> A Note on Data</h2>
 <p>The home directories, /local/cluster/bin, and a few other things are mounted remotely to all of the worker nodes. This makes life easy. It means that if your script edits, reads, or otherwise depends on data from your home directory, you do not need to move the data, because the workers can access it directly. However, this also means that if your data edited by multiple jobs, there is no way to ensure that it will always be changed in the same order, so keep that in mind.</p>
 </div>
-<div id="jobs-on-the-blt-cluster" class="section level2">
-<h2><span class="header-section-number">3.3</span> Jobs on the BLT Cluster</h2>
-<div id="grid-engine" class="section level3">
-<h3><span class="header-section-number">3.3.1</span> Grid Engine</h3>
+<div id="running-python-in-virtual-environments" class="section level2" number="3.3">
+<h2><span class="header-section-number">3.3</span> Running Python in Virtual Environments</h2>
+<p>Beginning in 2021, we now encourage everyone to run any Python scripts using virtual environments. This will keep the main Python from getting too unruly with packages, etc. BLT hero Ben Glick set up a program called <code>venv_man</code> for doing this fairly easily.</p>
+</div>
+<div id="jobs-on-the-blt-cluster" class="section level2" number="3.4">
+<h2><span class="header-section-number">3.4</span> Jobs on the BLT Cluster</h2>
+<div id="grid-engine" class="section level3" number="3.4.1">
+<h3><span class="header-section-number">3.4.1</span> Grid Engine</h3>
 <p>BLT uses the GridEngine scheduler system to schedule HPC jobs. There are good docs available on the SGE toolkit <a href="https://arc.liv.ac.uk/SGE/">HERE</a></p>
 </div>
-<div id="batch-jobs" class="section level3">
-<h3><span class="header-section-number">3.3.2</span> Batch Jobs</h3>
+<div id="batch-jobs" class="section level3" number="3.4.2">
+<h3><span class="header-section-number">3.4.2</span> Batch Jobs</h3>
 <p>A Batch job is some set of UNIX command line commands which is executed on a single core of a worker node in serial (one after another). Batch jobs can be submitted by using the following command:</p>
 <pre><code>SGE_Batch -r &quot;&lt;some runtime id&gt;&quot; -c &quot;&lt;a UNIX command or commands&gt;&quot;</code></pre>
 </div>
-<div id="parallel-jobs" class="section level3">
-<h3><span class="header-section-number">3.3.3</span> Parallel Jobs</h3>
+<div id="parallel-jobs" class="section level3" number="3.4.3">
+<h3><span class="header-section-number">3.4.3</span> Parallel Jobs</h3>
 <p>Parallel jobs are just like Batch jobs, except that in a parallel job, multiple cores are reserved, rather than a single core. In order to reserve multiple cores, simply add the <code>-P</code> flag to the SGE_Batch command like so:</p>
 <pre><code>SGE_Batch -r &quot;&lt;runtime id&gt;&quot; -c &quot;UNIX command&quot; -P &lt;number of processors&gt;</code></pre>
 </div>
-<div id="gpu-jobs" class="section level3">
-<h3><span class="header-section-number">3.3.4</span> GPU Jobs</h3>
+<div id="gpu-jobs" class="section level3" number="3.4.4">
+<h3><span class="header-section-number">3.4.4</span> GPU Jobs</h3>
 <p>To submit a job to the GPU queue, all you need to do is add the <code>-q gpu.q</code> option. This will submit your job to the GPU node, which has 4 NVIDIA GeForce GTX2080 ti accelerators.</p>
 <p>An example of this is:</p>
 <pre><code>SGE_Batch -r &quot;&lt;runtime id&gt;&quot; -c &quot;UNIX command&quot; -P &lt;number of processors&gt; -q gpu.q</code></pre>
 </div>
-<div id="deleting-a-job" class="section level3">
-<h3><span class="header-section-number">3.3.5</span> Deleting A Job</h3>
+<div id="deleting-a-job" class="section level3" number="3.4.5">
+<h3><span class="header-section-number">3.4.5</span> Deleting A Job</h3>
 <p>To delete a job, use the <code>qdel</code> command. The syntax is as follows:</p>
 <pre><code>qdel &lt;JOB ID&gt;</code></pre>
 <p>The job ID can be found from using <code>qstat</code></p>
 <p><strong>Remember that SGE_Batch will not parallelize your code for you. If your code is not meant to run on multiple cores, then using any more than 1 processor core is a waste.</strong></p>
 </div>
-<div id="parsl-workflows" class="section level3">
-<h3><span class="header-section-number">3.3.6</span> Parsl Workflows</h3>
+<div id="parsl-workflows" class="section level3" number="3.4.6">
+<h3><span class="header-section-number">3.4.6</span> Parsl Workflows</h3>
 <p>Parsl is a python-based workflow management system that we can use to run jobs on the cluster without having to interact with the scheduler at all. They are run the same way that you would run any script on your local machine, and can orchestrate inter-process communication between almost any kind of application needed. In depth documentation about running parsl jobs is available at the <a href="link">Parsl Workflows</a> page.</p>
 
 </div>

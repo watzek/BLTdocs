@@ -30,6 +30,11 @@ There are currently 3 jobs on the cluster, all submitted by the user "glick". Th
 
 The home directories, /local/cluster/bin, and a few other things are mounted remotely to all of the worker nodes. This makes life easy. It means that if your script edits, reads, or otherwise depends on data from your home directory, you do not need to move the data, because the workers can access it directly. However, this also means that if your data edited by multiple jobs, there is no way to ensure that it will always be changed in the same order, so keep that in mind.
 
+
+## Running Python in Virtual Environments
+
+Beginning in 2021, we now encourage everyone to run any Python scripts using virtual environments. This will keep the main Python from getting too unruly with packages, etc. BLT hero Ben Glick set up a program called `venv_man` for doing this fairly easily. 
+
 ## Jobs on the BLT Cluster
 
 ### Grid Engine

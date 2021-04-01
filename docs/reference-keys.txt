@@ -11,6 +11,7 @@ adding-files-to-your-home-directory
 submitting-jobs
 checking-usage
 a-note-on-data
+running-python-in-virtual-environments
 jobs-on-the-blt-cluster
 grid-engine
 batch-jobs
