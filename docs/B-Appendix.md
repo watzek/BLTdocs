@@ -178,3 +178,35 @@ cd /etc/init.d
 ./sgeexecd.BLT start
 ```
 This should start SGE on the node. Repeat this process for each node that is down.
+
+If you're unable to SSH to a node (this happened July, 2021), you may need to check the internal networking to make sure the nodes are mapped correctly:
+
+Check /etc/hosts to ensure that there's an entry for each node. It should look like this:
+```
+127.0.0.1   localhost localhost.localdomain localhost4 localhost4.localdomain4
+::1         localhost localhost.localdomain localhost6 localhost6.localdomain6
+192.168.0.1 mayo.blt.lclark.local mayo
+192.168.0.101 bacon.blt.lclark.local bacon
+192.168.0.102 lettuce.blt.lclark.local lettuce
+192.168.0.103 tomato.blt.lclark.local tomato
+192.168.0.104 sprouts.blt.lclark.local sprouts
+192.168.0.2 bread.blt.lclark.local bread
+```
+
+If a listing for any of the above nodes is missing, go to /etc/dhcp/dhcpd.conf to ensure you have the correct IP. While this seems crazy, we lost both sprouts and bread post re-boot in July 2021.
+
+This should allow you to SSH to a given node. Follow the instructions above to make sure it's mounted correctly (check `/local`, etc.). For any compute nodes (bacon, lettuce, tomato, sprouts), you may need to restart Sun Grid Engine. To do this, SSH to the node, and navigate to /etc/init.d/ . Then run the following:
+```
+./sgeexecd.BLT stop
+./sgeexecd.BLT start
+```
+Go back to mayo, and run `qstat -f`. If all goes well, the affected node should no longer have the 'au' flag.
+
+
+
+
+
+
+
+
+

@@ -35,6 +35,24 @@ The home directories, /local/cluster/bin, and a few other things are mounted rem
 
 Beginning in 2021, we now encourage everyone to run any Python scripts using virtual environments. This will keep the main Python from getting too unruly with packages, etc. BLT hero Ben Glick set up a program called `venv_man` for doing this fairly easily. 
 
+The general steps are:
+* Create a virtual environment (unless you're using one already created)
+* Activate the virtual environment
+* Run your job using "SGE_Batch" (more on that below)
+* Deactivate the virtual environment
+
+### Should I create a Virtual Environment, or use a pre-existing one?
+It depends! 
+
+
+### Creating Virtual Environments
+
+### Activating Virtual Environments
+
+
+### Deactivating Virtual Environments
+
+
 ## Jobs on the BLT Cluster
 
 ### Grid Engine

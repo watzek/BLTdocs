@@ -12,6 +12,10 @@ submitting-jobs
 checking-usage
 a-note-on-data
 running-python-in-virtual-environments
+should-i-create-a-virtual-environment-or-use-a-pre-existing-one
+creating-virtual-environments
+activating-virtual-environments
+deactivating-virtual-environments
 jobs-on-the-blt-cluster
 grid-engine
 batch-jobs

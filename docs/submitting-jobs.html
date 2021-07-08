@@ -24,7 +24,7 @@
 <meta name="author" content="Ben Glick, Jeremy McWilliams, others!" />
 
 
-<meta name="date" content="2021-04-01" />
+<meta name="date" content="2021-07-08" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -95,7 +95,13 @@
 <ul>
 <li class="chapter" data-level="3.1" data-path="submitting-jobs.html"><a href="submitting-jobs.html#checking-usage"><i class="fa fa-check"></i><b>3.1</b> Checking Usage</a></li>
 <li class="chapter" data-level="3.2" data-path="submitting-jobs.html"><a href="submitting-jobs.html#a-note-on-data"><i class="fa fa-check"></i><b>3.2</b> A Note on Data</a></li>
-<li class="chapter" data-level="3.3" data-path="submitting-jobs.html"><a href="submitting-jobs.html#running-python-in-virtual-environments"><i class="fa fa-check"></i><b>3.3</b> Running Python in Virtual Environments</a></li>
+<li class="chapter" data-level="3.3" data-path="submitting-jobs.html"><a href="submitting-jobs.html#running-python-in-virtual-environments"><i class="fa fa-check"></i><b>3.3</b> Running Python in Virtual Environments</a>
+<ul>
+<li class="chapter" data-level="3.3.1" data-path="submitting-jobs.html"><a href="submitting-jobs.html#should-i-create-a-virtual-environment-or-use-a-pre-existing-one"><i class="fa fa-check"></i><b>3.3.1</b> Should I create a Virtual Environment, or use a pre-existing one?</a></li>
+<li class="chapter" data-level="3.3.2" data-path="submitting-jobs.html"><a href="submitting-jobs.html#creating-virtual-environments"><i class="fa fa-check"></i><b>3.3.2</b> Creating Virtual Environments</a></li>
+<li class="chapter" data-level="3.3.3" data-path="submitting-jobs.html"><a href="submitting-jobs.html#activating-virtual-environments"><i class="fa fa-check"></i><b>3.3.3</b> Activating Virtual Environments</a></li>
+<li class="chapter" data-level="3.3.4" data-path="submitting-jobs.html"><a href="submitting-jobs.html#deactivating-virtual-environments"><i class="fa fa-check"></i><b>3.3.4</b> Deactivating Virtual Environments</a></li>
+</ul></li>
 <li class="chapter" data-level="3.4" data-path="submitting-jobs.html"><a href="submitting-jobs.html#jobs-on-the-blt-cluster"><i class="fa fa-check"></i><b>3.4</b> Jobs on the BLT Cluster</a>
 <ul>
 <li class="chapter" data-level="3.4.1" data-path="submitting-jobs.html"><a href="submitting-jobs.html#grid-engine"><i class="fa fa-check"></i><b>3.4.1</b> Grid Engine</a></li>
@@ -198,6 +204,24 @@
 <div id="running-python-in-virtual-environments" class="section level2" number="3.3">
 <h2><span class="header-section-number">3.3</span> Running Python in Virtual Environments</h2>
 <p>Beginning in 2021, we now encourage everyone to run any Python scripts using virtual environments. This will keep the main Python from getting too unruly with packages, etc. BLT hero Ben Glick set up a program called <code>venv_man</code> for doing this fairly easily.</p>
+<p>The general steps are:
+* Create a virtual environment (unless you’re using one already created)
+* Activate the virtual environment
+* Run your job using “SGE_Batch” (more on that below)
+* Deactivate the virtual environment</p>
+<div id="should-i-create-a-virtual-environment-or-use-a-pre-existing-one" class="section level3" number="3.3.1">
+<h3><span class="header-section-number">3.3.1</span> Should I create a Virtual Environment, or use a pre-existing one?</h3>
+<p>It depends!</p>
+</div>
+<div id="creating-virtual-environments" class="section level3" number="3.3.2">
+<h3><span class="header-section-number">3.3.2</span> Creating Virtual Environments</h3>
+</div>
+<div id="activating-virtual-environments" class="section level3" number="3.3.3">
+<h3><span class="header-section-number">3.3.3</span> Activating Virtual Environments</h3>
+</div>
+<div id="deactivating-virtual-environments" class="section level3" number="3.3.4">
+<h3><span class="header-section-number">3.3.4</span> Deactivating Virtual Environments</h3>
+</div>
 </div>
 <div id="jobs-on-the-blt-cluster" class="section level2" number="3.4">
 <h2><span class="header-section-number">3.4</span> Jobs on the BLT Cluster</h2>
