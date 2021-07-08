@@ -42,7 +42,10 @@ The general steps are:
 * Deactivate the virtual environment
 
 ### Should I create a Virtual Environment, or use a pre-existing one?
-It depends! 
+It depends! If you're part of an ongoing research project, or want to use one specific to a subject (e.g. biology or economics), you may want to use one that already exists. Run the following to see a list of existing environments:
+```
+venv_man -l
+```
 
 
 ### Creating Virtual Environments
